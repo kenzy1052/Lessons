@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algebraic Expressions - Teacher Notes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #e11d48;
+        --secondary-color: #f472b6;
+        --accent-color: #f9a8d4;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --info-color: #8b5cf6;
+        --background-color: #fdf2f8;
+        --surface-color: #fce7f3;
+        --card-color: #ffffff;
+        --text-color: #881337;
+        --text-secondary: #a21caf;
+        --border-color: #fbcfe8;
+        --shadow: 0 4px 6px -1px rgba(225, 29, 72, 0.1),
+          0 2px 4px -1px rgba(225, 29, 72, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(225, 29, 72, 0.1),
+          0 4px 6px -2px rgba(225, 29, 72, 0.05);
+        --example-bg: #ffe4e6;
+        --note-bg: #fef3c7;
+        --tip-bg: #d1fae5;
+        --keyword-bg: #ede9fe;
+      }
+      [data-theme="dark"] {
+        --background-color: #4a044e;
+        --surface-color: #6b1a6d;
+        --card-color: #521b56;
+        --text-color: #fce7f3;
+        --text-secondary: #f9a8d4;
+        --border-color: #be185d;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+          0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+          0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        --example-bg: #7d2d68;
+        --note-bg: #78350f;
+        --tip-bg: #065f46;
+        --keyword-bg: #4c1d95;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(69, 10, 56, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(251, 207, 232, 0.2);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(249, 168, 212, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(249, 168, 212, 0.1);
+        box-shadow: 0 4px 15px rgba(249, 168, 212, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(69, 10, 56, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(251, 207, 232, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(69, 10, 56, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .example:hover {
+        transform: translateX(5px);
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .note:hover {
+        transform: translateX(5px);
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .tip:hover {
+        transform: translateX(5px);
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .formula {
+        font-family: "Courier New", monospace;
+        background: var(--surface-color);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .interactive:hover {
+        box-shadow: var(--shadow);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(225, 29, 72, 0.2);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .table-container {
+        width: 100%;
+        overflow-x: auto;
+        margin: 15px 0;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .table tr:hover {
+        background: rgba(225, 29, 72, 0.05);
+      }
+      .highlight {
+        background: rgba(225, 29, 72, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="../index.html" class="nav-item" data-subject="science">
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../English/index.html"
+            class="nav-item"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="index.html"
+            class="nav-item active"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <i class="fas fa-graduation-cap"></i> EduHub
+        </div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a href="../index.html" class="mobile-nav-item" data-subject="science"
+          >Science</a
+        >
+        <a
+          href="../English/index.html"
+          class="mobile-nav-item"
+          data-subject="english"
+          >English</a
+        >
+        <a href="index.html" class="mobile-nav-item" data-subject="mathematics">
+          Mathematics
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-square-root-alt"></i>
+          <h1>Algebraic Expressions - Teacher Notes</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-book-open"></i>
+          Introduction to Algebraic Expressions
+        </h2>
+        <div class="content">
+          <p>
+            Algebraic expressions are mathematical phrases that can contain
+            ordinary numbers, variables (like x or y), and operators (like add,
+            subtract, multiply, and divide). They help us represent real-world
+            situations in a mathematical way.
+          </p>
+          <div class="note">
+            <div class="note-title">
+              <i class="fas fa-lightbulb"></i>
+              Teaching Tip
+            </div>
+            <p>
+              Start with concrete examples that students can relate to before
+              moving to abstract algebraic concepts. Use visual aids and
+              manipulatives to help students understand the relationship between
+              words and algebraic expressions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-pen"></i>
+          B7.2.2.1.1: Creating Simple Algebraic Expressions
+        </h2>
+        <div class="subsection">
+          <h3 class="subsection-title">From Mathematical Statements</h3>
+          <div class="content">
+            <p>
+              Help students translate words into algebraic expressions. If x
+              represents an unknown number:
+            </p>
+            <div class="example">
+              <div class="example-title">Examples:</div>
+              <div class="example-item">
+                10 more than a number x → <span class="formula">x + 10</span>
+              </div>
+              <div class="example-item">
+                5 less than a certain number x →
+                <span class="formula">x - 5</span>
+              </div>
+              <div class="example-item">
+                3 times a number x → <span class="formula">3x</span>
+              </div>
+              <div class="example-item">
+                Half of a certain number x → <span class="formula">½x</span> or
+                <span class="formula">x/2</span>
+              </div>
+              <div class="example-item">
+                2 more than 5 times a certain number x →
+                <span class="formula">5x + 2</span>
+              </div>
+              <div class="example-item">
+                When 8 times a certain number x is subtracted from 5 and the
+                result is multiplied by 2 →
+                <span class="formula">2(5 - 8x)</span>
+              </div>
+            </div>
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Student Tip
+              </div>
+              <p>
+                Look for keywords that indicate operations: "more than" or "sum"
+                for addition (+), "less than" or "difference" for subtraction
+                (-), "times" or "product" for multiplication (×), and "half" or
+                "divided by" for division (÷).
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <h3 class="subsection-title">From Real-Life Situations</h3>
+          <div class="content">
+            <p>
+              Connect algebra to real-world problems that students can
+              understand:
+            </p>
+            <div class="example">
+              <div class="example-title">Examples:</div>
+              <div class="example-item">
+                Afrako is 3 years older than Maako. If Maako is now x years old,
+                what is Afrako's age? → <span class="formula">x + 3</span>
+              </div>
+              <div class="example-item">
+                Agbolosu and Tetteh were given GH₵400.00 to share. Tetteh had
+                GH₵35.00 more than Agbolosu. If Agbolosu's share is x, write an
+                expression for Tetteh's share. →
+                <span class="formula">x + 35</span>
+              </div>
+              <div class="example-item">
+                Find the profit a woman makes if she buys a basket of oranges
+                for x cedis and sells it for y cedis. →
+                <span class="formula">y - x</span>
+              </div>
+              <div class="example-item">
+                Find the area of a rectangle which is t metres long and q metres
+                wide. → <span class="formula">t × q</span> or
+                <span class="formula">tq</span>
+              </div>
+              <div class="example-item">
+                Find the perimeter of a rectangle which is x metres long and y
+                metres wide. → <span class="formula">2(x + y)</span>
+              </div>
+            </div>
+            <div class="interactive">
+              <div class="interactive-title">Try It Yourself!</div>
+              <p>
+                Create an algebraic expression for this situation: "A book costs
+                b cedis. A pen costs 5 cedis less than the book."
+              </p>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="input-field"
+                  id="expression-input"
+                  placeholder="Enter your expression"
+                />
+                <button class="btn" id="check-expression">Check Answer</button>
+              </div>
+              <div class="result" id="expression-result"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-plus"></i>
+          B7.2.2.1.2: Addition and Subtraction of Algebraic Expressions
+        </h2>
+        <div class="subsection">
+          <h3 class="subsection-title">Adding Algebraic Expressions</h3>
+          <div class="content">
+            <p>
+              When adding algebraic expressions, we combine like terms (terms
+              with the same variable and exponent).
+            </p>
+            <div class="example">
+              <div class="example-title">Examples:</div>
+              <div class="example-item">
+                Write each of these expressions in their simplest form:
+                <ul style="margin-left: 20px; margin-top: 5px">
+                  <li>x + x = <span class="formula">2x</span></li>
+                  <li>y + y + y + y = <span class="formula">4y</span></li>
+                  <li>
+                    s + s + s + t + t + k + k + k =
+                    <span class="formula">3s + 2t + 3k</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="example-item">
+                Simplify the following expressions:
+                <ul style="margin-left: 20px; margin-top: 5px">
+                  <li>4x + 3x + x = <span class="formula">8x</span></li>
+                  <li>5x + 4x + 2x + 3x = <span class="formula">14x</span></li>
+                  <li>
+                    3abc + 4abc + 2abc = <span class="formula">9abc</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Student Tip
+              </div>
+              <p>
+                Think of variables as objects: if you have 4 apples and then get
+                3 more apples and then 1 more apple, you have 8 apples total.
+                Similarly, 4x + 3x + x = 8x.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <h3 class="subsection-title">Subtracting Algebraic Expressions</h3>
+          <div class="content">
+            <p>
+              When subtracting algebraic expressions, we subtract the
+              coefficients of like terms.
+            </p>
+            <div class="example">
+              <div class="example-title">Examples:</div>
+              <div class="example-item">
+                Write each of these expressions in their simplest form:
+                <ul style="margin-left: 20px; margin-top: 5px">
+                  <li>5x - 2x = <span class="formula">3x</span></li>
+                  <li>3x - 4x - 2x = <span class="formula">-3x</span></li>
+                  <li>7x - 4x - x = <span class="formula">2x</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <h3 class="subsection-title">
+            Adding and Subtracting Mixed Expressions
+          </h3>
+          <div class="content">
+            <p>
+              When expressions have different variables or constants, group and
+              combine like terms.
+            </p>
+            <div class="example">
+              <div class="example-title">Examples:</div>
+              <div class="example-item">
+                Simplify the following expressions:
+                <ul style="margin-left: 20px; margin-top: 5px">
+                  <li>
+                    5x + 4 - 9y + 3x + 2y - 7 =
+                    <span class="formula"
+                      >(5x + 3x) + (-9y + 2y) + (4 - 7) = 8x - 7y - 3</span
+                    >
+                  </li>
+                  <li>
+                    2p - 3q + 3p + 5q =
+                    <span class="formula"
+                      >(2p + 3p) + (-3q + 5q) = 5p + 2q</span
+                    >
+                  </li>
+                  <li>
+                    4x + 7 - 2x - 4 =
+                    <span class="formula">(4x - 2x) + (7 - 4) = 2x + 3</span>
+                  </li>
+                  <li>
+                    7xy + 5x - 4x + 2xy - 3 =
+                    <span class="formula"
+                      >(7xy + 2xy) + (5x - 4x) - 3 = 9xy + x - 3</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="interactive">
+              <div class="interactive-title">Practice Problem</div>
+              <p>Simplify: 3a + 4b - 2a + 5b - 1</p>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="input-field"
+                  id="simplify-input"
+                  placeholder="Enter simplified expression"
+                />
+                <button class="btn" id="check-simplify">Check Answer</button>
+              </div>
+              <div class="result" id="simplify-result"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-times"></i>
+          B7.2.2.1.3: Multiplication and Division of Algebraic Expressions
+        </h2>
+        <div class="subsection">
+          <h3 class="subsection-title">Multiplying Algebraic Expressions</h3>
+          <div class="content">
+            <p>When multiplying algebraic expressions:</p>
+            <ul style="margin-left: 20px">
+              <li>Multiply the coefficients (numbers)</li>
+              <li>Multiply the variables by adding their exponents</li>
+            </ul>
+            <div class="example">
+              <div class="example-title">Examples:</div>
+              <div class="example-item">
+                Simplify the following expressions:
+                <ul style="margin-left: 20px; margin-top: 5px">
+                  <li>
+                    4p × 8p² =
+                    <span class="formula">4 × 8 × p¹ × p² = 32p³</span>
+                  </li>
+                  <li>
+                    5xy² × 4x⁴y³ =
+                    <span class="formula"
+                      >5 × 4 × x¹ × x⁴ × y² × y³ = 20x⁵y⁵</span
+                    >
+                  </li>
+                  <li>
+                    -2a × 4c × 5b =
+                    <span class="formula">-2 × 4 × 5 × a × c × b = -40abc</span>
+                  </li>
+                  <li>
+                    -3xy × 5y =
+                    <span class="formula">-3 × 5 × x × y × y = -15xy²</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="note">
+              <div class="note-title">
+                <i class="fas fa-lightbulb"></i>
+                Teaching Tip
+              </div>
+              <p>
+                Use visual models to show multiplication of variables. For
+                example, show x × y as a rectangle with side lengths x and y,
+                and x² as a square with side length x.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="subsection">
+          <h3 class="subsection-title">Dividing Algebraic Expressions</h3>
+          <div class="content">
+            <p>When dividing algebraic expressions:</p>
+            <ul style="margin-left: 20px">
+              <li>Divide the coefficients (numbers)</li>
+              <li>Divide the variables by subtracting their exponents</li>
+            </ul>
+            <div class="example">
+              <div class="example-title">Examples:</div>
+              <div class="example-item">
+                Simplify the following expressions:
+                <ul style="margin-left: 20px; margin-top: 5px">
+                  <li>
+                    12x³y² / 16xy⁴ =
+                    <span class="formula"
+                      >(12/16) × (x³/x¹) × (y²/y⁴) = (3/4) × x² × y⁻² =
+                      3x²/4y²</span
+                    >
+                  </li>
+                  <li>
+                    -30a²b³c / 6ab³c⁻² =
+                    <span class="formula"
+                      >(-30/6) × (a²/a¹) × (b³/b³) × (c¹/c⁻²) = -5 × a¹ × b⁰ ×
+                      c³ = -5ac³</span
+                    >
+                  </li>
+                  <li>
+                    18x⁵y² / 24x⁷y² =
+                    <span class="formula"
+                      >(18/24) × (x⁵/x⁷) × (y²/y²) = (3/4) × x⁻² × y⁰ =
+                      3/4x²</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Student Tip
+              </div>
+              <p>
+                Remember that any number to the power of 0 equals 1 (like y⁰ =
+                1), and negative exponents mean the variable is in the
+                denominator (like x⁻² = 1/x²).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-calculator"></i>
+          B7.2.2.1.4: Substituting Values to Evaluate Algebraic Expressions
+        </h2>
+        <div class="content">
+          <p>
+            To evaluate an algebraic expression, substitute the given values for
+            the variables and perform the calculations.
+          </p>
+          <div class="example">
+            <div class="example-title">Example 1:</div>
+            <p>
+              Simplify the following expressions and substitute the values to
+              evaluate them, if x = 2, y = 4, p = 3 and z = -1.
+            </p>
+            <ul style="margin-left: 20px; margin-top: 5px">
+              <li>
+                3xy × 5y =
+                <span class="formula">15xy² = 15(2)(4)² = 15(2)(16) = 480</span>
+              </li>
+              <li>
+                7xy + 5x - 4x + 2xy - 3 =
+                <span class="formula"
+                  >9xy + x - 3 = 9(2)(4) + 2 - 3 = 72 + 2 - 3 = 71</span
+                >
+              </li>
+              <li>
+                4p × 8z² =
+                <span class="formula">32pz² = 32(3)(-1)² = 32(3)(1) = 96</span>
+              </li>
+              <li>
+                5x + 4 - 9y + 3x + 2y - 7 =
+                <span class="formula"
+                  >8x - 7y - 3 = 8(2) - 7(4) - 3 = 16 - 28 - 3 = -15</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="example">
+            <div class="example-title">Example 2:</div>
+            <p>
+              Simplify the following expressions and substitute the values to
+              evaluate them, if x = 2, y = 4, a = 3, b = 2, z = 1 and c = -1.
+            </p>
+            <ul style="margin-left: 20px; margin-top: 5px">
+              <li>
+                12x³y² / 16xy⁴ =
+                <span class="formula"
+                  >3x²/4y² = 3(2)²/4(4)² = 3(4)/4(16) = 12/64 = 3/16</span
+                >
+              </li>
+              <li>
+                -30a²b³c / 6ab³c⁻² =
+                <span class="formula">-5ac³ = -5(3)(-1)³ = -5(3)(-1) = 15</span>
+              </li>
+              <li>
+                18x⁵y² / 24x³y² =
+                <span class="formula">3x²/4 = 3(2)²/4 = 3(4)/4 = 12/4 = 3</span>
+              </li>
+              <li>8xyz / 16xy = <span class="formula">z/2 = 1/2</span></li>
+              <li>5ab² / ab = <span class="formula">5b = 5(2) = 10</span></li>
+              <li>
+                21x⁷ / 3x⁴ =
+                <span class="formula">7x³ = 7(2)³ = 7(8) = 56</span>
+              </li>
+            </ul>
+          </div>
+          <div class="example">
+            <div class="example-title">Example 3:</div>
+            <p>
+              If l = 5, a = 8, b = 3, h = 6, find the perimeter and area of the
+              following shapes:
+            </p>
+            <div class="table-container">
+              <table class="table">
+                <tr>
+                  <th>Shape</th>
+                  <th>Perimeter Formula</th>
+                  <th>Area Formula</th>
+                  <th>Perimeter</th>
+                  <th>Area</th>
+                </tr>
+                <tr>
+                  <td>Rectangle (l=5, b=3)</td>
+                  <td>2(l + b)</td>
+                  <td>l × b</td>
+                  <td>2(5 + 3) = 16</td>
+                  <td>5 × 3 = 15</td>
+                </tr>
+                <tr>
+                  <td>Square (a=8)</td>
+                  <td>4a</td>
+                  <td>a²</td>
+                  <td>4(8) = 32</td>
+                  <td>8² = 64</td>
+                </tr>
+                <tr>
+                  <td>Triangle (b=3, h=6)</td>
+                  <td>Sum of sides</td>
+                  <td>½ × b × h</td>
+                  <td>Depends on sides</td>
+                  <td>½ × 3 × 6 = 9</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="interactive">
+            <div class="interactive-title">Evaluate the Expression</div>
+            <p>Evaluate 3x² + 2y - 5 when x = 2 and y = 3</p>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input-field"
+                id="evaluate-input"
+                placeholder="Enter your answer"
+              />
+              <button class="btn" id="check-evaluate">Check Answer</button>
+            </div>
+            <div class="result" id="evaluate-result"></div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-magic"></i>
+          B7.2.2.1.5: Using Properties of Operations to Simplify Algebraic
+          Expressions
+        </h2>
+        <div class="content">
+          <p>
+            We can use properties of operations (commutative, associative,
+            distributive) to simplify algebraic expressions with rational
+            coefficients.
+          </p>
+          <div class="example">
+            <div class="example-title">Examples:</div>
+            <div class="example-item">
+              3xy × 2 + 6x²y³ / 2y² = <span class="formula">6xy + 3x²y</span>
+            </div>
+            <div class="example-item">
+              (7x + 4x - 2x) / 3x = <span class="formula">9x / 3x = 3</span>
+            </div>
+            <div class="example-item">
+              3x²y + 2xy² - 4x²y - 6xy² =
+              <span class="formula"
+                >(3x²y - 4x²y) + (2xy² - 6xy²) = -x²y - 4xy²</span
+              >
+            </div>
+            <div class="example-item">
+              (15p³q² × 12x⁵y³) ÷ (36pq × 45x²y) =
+              <span class="formula"
+                >(180p³q²x⁵y³) ÷ (1620pqx²y) = (180/1620) × p²q¹x³y² =
+                (1/9)p²qx³y²</span
+              >
+            </div>
+            <div class="example-item">
+              (7x² + 2x²) / 3x² = <span class="formula">9x² / 3x² = 3</span>
+            </div>
+            <div class="example-item">
+              7a - 7a³ + 14a⁴ = <span class="formula">7a(1 - a² + 2a³)</span>
+            </div>
+          </div>
+          <div class="note">
+            <div class="note-title">
+              <i class="fas fa-lightbulb"></i>
+              Teaching Tip
+            </div>
+            <p>
+              Emphasize the importance of following the order of operations
+              (PEMDAS/BODMAS): Parentheses/Brackets, Exponents/Orders,
+              Multiplication and Division (from left to right), Addition and
+              Subtraction (from left to right).
+            </p>
+          </div>
+          <div class="tip">
+            <div class="tip-title">
+              <i class="fas fa-star"></i>
+              Student Tip
+            </div>
+            <p>
+              Look for common factors that can be factored out to simplify
+              expressions. For example, in 7a - 7a³ + 14a⁴, 7a is a common
+              factor in all terms.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-chalkboard-teacher"></i>
+          Teaching Strategies
+        </h2>
+        <div class="content">
+          <div class="subsection">
+            <h3 class="subsection-title">Visual Learning</h3>
+            <p>
+              Use visual representations to help students understand abstract
+              concepts:
+            </p>
+            <ul style="margin-left: 20px">
+              <li>Use algebra tiles to represent expressions and operations</li>
+              <li>Draw diagrams to show real-world applications</li>
+              <li>
+                Use color coding to distinguish between different variables and
+                terms
+              </li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Progressive Difficulty</h3>
+            <p>
+              Start with simple expressions and gradually increase complexity:
+            </p>
+            <ul style="margin-left: 20px">
+              <li>Begin with single-variable expressions</li>
+              <li>Progress to multiple variables</li>
+              <li>
+                Introduce exponents after students master basic operations
+              </li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Real-World Connections</h3>
+            <p>Help students see the relevance of algebra in everyday life:</p>
+            <ul style="margin-left: 20px">
+              <li>Use examples from shopping (discounts, taxes)</li>
+              <li>Connect to sports statistics</li>
+              <li>Relate to measurement and geometry problems</li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Collaborative Learning</h3>
+            <p>Encourage peer-to-peer learning:</p>
+            <ul style="margin-left: 20px">
+              <li>Pair students to check each other's work</li>
+              <li>Use group problem-solving activities</li>
+              <li>Have students create their own word problems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-clipboard-list"></i>
+          Assessment Ideas
+        </h2>
+        <div class="content">
+          <div class="subsection">
+            <h3 class="subsection-title">Formative Assessment</h3>
+            <ul style="margin-left: 20px">
+              <li>Exit tickets with 1-2 problems to check understanding</li>
+              <li>Quick quizzes on specific skills</li>
+              <li>Observation during group work</li>
+              <li>Student self-assessment of confidence with concepts</li>
+            </ul>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Summative Assessment</h3>
+            <ul style="margin-left: 20px">
+              <li>Unit tests covering all concepts</li>
+              <li>
+                Project where students create a guide to algebraic expressions
+              </li>
+              <li>Real-world problem-solving tasks</li>
+              <li>Peer teaching presentations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <p>
+          Created with ❤️ for mathematics education | Algebraic Expressions
+          Teacher Notes
+        </p>
+      </footer>
+    </div>
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // Interactive elements
+      document
+        .getElementById("check-expression")
+        .addEventListener("click", () => {
+          const input = document
+            .getElementById("expression-input")
+            .value.toLowerCase();
+          const result = document.getElementById("expression-result");
+          // Possible correct answers
+          const correctAnswers = ["b - 5", "b-5"];
+          if (correctAnswers.includes(input)) {
+            result.textContent = "Correct! The expression is b - 5.";
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              'Not quite. Remember: "5 cedis less than the book" means we subtract 5 from the cost of the book (b).';
+            result.style.color = "var(--warning-color)";
+          }
+        });
+
+      document
+        .getElementById("check-simplify")
+        .addEventListener("click", () => {
+          const input = document
+            .getElementById("simplify-input")
+            .value.toLowerCase();
+          const result = document.getElementById("simplify-result");
+          // Possible correct answers
+          const correctAnswers = [
+            "a + 9b - 1",
+            "9b + a - 1",
+            "a - 1 + 9b",
+            "9b - 1 + a",
+          ];
+          if (correctAnswers.includes(input)) {
+            result.textContent =
+              "Correct! 3a + 4b - 2a + 5b - 1 = (3a - 2a) + (4b + 5b) - 1 = a + 9b - 1";
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Not quite. Remember to combine like terms: (3a - 2a) + (4b + 5b) - 1";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+
+      document
+        .getElementById("check-evaluate")
+        .addEventListener("click", () => {
+          const input = document.getElementById("evaluate-input").value;
+          const result = document.getElementById("evaluate-result");
+          // Check if input is a number and equals the correct answer
+          const inputValue = parseFloat(input);
+          const correctAnswer = 3 * Math.pow(2, 2) + 2 * 3 - 5; // 3(2)² + 2(3) - 5 = 12 + 6 - 5 = 13
+          if (
+            !isNaN(inputValue) &&
+            Math.abs(inputValue - correctAnswer) < 0.001
+          ) {
+            result.textContent = `Correct! 3(2)² + 2(3) - 5 = 3(4) + 6 - 5 = 12 + 6 - 5 = ${correctAnswer}`;
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent = `Not quite. Remember to follow the order of operations: 3(2)² + 2(3) - 5`;
+            result.style.color = "var(--warning-color)";
+          }
+        });
+    </script>
+  </body>
+</html>
