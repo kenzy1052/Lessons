@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduHub - Educational Resources</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        --info-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+
+        /* Light mode colors */
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-tertiary: #f1f5f9;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --text-muted: #94a3b8;
+        --border-color: #e2e8f0;
+        --card-bg: #ffffff;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      [data-theme="dark"] {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+        --card-bg: #1e293b;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+          0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3),
+          0 10px 10px -5px rgba(0, 0, 0, 0.2);
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        transition: all 0.3s ease;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* Navigation */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      [data-theme="dark"] .navbar {
+        background: rgba(15, 23, 42, 0.95);
+      }
+
+      .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        space-x: 0.75rem;
+        text-decoration: none;
+        color: var(--text-primary);
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-gradient);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.25rem;
+        margin-right: 0.75rem;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--text-primary);
+        background: var(--bg-tertiary);
+        transform: translateY(-2px);
+      }
+
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .theme-toggle {
+        width: 45px;
+        height: 45px;
+        border: none;
+        border-radius: 12px;
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+      }
+
+      .theme-toggle:hover {
+        background: var(--primary-gradient);
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        width: 45px;
+        height: 45px;
+        border: none;
+        border-radius: 12px;
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+      }
+
+      /* Mobile Navigation */
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-color);
+        padding: 1rem;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-bottom: 0.5rem;
+      }
+
+      .mobile-nav-link:hover {
+        color: var(--text-primary);
+        background: var(--bg-tertiary);
+      }
+
+      /* Main Content */
+      .main-content {
+        padding: 4rem 0;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Subject Sections */
+      .subject-section {
+        margin-bottom: 4rem;
+      }
+
+      .subject-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .subject-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: white;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .subject-icon.english {
+        background: var(--primary-gradient);
+      }
+
+      .subject-icon.math {
+        background: var(--success-gradient);
+      }
+
+      .subject-icon.science {
+        background: var(--info-gradient);
+      }
+
+      .subject-info h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .subject-info p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      /* PPT Grid */
+      .ppt-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .ppt-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+
+      .ppt-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .ppt-thumbnail {
+        position: relative;
+        height: 200px;
+        background: linear-gradient(
+          135deg,
+          var(--bg-tertiary) 0%,
+          var(--bg-secondary) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .ppt-thumbnail::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0);
+        transition: all 0.3s ease;
+      }
+
+      .ppt-card:hover .ppt-thumbnail::before {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      .ppt-thumbnail-icon {
+        /* width: 100%;
+        height: 100%; */
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .ppt-card:hover .ppt-thumbnail-icon {
+        transform: scale(1.1);
+      }
+
+      .ppt-thumbnail-icon.english {
+        background: var(--primary-gradient);
+      }
+
+      .ppt-thumbnail-icon.math {
+        background: var(--success-gradient);
+      }
+
+      .ppt-thumbnail-icon.science {
+        background: var(--info-gradient);
+      }
+
+      .ppt-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .ppt-content {
+        padding: 1.5rem;
+      }
+
+      .ppt-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+      }
+
+      .ppt-description {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+
+      .download-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        border: none;
+        border-radius: 12px;
+        background: var(--primary-gradient);
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .download-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .download-btn:disabled {
+        background: var(--text-muted);
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .download-btn.loading {
+        background: var(--text-muted);
+      }
+
+      .spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 2rem 0;
+        border-top: 1px solid var(--border-color);
+        margin-top: 4rem;
+      }
+
+      .footer p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+      }
+
+      /* Toast Notification */
+      .toast {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        box-shadow: var(--shadow-lg);
+        z-index: 1000;
+        transform: translateX(400px);
+        transition: all 0.3s ease;
+        max-width: 300px;
+      }
+
+      .toast.show {
+        transform: translateX(0);
+      }
+
+      .toast.success {
+        border-left: 4px solid #10b981;
+      }
+
+      .toast.error {
+        border-left: 4px solid #ef4444;
+      }
+
+      .toast-title {
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .toast-message {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-toggle {
+          display: flex;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .subject-info h2 {
+          font-size: 2rem;
+        }
+
+        .ppt-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 0.75rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .subject-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 0.5rem;
+        }
+
+        .subject-info h2 {
+          font-size: 1.75rem;
+        }
+
+        .nav-content {
+          height: 60px;
+        }
+
+        .logo-icon {
+          width: 35px;
+          height: 35px;
+          font-size: 1rem;
+        }
+
+        .logo-text {
+          font-size: 1.25rem;
+        }
+
+        .theme-toggle,
+        .mobile-menu-toggle {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      @media (max-width: 350px) {
+        .container {
+          padding: 0 0.5rem;
+        }
+
+        .hero h1 {
+          font-size: 1.75rem;
+        }
+
+        .subject-info h2 {
+          font-size: 1.5rem;
+        }
+
+        .ppt-card {
+          margin: 0 -0.5rem;
+          border-radius: 0;
+        }
+
+        .toast {
+          right: 10px;
+          left: 10px;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-content">
+          <a href="#" class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <span class="logo-text">EduHub</span>
+          </a>
+
+          <div class="nav-links">
+            <a href="/English/index.html" class="nav-link">
+              <i class="fas fa-book"></i>
+              <span>English</span>
+            </a>
+            <a href="/Maths/index.html" class="nav-link">
+              <i class="fas fa-calculator"></i>
+              <span>Mathematics</span>
+            </a>
+            <a href="../index.html" class="nav-link">
+              <i class="fas fa-flask"></i>
+              <span>Science</span>
+            </a>
+            <a href="/Contact/index.html" class="nav-link">
+              <i class="fas fa-phone"></i>
+              <span>Contact</span>
+            </a>
+          </div>
+
+          <div class="nav-controls">
+            <button class="theme-toggle" id="themeToggle">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+          <a href="/English/index.html" class="mobile-nav-link">
+            <i class="fas fa-book"></i>
+            <span>English</span>
+          </a>
+          <a href="/Maths/index.html" class="mobile-nav-link">
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+          </a>
+          <a href="../index.html" class="mobile-nav-link">
+            <i class="fas fa-flask"></i>
+            <span>Science</span>
+          </a>
+          <a href="/Contact/index.html" class="mobile-nav-link">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+          <h1>Educational Resources</h1>
+          <p>
+            Access comprehensive learning materials for English, Mathematics,
+            and Science. Download presentations to enhance your learning
+            experience.
+          </p>
+        </div>
+
+        <!-- English Section -->
+        <section class="subject-section">
+          <div class="subject-header">
+            <div class="subject-icon english">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="subject-info">
+              <h2>English</h2>
+              <p>4 presentations available</p>
+            </div>
+          </div>
+
+          <div class="ppt-grid" id="englishGrid">
+            <!-- English PPT cards will be inserted here -->
+          </div>
+        </section>
+
+        <!-- Mathematics Section -->
+        <section class="subject-section">
+          <div class="subject-header">
+            <div class="subject-icon math">
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div class="subject-info">
+              <h2>Mathematics</h2>
+              <p>3 presentations available</p>
+            </div>
+          </div>
+
+          <div class="ppt-grid" id="mathGrid">
+            <!-- Math PPT cards will be inserted here -->
+          </div>
+        </section>
+
+        <!-- Science Section -->
+        <section class="subject-section">
+          <div class="subject-header">
+            <div class="subject-icon science">
+              <i class="fas fa-flask"></i>
+            </div>
+            <div class="subject-info">
+              <h2>Science</h2>
+              <p>3 presentations available</p>
+            </div>
+          </div>
+
+          <div class="ppt-grid" id="scienceGrid">
+            <!-- Science PPT cards will be inserted here -->
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <p>
+            &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+            educational purposes only.
+          </p>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Toast Container -->
+    <div id="toast" class="toast">
+      <div class="toast-title"></div>
+      <div class="toast-message"></div>
+    </div>
+
+    <script>
+      // PPT Files Data
+      const pptFiles = {
+        english: [
+          {
+            id: "eng1",
+            title: "Diphthongs: Two vowel sounds",
+
+            fileName: "English-Diphthongs-Two-Vowels-One-Sound.pptx",
+            icon: "eng1.png",
+          },
+          {
+            id: "eng2",
+            title: "Linking Ideas In Paragraph",
+
+            fileName: "English-Linking-Ideas-in-a-Paragraph.pptx",
+            icon: "eng2.png",
+          },
+          {
+            id: "eng3",
+            title: "Argumentative Writing",
+
+            fileName: "English-Argumentative-Writing.pptx",
+            icon: "eng3.png",
+          },
+          {
+            id: "eng4",
+            title: "Mastering Argumentative Writing",
+
+            fileName: "English-Mastering-Argumentative-Writing.pptx",
+            icon: "eng4.png",
+          },
+        ],
+        math: [
+          {
+            id: "math1",
+            title: "Decimal Fractions",
+
+            fileName: "Mathematics-DECIMAL-FRACTIONS.pptx",
+            icon: "mat1.png",
+          },
+          {
+            id: "math2",
+            title: "Pie Chart",
+
+            fileName: "Mathematics-Pie-Chart.pptx",
+            icon: "mat2.png",
+          },
+          {
+            id: "math3",
+            title: "Geometry Reasoning",
+
+            fileName: "Mathematics-Geometry-Reasoning.pptx",
+            icon: "mat3.png",
+          },
+        ],
+        science: [
+          {
+            id: "sci1",
+            title: "Diseases Affecting Humans",
+
+            fileName: "Integrated-Science-Diseases-Affecting-Humans.pptx",
+            icon: "sc1.png",
+          },
+          {
+            id: "sci2",
+            title: "Climate Change and Its Impact",
+
+            fileName: "Integrated-Science-Climate-Change-and-Humans.pptx",
+            icon: "sc2.png",
+          },
+          {
+            id: "sci3",
+            title: "Symbols in Circuit Diagrams",
+
+            fileName:
+              "Integrated-Science-Symbols-Used-in-Circuit-Diagrams.pptx",
+            icon: "sc3.png",
+          },
+        ],
+      };
+
+      // State management
+      let downloadingFiles = new Set();
+      let currentTheme = "light";
+
+      // DOM Elements
+      const themeToggle = document.getElementById("themeToggle");
+      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const toast = document.getElementById("toast");
+
+      // Initialize the app
+      function init() {
+        loadTheme();
+        renderPPTCards();
+        setupEventListeners();
+      }
+
+      // Load saved theme
+      function loadTheme() {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        currentTheme = savedTheme;
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        updateThemeIcon();
+      }
+
+      // Toggle theme
+      function toggleTheme() {
+        currentTheme = currentTheme === "light" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        localStorage.setItem("theme", currentTheme);
+        updateThemeIcon();
+      }
+
+      // Update theme icon
+      function updateThemeIcon() {
+        const icon = themeToggle.querySelector("i");
+        icon.className =
+          currentTheme === "light" ? "fas fa-moon" : "fas fa-sun";
+      }
+
+      // Toggle mobile menu
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle("active");
+        const icon = mobileMenuToggle.querySelector("i");
+        icon.className = mobileMenu.classList.contains("active")
+          ? "fas fa-times"
+          : "fas fa-bars";
+      }
+
+      // Create PPT card HTML
+      function createPPTCard(file, subject) {
+        return `
+                <div class="ppt-card">
+                    <div class="ppt-thumbnail">
+                        <div class="ppt-thumbnail-icon ${subject}">
+                            <img src="${file.icon}" alt="${file.title}" style="width: 100%; height: 100%; object-fit: cover; " />
+                        </div>
+                        <div class="ppt-badge">PPT</div>
+                    </div>
+                    <div class="ppt-content">
+                        <h3 class="ppt-title">${file.title}</h3>
+                        <button class="download-btn" onclick="downloadFile('${file.fileName}', '${file.title}', this)">
+                            <i class="fas fa-download"></i>
+                            <span>Download</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+      }
+
+      // Render PPT cards
+      function renderPPTCards() {
+        const englishGrid = document.getElementById("englishGrid");
+        const mathGrid = document.getElementById("mathGrid");
+        const scienceGrid = document.getElementById("scienceGrid");
+
+        englishGrid.innerHTML = pptFiles.english
+          .map((file) => createPPTCard(file, "english"))
+          .join("");
+        mathGrid.innerHTML = pptFiles.math
+          .map((file) => createPPTCard(file, "math"))
+          .join("");
+        scienceGrid.innerHTML = pptFiles.science
+          .map((file) => createPPTCard(file, "science"))
+          .join("");
+      }
+
+      // Download file
+      // Download file
+      async function downloadFile(fileName, title, button) {
+        if (downloadingFiles.has(fileName)) {
+          return; // Prevent multiple downloads
+        }
+        try {
+          downloadingFiles.add(fileName);
+
+          // Update button state
+          button.disabled = true;
+          button.classList.add("loading");
+          button.innerHTML =
+            '<div class="spinner"></div><span>Downloading...</span>';
+
+          // Trigger actual download
+          await triggerDownload(fileName);
+
+          showToast("Download Started", `Downloading ${title}...`, "success");
+        } catch (error) {
+          console.error("Download error:", error);
+          showToast(
+            "Download Failed",
+            "Failed to download the file. Please try again.",
+            "error"
+          );
+        } finally {
+          downloadingFiles.delete(fileName);
+
+          // Reset button state
+          button.disabled = false;
+          button.classList.remove("loading");
+          button.innerHTML =
+            '<i class="fas fa-download"></i><span>Download</span>';
+        }
+      }
+
+      // Trigger real download (instead of mock text file)
+      function triggerDownload(fileName) {
+        return new Promise((resolve) => {
+          const link = document.createElement("a");
+          link.href = fileName; // ✅ point to the real PPTX file in same folder
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          setTimeout(resolve, 500); // small delay
+        });
+      }
+
+      // Show toast notification
+      function showToast(title, message, type = "success") {
+        const toastTitle = toast.querySelector(".toast-title");
+        const toastMessage = toast.querySelector(".toast-message");
+
+        toastTitle.textContent = title;
+        toastMessage.textContent = message;
+
+        // Remove existing type classes
+        toast.classList.remove("success", "error");
+        toast.classList.add(type);
+
+        // Show toast
+        toast.classList.add("show");
+
+        // Hide toast after 3 seconds
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
+      }
+
+      // Setup event listeners
+      function setupEventListeners() {
+        themeToggle.addEventListener("click", toggleTheme);
+        mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            !mobileMenu.contains(e.target) &&
+            !mobileMenuToggle.contains(e.target)
+          ) {
+            mobileMenu.classList.remove("active");
+            const icon = mobileMenuToggle.querySelector("i");
+            icon.className = "fas fa-bars";
+          }
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.remove("active");
+            const icon = mobileMenuToggle.querySelector("i");
+            icon.className = "fas fa-bars";
+          });
+        });
+      }
+
+      // Initialize app when DOM is loaded
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>

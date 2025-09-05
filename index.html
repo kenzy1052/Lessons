@@ -377,10 +377,8 @@
       .cell-diagram {
         width: 100%;
         max-width: 500px;
-        height: 400px;
-        background: var(--surface-color);
-        border: 2px solid var(--border-color);
-        border-radius: 8px;
+        height: 320px;
+        background: none;
         margin: 20px auto;
         position: relative;
         overflow: hidden;
@@ -513,6 +511,13 @@
         padding: 0 20px;
         position: relative;
         z-index: 2;
+      }
+      .image {
+        display: block;
+        width: 100%;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+        /* height: 100%; */
       }
       .nav-logo {
         display: flex;
@@ -739,7 +744,7 @@
           padding: 6px 12px;
         }
         .cell-diagram {
-          height: 250px;
+          height: 190px;
         }
         .model-step {
           flex-direction: column;
@@ -749,7 +754,10 @@
           align-self: flex-start;
         }
       }
-      @media (max-width: 768px) {
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
         .container {
           padding: 15px;
         }
@@ -767,7 +775,7 @@
           width: 100%;
         }
         .cell-diagram {
-          height: 300px;
+          height: 320px;
         }
       }
       /* Mobile-only Navigation */
@@ -849,6 +857,16 @@
           display: block;
         }
       }
+
+      #drawCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* allows clicking through when not drawing */
+        z-index: 9999; /* stays above everything */
+      }
     </style>
   </head>
   <body>
@@ -877,6 +895,21 @@
           >
             <i class="fas fa-calculator"></i>
             <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a href="Contact/index.html" class="nav-item" data-subject="contact">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #f00; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
             <div class="nav-indicator"></div>
           </a>
         </div>
@@ -923,6 +956,23 @@
         >
           Mathematics
         </a>
+        <a
+          href="Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #f00; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
+        </a>
       </div>
     </nav>
     <div class="container">
@@ -939,19 +989,16 @@
       <div class="video-section">
         <h2 class="section-title">
           <i class="fas fa-play-circle"></i>
-          Introduction to Cells
+          How To Use the Website
         </h2>
         <div class="video-container">
           <div class="video-placeholder" id="video-placeholder">
             <i class="fas fa-play-circle"></i>
             <h3>Click to Play Video</h3>
-            <p>Introduction to Animal and Plant Cells</p>
+            <p>How to Navigate The Website</p>
           </div>
           <video class="video-player" id="video-player" controls>
-            <source
-              src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4"
-              type="video/mp4"
-            />
+            <source src="./External Files/0904(1).mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -1013,11 +1060,16 @@
                 keep the cell alive and functioning properly.
               </p>
               <div class="cell-diagram" id="animal-cell-diagram">
-                <div class="cell-membrane"></div>
+                <img
+                  class="image"
+                  src="./External Files/animal-cell-labelled.PNG"
+                  alt=""
+                />
+                <!-- <div class="cell-membrane"></div>
                 <div class="cytoplasm"></div>
                 <div class="cell-part nucleus">Nucleus</div>
                 <div class="cell-part mitochondria">Mitochondria</div>
-                <!-- Labels -->
+                
                 <div
                   class="cell-label"
                   style="top: 50%; left: 50%; transform: translate(-50%, -50%)"
@@ -1038,7 +1090,7 @@
                   style="top: 80%; left: 50%; transform: translateX(-50%)"
                 >
                   Cytoplasm
-                </div>
+                </div> -->
               </div>
               <div class="example">
                 <div class="example-title">Identifying Cell Structures</div>
@@ -1101,7 +1153,12 @@
                   <td>
                     Produces energy for the cell through cellular respiration
                   </td>
-                  <td>Like the power plant of the cell</td>
+                  <td>Like the power plant / generator of the cell</td>
+                </tr>
+                <tr>
+                  <td><strong>Lysosomes</strong></td>
+                  <td>Digests waste and foreign particles</td>
+                  <td>Small round vesicles</td>
                 </tr>
                 <tr>
                   <td><strong>Vacuole</strong></td>
@@ -1115,6 +1172,11 @@
                   <td><strong>Ribosomes</strong></td>
                   <td>Produces proteins for the cell</td>
                   <td>Like tiny factories in the cell</td>
+                </tr>
+                <tr>
+                  <td><strong>Centrioles</strong></td>
+                  <td>Helps in cell division</td>
+                  <td>Cylinder-shaped</td>
                 </tr>
               </table>
               <div class="tip">
@@ -1334,75 +1396,11 @@
                 similar to animal cells and some that are unique to plants.
               </p>
               <div class="cell-diagram" id="plant-cell-diagram">
-                <div class="cell-membrane"></div>
-                <div class="cytoplasm"></div>
-                <div class="cell-part nucleus">Nucleus</div>
-                <div class="cell-part mitochondria">Mitochondria</div>
-                <div
-                  class="cell-part"
-                  style="
-                    width: 100px;
-                    height: 100px;
-                    background: var(--success-color);
-                    top: 70%;
-                    left: 70%;
-                    transform: translate(-50%, -50%);
-                  "
-                >
-                  Chloroplast
-                </div>
-                <div
-                  class="cell-part"
-                  style="
-                    width: 150px;
-                    height: 150px;
-                    background: rgba(66, 153, 225, 0.3);
-                    border: 2px solid var(--info-color);
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    border-radius: 0;
-                  "
-                >
-                  Vacuole
-                </div>
-                <!-- Cell Wall -->
-                <div
-                  style="
-                    position: absolute;
-                    top: 10px;
-                    left: 10px;
-                    right: 10px;
-                    bottom: 10px;
-                    border: 5px solid #8b4513;
-                    border-radius: 50%;
-                  "
-                ></div>
-                <!-- Labels -->
-                <div
-                  class="cell-label"
-                  style="top: 50%; left: 50%; transform: translate(-50%, -50%)"
-                >
-                  Nucleus
-                </div>
-                <div class="cell-label" style="top: 30%; left: 20%">
-                  Mitochondria
-                </div>
-                <div class="cell-label" style="top: 70%; left: 70%">
-                  Chloroplast
-                </div>
-                <div
-                  class="cell-label"
-                  style="top: 50%; left: 50%; transform: translate(-50%, 80px)"
-                >
-                  Vacuole
-                </div>
-                <div
-                  class="cell-label"
-                  style="top: 10px; left: 50%; transform: translateX(-50%)"
-                >
-                  Cell Wall
-                </div>
+                <img
+                  class="image"
+                  src="./External Files/plant-cell-labelled.PNG"
+                  alt=""
+                />
               </div>
               <div class="example">
                 <div class="example-title">
@@ -1870,11 +1868,13 @@
       </div>
       <footer class="footer">
         <p>
-          Created with ❤️ for JHS Science Education | Animal and Plant Cells -
-          Teacher Notes
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
         </p>
       </footer>
     </div>
+    <canvas id="drawCanvas"></canvas>
+
     <script>
       // Navigation functionality
       document.addEventListener("DOMContentLoaded", function () {
@@ -2063,6 +2063,55 @@
             alert(`${partName}: ${partInfo[partName]}`);
           }
         });
+      });
+
+      const canvas = document.getElementById("drawCanvas");
+      const ctx = canvas.getContext("2d");
+
+      // Adjust canvas size
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      let drawing = false;
+
+      canvas.addEventListener("mousedown", (e) => {
+        drawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY);
+      });
+
+      canvas.addEventListener("mousemove", (e) => {
+        if (!drawing) return;
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "red";
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.stroke();
+      });
+
+      canvas.addEventListener("mouseup", () => {
+        drawing = false;
+      });
+
+      // ✨ Toggle drawing mode with "D" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "d" || e.key === "D") {
+          if (canvas.style.pointerEvents === "none") {
+            canvas.style.pointerEvents = "auto"; // enable drawing
+          } else {
+            canvas.style.pointerEvents = "none"; // disable drawing
+          }
+        }
+      });
+
+      // ✨ Clear screen with "C" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "c" || e.key === "C") {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
       });
     </script>
   </body>

@@ -51,6 +51,45 @@
         --tip-bg: #065f46;
         --keyword-bg: #4c1d95;
       }
+
+      :root {
+        --primary-color: #5b5fde;
+        --secondary-color: #7c3aed;
+        --accent-color: #ec4899;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --info-color: #3b82f6;
+        --background-color: #f8fafc;
+        --surface-color: #f1f5f9;
+        --card-color: #ffffff;
+        --text-color: #334155;
+        --text-secondary: #64748b;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #eff6ff;
+        --note-bg: #fffbeb;
+        --tip-bg: #f0fdf4;
+        --keyword-bg: #f8fafc;
+      }
+      [data-theme="dark"] {
+        --background-color: #1e293b;
+        --surface-color: #0f172a;
+        --card-color: #1e293b;
+        --text-color: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1e3a5f;
+        --note-bg: #451a03;
+        --tip-bg: #14532d;
+        --keyword-bg: #0f172a;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -336,7 +375,10 @@
       }
 
       /* Responsive adjustments */
-      @media (max-width: 768px) {
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
         .nav-menu {
           position: fixed;
           top: 80px;
@@ -704,6 +746,21 @@
             <span>Mathematics</span>
             <div class="nav-indicator"></div>
           </a>
+          <a href="/Contact/index.html" class="nav-item" data-subject="contact">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="/External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #00f; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
         </div>
         <div class="nav-toggle" id="nav-toggle">
           <span></span>
@@ -744,6 +801,23 @@
         >
         <a href="index.html" class="mobile-nav-item" data-subject="mathematics">
           Mathematics
+        </a>
+        <a
+          href="/Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="/External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #00f; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
         </a>
       </div>
     </nav>
@@ -1391,8 +1465,8 @@
       </div>
       <footer class="footer">
         <p>
-          Created with ❤️ for mathematics education | Algebraic Expressions
-          Teacher Notes
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
         </p>
       </footer>
     </div>
