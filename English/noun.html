@@ -1,0 +1,2494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JHS Grammar Guide - Teacher Notes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #5b5fde;
+        --secondary-color: #7c3aed;
+        --accent-color: #ec4899;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --info-color: #3b82f6;
+        --background-color: #f8fafc;
+        --surface-color: #f1f5f9;
+        --card-color: #ffffff;
+        --text-color: #334155;
+        --text-secondary: #64748b;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #eff6ff;
+        --note-bg: #fffbeb;
+        --tip-bg: #f0fdf4;
+        --keyword-bg: #f8fafc;
+      }
+      [data-theme="dark"] {
+        --background-color: #1e293b;
+        --surface-color: #0f172a;
+        --card-color: #1e293b;
+        --text-color: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1e3a5f;
+        --note-bg: #451a03;
+        --tip-bg: #14532d;
+        --keyword-bg: #0f172a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(236, 72, 153, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(236, 72, 153, 0.1);
+        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      .nav-tab {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-tab:hover {
+        background: var(--surface-color);
+        transform: translateY(-2px);
+      }
+      .nav-tab.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        box-shadow: 0 4px 10px rgba(91, 95, 222, 0.3);
+      }
+      .content-section {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      .content-section.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .keyword-box {
+        background: var(--keyword-bg);
+        border-left: 4px solid var(--info-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .keyword-box:hover {
+        transform: translateX(5px);
+      }
+      .keyword-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--info-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .example:hover {
+        transform: translateX(5px);
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .note:hover {
+        transform: translateX(5px);
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .tip:hover {
+        transform: translateX(5px);
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .highlight {
+        background: rgba(91, 95, 222, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .table tr:hover {
+        background: rgba(91, 95, 222, 0.05);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .interactive:hover {
+        box-shadow: var(--shadow);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(91, 95, 222, 0.2);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="./english.html"
+            class="nav-item active"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../contact/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #0a0; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <i class="fas fa-graduation-cap"></i> EduHub
+        </div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a href="./english.html" class="mobile-nav-item" data-subject="english"
+          >English</a
+        >
+        <a
+          href="../Maths/maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+        >
+          Mathematics
+        </a>
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="../External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #0a0; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-book-open"></i>
+          <h1>JHS Grammar Guide - Teacher Notes</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+      <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="nouns">
+          <i class="fas fa-font"></i>
+          <span>Nouns</span>
+        </div>
+        <div class="nav-tab" data-tab="pronouns">
+          <i class="fas fa-user"></i>
+          <span>Pronouns</span>
+        </div>
+        <div class="nav-tab" data-tab="adjectives">
+          <i class="fas fa-palette"></i>
+          <span>Adjectives</span>
+        </div>
+        <div class="nav-tab" data-tab="verbs">
+          <i class="fas fa-running"></i>
+          <span>Verbs</span>
+        </div>
+        <div class="nav-tab" data-tab="adverbs">
+          <i class="fas fa-bolt"></i>
+          <span>Adverbs</span>
+        </div>
+        <div class="nav-tab" data-tab="conjunctions">
+          <i class="fas fa-link"></i>
+          <span>Conjunctions</span>
+        </div>
+      </div>
+      <!-- Nouns Section -->
+      <div class="content-section active" id="nouns">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-font"></i>
+            B7.3.1.1.1: Nouns - Understanding and Application
+          </h2>
+          <div class="subsection">
+            <h3 class="subsection-title">What are Nouns?</h3>
+            <div class="content">
+              <p>
+                Nouns are words that name people, places, things, or ideas. They
+                are the building blocks of sentences and help us communicate
+                about the world around us.
+              </p>
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Definition
+                </div>
+                <p>
+                  <strong>Noun:</strong> A word that identifies a person, place,
+                  thing, or idea.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Types of Nouns</h3>
+            <div class="content">
+              <p>
+                There are several types of nouns that students need to recognize
+                and use correctly:
+              </p>
+              <div class="example">
+                <div class="example-title">1. Common Nouns</div>
+                <p>
+                  Common nouns name general items rather than specific ones.
+                  They are not capitalized unless they begin a sentence.
+                </p>
+                <div class="example-item">
+                  teacher, school, book, city, country
+                </div>
+                <div class="example-item">
+                  Example: The <span class="highlight">teacher</span> explained
+                  the lesson to the <span class="highlight">class</span>.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">2. Proper Nouns</div>
+                <p>
+                  Proper nouns name specific people, places, or things. They are
+                  always capitalized.
+                </p>
+                <div class="example-item">
+                  Mr. Johnson, Ghana, Accra, Bible, January
+                </div>
+                <div class="example-item">
+                  Example: <span class="highlight">Mrs. Adu</span> teaches at
+                  <span class="highlight">Presby Senior High School</span>.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">3. Countable Nouns</div>
+                <p>
+                  Countable nouns are things we can count. They have both
+                  singular and plural forms.
+                </p>
+                <div class="example-item">
+                  book/books, student/students, chair/chairs
+                </div>
+                <div class="example-item">
+                  Example: There are thirty
+                  <span class="highlight">students</span> in the
+                  <span class="highlight">classroom</span>.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">4. Uncountable Nouns</div>
+                <p>
+                  Uncountable nouns are things we cannot count separately. They
+                  usually don't have a plural form.
+                </p>
+                <div class="example-item">
+                  water, rice, information, furniture, advice
+                </div>
+                <div class="example-item">
+                  Example: Please pass me some
+                  <span class="highlight">water</span>. (NOT: Please pass me a
+                  water.)
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">5. Concrete Nouns</div>
+                <p>
+                  Concrete nouns are things we can see, touch, hear, smell, or
+                  taste.
+                </p>
+                <div class="example-item">
+                  table, dog, music, apple, perfume
+                </div>
+                <div class="example-item">
+                  Example: The <span class="highlight">dog</span> barked at the
+                  <span class="highlight">mailman</span>.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Plural Noun Forms</h3>
+            <div class="content">
+              <p>
+                Most nouns form their plurals by adding -s or -es, but some have
+                irregular plural forms:
+              </p>
+              <div class="example">
+                <div class="example-title">Regular Plurals</div>
+                <div class="example-item">Add -s: book → books, pen → pens</div>
+                <div class="example-item">
+                  Add -es: box → boxes, bus → buses
+                </div>
+                <div class="example-item">
+                  Change -y to -i and add -es: baby → babies, city → cities
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">Irregular Plurals</div>
+                <div class="example-item">mouse → mice</div>
+                <div class="example-item">child → children</div>
+                <div class="example-item">sheep → sheep (no change)</div>
+                <div class="example-item">half → halves</div>
+                <div class="example-item">man → men</div>
+                <div class="example-item">woman → women</div>
+                <div class="example-item">person → people</div>
+                <div class="example-item">tooth → teeth</div>
+                <div class="example-item">foot → feet</div>
+              </div>
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Create flashcards with irregular plurals and play matching
+                  games. Use real objects when possible to help students
+                  visualize the difference between singular and plural forms.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Using Nouns in Sentences</h3>
+            <div class="content">
+              <p>
+                Here are examples of sentences using different types of nouns:
+              </p>
+              <div class="example">
+                <div class="example-title">Examples:</div>
+                <div class="example-item">
+                  Common nouns: The
+                  <span class="highlight">student</span> borrowed a
+                  <span class="highlight">book</span> from the
+                  <span class="highlight">library</span>.
+                </div>
+                <div class="example-item">
+                  Proper nouns: <span class="highlight">Kofi</span> visited
+                  <span class="highlight">Cape Coast Castle</span> during his
+                  <span class="highlight">Easter</span> holiday.
+                </div>
+                <div class="example-item">
+                  Countable nouns: She bought three
+                  <span class="highlight">apples</span> and two
+                  <span class="highlight">oranges</span> at the
+                  <span class="highlight">market</span>.
+                </div>
+                <div class="example-item">
+                  Uncountable nouns: We need some
+                  <span class="highlight">furniture</span> for the new
+                  <span class="highlight">office</span>.
+                </div>
+                <div class="example-item">
+                  Concrete nouns: The <span class="highlight">rain</span> made
+                  the <span class="highlight">streets</span> wet and
+                  <span class="highlight">slippery</span>.
+                </div>
+              </div>
+              <div class="interactive">
+                <div class="interactive-title">Practice Activity</div>
+                <p>
+                  Identify the type of noun in bold in this sentence: "The
+                  children visited the museum in Accra."
+                </p>
+                <div class="input-group">
+                  <select class="input-field" id="noun-type-select">
+                    <option value="">Select noun type</option>
+                    <option value="common">Common Noun</option>
+                    <option value="proper">Proper Noun</option>
+                    <option value="countable">Countable Noun</option>
+                    <option value="uncountable">Uncountable Noun</option>
+                    <option value="concrete">Concrete Noun</option>
+                  </select>
+                  <button class="btn" id="check-noun-type">Check Answer</button>
+                </div>
+                <div class="result" id="noun-type-result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Pronouns Section -->
+      <div class="content-section" id="pronouns">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-user"></i>
+            B7.3.1.1.2: Pronouns - Types and Usage
+          </h2>
+          <div class="subsection">
+            <h3 class="subsection-title">What are Pronouns?</h3>
+            <div class="content">
+              <p>
+                Pronouns are words that take the place of nouns or noun phrases.
+                They help avoid repetition and make sentences flow more
+                naturally.
+              </p>
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Definition
+                </div>
+                <p>
+                  <strong>Pronoun:</strong> A word that replaces or refers to a
+                  noun or noun phrase.
+                </p>
+              </div>
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>
+                  Without pronoun: <span class="highlight">Ama</span> lost
+                  <span class="highlight">Ama's</span> book, but
+                  <span class="highlight">Ama</span> found
+                  <span class="highlight">Ama's</span> book later.
+                </p>
+                <p>
+                  With pronouns: <span class="highlight">Ama</span> lost
+                  <span class="highlight">her</span> book, but
+                  <span class="highlight">she</span> found
+                  <span class="highlight">it</span> later.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Types of Pronouns</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">1. Personal Pronouns</div>
+                <p>
+                  Personal pronouns refer to specific people or things. They
+                  change form based on their function in the sentence (subject
+                  or object).
+                </p>
+                <table class="table">
+                  <tr>
+                    <th>Subject</th>
+                    <th>Object</th>
+                    <th>Possessive</th>
+                  </tr>
+                  <tr>
+                    <td>I, you, he, she, it, we, they</td>
+                    <td>me, you, him, her, it, us, them</td>
+                    <td>my, your, his, her, its, our, their</td>
+                  </tr>
+                </table>
+                <div class="example-item">
+                  <span class="highlight">She</span> gave
+                  <span class="highlight">me</span>
+                  <span class="highlight">her</span> notes.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">2. Possessive Pronouns</div>
+                <p>Possessive pronouns show ownership or possession.</p>
+                <div class="example-item">
+                  mine, yours, his, hers, its, ours, theirs
+                </div>
+                <div class="example-item">
+                  This book is <span class="highlight">mine</span>, not
+                  <span class="highlight">yours</span>.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">3. Relative Pronouns</div>
+                <p>
+                  Relative pronouns connect a dependent clause to a noun or
+                  pronoun.
+                </p>
+                <div class="example-item">who, whom, whose, which, that</div>
+                <div class="example-item">
+                  The student <span class="highlight">who</span> won the prize
+                  is my friend.
+                </div>
+                <div class="example-item">
+                  This is the book <span class="highlight">that</span> I told
+                  you about.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">4. Reflexive Pronouns</div>
+                <p>
+                  Reflexive pronouns refer back to the subject of the sentence.
+                </p>
+                <div class="example-item">
+                  myself, yourself, himself, herself, itself, ourselves,
+                  yourselves, themselves
+                </div>
+                <div class="example-item">
+                  I taught <span class="highlight">myself</span> to play the
+                  guitar.
+                </div>
+                <div class="example-item">
+                  She hurt <span class="highlight">herself</span> while playing.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">5. Interrogative Pronouns</div>
+                <p>Interrogative pronouns are used to ask questions.</p>
+                <div class="example-item">who, whom, whose, which, what</div>
+                <div class="example-item">
+                  <span class="highlight">Who</span> is coming to the party?
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Whose</span> book is this?
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">6. Demonstrative Pronouns</div>
+                <p>Demonstrative pronouns point to specific things.</p>
+                <div class="example-item">this, that, these, those</div>
+                <div class="example-item">
+                  <span class="highlight">This</span> is my favorite book.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Those</span> are the students who won
+                  the competition.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Using Pronouns in Context</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Examples in Sentences:</div>
+                <div class="example-item">
+                  Personal: <span class="highlight">They</span> are going to the
+                  market with <span class="highlight">us</span>.
+                </div>
+                <div class="example-item">
+                  Possessive: The blue car is
+                  <span class="highlight">hers</span>, but the red one is
+                  <span class="highlight">ours</span>.
+                </div>
+                <div class="example-item">
+                  Relative: The teacher
+                  <span class="highlight">who</span> taught me last year has
+                  moved to another school.
+                </div>
+                <div class="example-item">
+                  Reflexive: The children cleaned the classroom
+                  <span class="highlight">themselves</span>.
+                </div>
+                <div class="example-item">
+                  Interrogative: <span class="highlight">What</span> did you
+                  learn in school today?
+                </div>
+                <div class="example-item">
+                  Demonstrative: <span class="highlight">This</span> is the way
+                  to solve the problem.
+                </div>
+              </div>
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Student Tip
+                </div>
+                <p>
+                  Remember that pronouns must agree with the nouns they replace
+                  in number (singular/plural) and gender
+                  (masculine/feminine/neuter).
+                </p>
+              </div>
+              <div class="interactive">
+                <div class="interactive-title">Practice Activity</div>
+                <p>
+                  Replace the underlined words with the correct pronoun: "Kofi
+                  and Ama went to the market, and Kofi and Ama bought fruits."
+                </p>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="input-field"
+                    id="pronoun-input"
+                    placeholder="Enter your sentence"
+                  />
+                  <button class="btn" id="check-pronoun">Check Answer</button>
+                </div>
+                <div class="result" id="pronoun-result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Adjectives Section -->
+      <div class="content-section" id="adjectives">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-palette"></i>
+            B7.3.1.1.3: Adjectives - Description and Modification
+          </h2>
+          <div class="subsection">
+            <h3 class="subsection-title">What are Adjectives?</h3>
+            <div class="content">
+              <p>
+                Adjectives are words that describe or modify nouns and pronouns.
+                They give more information about the qualities, states, or
+                attributes of the things we talk about.
+              </p>
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Definition
+                </div>
+                <p>
+                  <strong>Adjective:</strong> A word that describes or modifies
+                  a noun or pronoun.
+                </p>
+              </div>
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>
+                  The <span class="highlight">happy</span> children played in
+                  the <span class="highlight">beautiful</span> garden with
+                  <span class="highlight">colorful</span> balls.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Position of Adjectives</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">1. Directly Before Nouns</div>
+                <p>
+                  Adjectives usually come directly before the nouns they modify.
+                </p>
+                <div class="example-item">
+                  Asiedu is an <span class="highlight">excellent</span> singer.
+                </div>
+                <div class="example-item">
+                  She bought a <span class="highlight">beautiful</span> dress.
+                </div>
+                <div class="example-item">
+                  They live in a <span class="highlight">modern</span> house.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">2. With the Verb "to be"</div>
+                <p>
+                  Adjectives can come after the verb "to be" to describe the
+                  subject of the sentence.
+                </p>
+                <div class="example-item">
+                  Adzo was <span class="highlight">very tired</span>.
+                </div>
+                <div class="example-item">
+                  The weather is <span class="highlight">pleasant</span> today.
+                </div>
+                <div class="example-item">
+                  They were <span class="highlight">excited</span> about the
+                  trip.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">
+                  3. With Sense Verbs or Verbs of Appearance
+                </div>
+                <p>
+                  Adjectives can come after sense verbs (sight, taste, smell,
+                  touch, hearing) or verbs of appearance to modify the nouns
+                  that come before the verb.
+                </p>
+                <div class="example-item">
+                  The fish tasted <span class="highlight">awful</span>.
+                </div>
+                <div class="example-item">
+                  He seemed <span class="highlight">very upset</span>.
+                </div>
+                <div class="example-item">
+                  The flowers smell <span class="highlight">wonderful</span>.
+                </div>
+                <div class="example-item">
+                  The music sounds <span class="highlight">loud</span>.
+                </div>
+                <div class="example-item">
+                  The blanket feels <span class="highlight">soft</span>.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Types of Adjectives</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">1. Descriptive Adjectives</div>
+                <p>These describe qualities or characteristics.</p>
+                <div class="example-item">
+                  <span class="highlight">Beautiful</span> sunset,
+                  <span class="highlight">intelligent</span> student,
+                  <span class="highlight">difficult</span> problem
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">2. Quantitative Adjectives</div>
+                <p>These indicate quantity or number.</p>
+                <div class="example-item">
+                  <span class="highlight">Three</span> books,
+                  <span class="highlight">many</span> friends,
+                  <span class="highlight">some</span> water
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">3. Demonstrative Adjectives</div>
+                <p>These point out specific things.</p>
+                <div class="example-item">
+                  <span class="highlight">This</span> book,
+                  <span class="highlight">those</span> students,
+                  <span class="highlight">that</span> idea
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">4. Possessive Adjectives</div>
+                <p>These show ownership or possession.</p>
+                <div class="example-item">
+                  <span class="highlight">My</span> book,
+                  <span class="highlight">her</span> car,
+                  <span class="highlight">their</span> house
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Using Adjectives Effectively</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Examples in Context:</div>
+                <div class="example-item">
+                  The <span class="highlight">brave</span> firefighter rescued
+                  the <span class="highlight">frightened</span> cat from the
+                  <span class="highlight">tall</span> tree.
+                </div>
+                <div class="example-item">
+                  After the <span class="highlight">long</span> journey, the
+                  <span class="highlight">exhausted</span> travelers finally
+                  reached their
+                  <span class="highlight">comfortable</span> hotel.
+                </div>
+                <div class="example-item">
+                  The <span class="highlight">delicious</span> food smelled
+                  <span class="highlight">wonderful</span> and tasted even
+                  <span class="highlight">better</span>.
+                </div>
+              </div>
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Encourage students to use specific, vivid adjectives rather
+                  than general ones. Instead of "good," encourage "excellent,"
+                  "outstanding," "superb," etc.
+                </p>
+              </div>
+              <div class="interactive">
+                <div class="interactive-title">Practice Activity</div>
+                <p>
+                  Add appropriate adjectives to this sentence: "The _____
+                  children played in the _____ garden with _____ balls."
+                </p>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="input-field"
+                    id="adjective-input"
+                    placeholder="Enter your sentence"
+                  />
+                  <button class="btn" id="check-adjective">Check Answer</button>
+                </div>
+                <div class="result" id="adjective-result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Verbs Section -->
+      <div class="content-section" id="verbs">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-running"></i>
+            B7.3.1.1.4: Verbs - Tenses and Aspects
+          </h2>
+          <div class="subsection">
+            <h3 class="subsection-title">What are Verbs?</h3>
+            <div class="content">
+              <p>
+                Verbs are words that express action, occurrence, or state of
+                being. They are essential for constructing meaningful sentences
+                and indicate when something happens (tense).
+              </p>
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Definition
+                </div>
+                <p>
+                  <strong>Verb:</strong> A word that expresses action,
+                  occurrence, or state of being.
+                </p>
+                <p>
+                  <strong>Tense:</strong> The form of a verb that shows the time
+                  when an action happens.
+                </p>
+                <p>
+                  <strong>Aspect:</strong> The form of a verb that shows the
+                  nature of the action (completed, ongoing, etc.).
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Present Tense</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">1. Simple Present Tense</div>
+                <p>
+                  Used for habitual actions, general truths, and permanent
+                  situations.
+                </p>
+                <div class="example-item">
+                  I <span class="highlight">wash</span> a car. (habitual action)
+                </div>
+                <div class="example-item">
+                  The sun <span class="highlight">rises</span> in the east.
+                  (general truth)
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">lives</span> in Accra. (permanent
+                  situation)
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">
+                  2. Present Progressive (Continuous)
+                </div>
+                <p>
+                  Used for actions happening now, temporary situations, and
+                  future arrangements.
+                </p>
+                <div class="example-item">
+                  I <span class="highlight">am washing</span> a car. (action
+                  happening now)
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">is staying</span> with her aunt
+                  this week. (temporary situation)
+                </div>
+                <div class="example-item">
+                  We <span class="highlight">are meeting</span> tomorrow.
+                  (future arrangement)
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">3. Present Perfect</div>
+                <p>
+                  Used for actions completed at an unspecified time in the past,
+                  actions that started in the past and continue to the present,
+                  and past actions with present results.
+                </p>
+                <div class="example-item">
+                  I <span class="highlight">have washed</span> the car.
+                  (completed action)
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">has lived</span> here for ten
+                  years. (continues to present)
+                </div>
+                <div class="example-item">
+                  They <span class="highlight">have broken</span> the window.
+                  (present result)
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">4. Present Perfect Progressive</div>
+                <p>
+                  Used for actions that started in the past, continue to the
+                  present, and may continue into the future, with emphasis on
+                  duration.
+                </p>
+                <div class="example-item">
+                  I <span class="highlight">have been washing</span> the car for
+                  an hour. (emphasizes duration)
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">has been studying</span> English
+                  since primary school. (continues to present)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Past Tense</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">1. Simple Past Tense</div>
+                <p>
+                  Used for completed actions at a specific time in the past.
+                </p>
+                <div class="example-item">
+                  I <span class="highlight">washed</span> the car yesterday.
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">visited</span> her grandmother
+                  last week.
+                </div>
+                <div class="example-item">
+                  They <span class="highlight">arrived</span> at 6 PM.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">
+                  2. Past Progressive (Continuous)
+                </div>
+                <p>
+                  Used for actions in progress at a specific time in the past,
+                  interrupted actions, and background actions in stories.
+                </p>
+                <div class="example-item">
+                  I <span class="highlight">was washing</span> the car when it
+                  started to rain. (interrupted action)
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">was sleeping</span> at 10 PM last
+                  night. (action in progress)
+                </div>
+                <div class="example-item">
+                  The sun <span class="highlight">was shining</span> and birds
+                  <span class="highlight">were singing</span>. (background
+                  actions)
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">3. Past Perfect</div>
+                <p>
+                  Used for actions completed before another past action, and to
+                  emphasize that an action was completed before a specific time
+                  in the past.
+                </p>
+                <div class="example-item">
+                  I <span class="highlight">had washed</span> the car before the
+                  storm started. (completed before another action)
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">had already left</span> when I
+                  arrived. (completed before another action)
+                </div>
+                <div class="example-item">
+                  By 5 PM, they <span class="highlight">had finished</span> the
+                  project. (completed before a specific time)
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">4. Past Perfect Progressive</div>
+                <p>
+                  Used for actions that were in progress before another past
+                  action, with emphasis on duration.
+                </p>
+                <div class="example-item">
+                  I <span class="highlight">had been washing</span> the car for
+                  an hour when the rain started. (emphasizes duration)
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">had been studying</span> for hours
+                  before the exam. (emphasizes duration)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Using Verbs in Context</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Examples in Context:</div>
+                <div class="example-item">
+                  Simple Present: Water <span class="highlight">boils</span> at
+                  100 degrees Celsius.
+                </div>
+                <div class="example-item">
+                  Present Progressive: The children
+                  <span class="highlight">are playing</span> in the garden right
+                  now.
+                </div>
+                <div class="example-item">
+                  Present Perfect: I
+                  <span class="highlight">have visited</span> Cape Coast Castle
+                  twice.
+                </div>
+                <div class="example-item">
+                  Present Perfect Progressive: She
+                  <span class="highlight">has been working</span> on this
+                  project for months.
+                </div>
+                <div class="example-item">
+                  Simple Past: We <span class="highlight">watched</span> a movie
+                  last night.
+                </div>
+                <div class="example-item">
+                  Past Progressive: They
+                  <span class="highlight">were having</span> dinner when I
+                  called.
+                </div>
+                <div class="example-item">
+                  Past Perfect: The train
+                  <span class="highlight">had already left</span> when we
+                  reached the station.
+                </div>
+                <div class="example-item">
+                  Past Perfect Progressive: He
+                  <span class="highlight">had been waiting</span> for an hour
+                  before the bus arrived.
+                </div>
+              </div>
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Student Tip
+                </div>
+                <p>
+                  Remember that verb tenses help us understand when actions
+                  happen. Pay attention to time markers like "yesterday," "now,"
+                  "since," "for," "already," etc., as they often indicate which
+                  tense to use.
+                </p>
+              </div>
+              <div class="interactive">
+                <div class="interactive-title">Practice Activity</div>
+                <p>
+                  Complete this sentence with the correct form of the verb
+                  "study": "She _____ for three hours before the exam started."
+                </p>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="input-field"
+                    id="verb-input"
+                    placeholder="Enter the verb form"
+                  />
+                  <button class="btn" id="check-verb">Check Answer</button>
+                </div>
+                <div class="result" id="verb-result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Adverbs Section -->
+      <div class="content-section" id="adverbs">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-bolt"></i>
+            B7.3.1.1.5: Adverbs - Modification and Description
+          </h2>
+          <div class="subsection">
+            <h3 class="subsection-title">What are Adverbs?</h3>
+            <div class="content">
+              <p>
+                Adverbs are words that modify verbs, adjectives, or other
+                adverbs. They provide more information about how, when, where,
+                or to what extent something happens.
+              </p>
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Definition
+                </div>
+                <p>
+                  <strong>Adverb:</strong> A word that modifies a verb,
+                  adjective, or another adverb.
+                </p>
+              </div>
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>
+                  She <span class="highlight">quickly</span> ran to the store.
+                  (modifies verb "ran")
+                </p>
+                <p>
+                  The test was
+                  <span class="highlight">extremely</span> difficult. (modifies
+                  adjective "difficult")
+                </p>
+                <p>
+                  The cheetah runs
+                  <span class="highlight">incredibly</span> quickly. (modifies
+                  adverb "quickly")
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Types of Adverbs</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">1. Adverbs of Manner</div>
+                <p>
+                  These describe how an action is performed. They often end in
+                  -ly.
+                </p>
+                <div class="example-item">
+                  She <span class="highlight">slowly</span> entered the room.
+                </div>
+                <div class="example-item">
+                  He <span class="highlight">carefully</span> solved the
+                  problem.
+                </div>
+                <div class="example-item">
+                  They <span class="highlight">happily</span> celebrated their
+                  victory.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">2. Adverbs of Time</div>
+                <p>These indicate when an action happens.</p>
+                <div class="example-item">
+                  She will arrive <span class="highlight">tomorrow</span>.
+                </div>
+                <div class="example-item">
+                  They <span class="highlight">already</span> finished their
+                  homework.
+                </div>
+                <div class="example-item">
+                  He <span class="highlight">recently</span> moved to a new
+                  city.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">3. Adverbs of Place</div>
+                <p>These indicate where an action happens.</p>
+                <div class="example-item">
+                  The children are playing
+                  <span class="highlight">outside</span>.
+                </div>
+                <div class="example-item">
+                  She looked <span class="highlight">everywhere</span> for her
+                  keys.
+                </div>
+                <div class="example-item">
+                  They went <span class="highlight">abroad</span> for vacation.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">4. Adverbs of Frequency</div>
+                <p>These indicate how often an action happens.</p>
+                <div class="example-item">
+                  She <span class="highlight">always</span> arrives on time.
+                </div>
+                <div class="example-item">
+                  They <span class="highlight">sometimes</span> visit their
+                  grandparents.
+                </div>
+                <div class="example-item">
+                  He <span class="highlight">rarely</span> eats fast food.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">5. Adverbs of Degree</div>
+                <p>
+                  These indicate the extent or degree of an action or quality.
+                </p>
+                <div class="example-item">
+                  The test was
+                  <span class="highlight">extremely</span> difficult.
+                </div>
+                <div class="example-item">
+                  She was <span class="highlight">very</span> happy with the
+                  results.
+                </div>
+                <div class="example-item">
+                  He is <span class="highlight">almost</span> finished with his
+                  project.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Using Adverbs to Modify</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">1. Modifying Verbs</div>
+                <p>Adverbs give more information about the verb they modify.</p>
+                <div class="example-item">
+                  She <span class="highlight">slowly</span> entered the room.
+                </div>
+                <div class="example-item">
+                  The children <span class="highlight">happily</span> played in
+                  the garden.
+                </div>
+                <div class="example-item">
+                  He <span class="highlight">carefully</span> crossed the
+                  street.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">2. Modifying Adjectives</div>
+                <p>
+                  Adverbs give more information about the adjective they modify.
+                </p>
+                <div class="example-item">
+                  The test was
+                  <span class="highlight">extremely</span> difficult.
+                </div>
+                <div class="example-item">
+                  She has a <span class="highlight">remarkably</span> beautiful
+                  voice.
+                </div>
+                <div class="example-item">
+                  It was a <span class="highlight">surprisingly</span> easy
+                  task.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">3. Modifying Other Adverbs</div>
+                <p>
+                  The first adverb gives more information about the second
+                  adverb.
+                </p>
+                <div class="example-item">
+                  The cheetah runs
+                  <span class="highlight">incredibly</span> quickly.
+                </div>
+                <div class="example-item">
+                  She completed the task
+                  <span class="highlight">very</span> efficiently.
+                </div>
+                <div class="example-item">
+                  He speaks <span class="highlight">quite</span> fluently.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Using Adverbs Effectively</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Examples in Context:</div>
+                <div class="example-item">
+                  The students <span class="highlight">diligently</span> worked
+                  on their assignments and
+                  <span class="highlight">successfully</span> completed them
+                  before the deadline.
+                </div>
+                <div class="example-item">
+                  The <span class="highlight">extremely</span> talented musician
+                  performed <span class="highlight">beautifully</span> at the
+                  concert last night.
+                </div>
+                <div class="example-item">
+                  She <span class="highlight">always</span> arrives
+                  <span class="highlight">punctually</span> for her classes and
+                  <span class="highlight">consistently</span> produces
+                  high-quality work.
+                </div>
+              </div>
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Help students recognize that not all adverbs end in -ly. Words
+                  like "very," "quite," "too," and "almost" are also adverbs.
+                  Also, teach students that adverbs can appear in different
+                  positions in a sentence.
+                </p>
+              </div>
+              <div class="interactive">
+                <div class="interactive-title">Practice Activity</div>
+                <p>
+                  Add an appropriate adverb to this sentence: "The student
+                  answered the question _____."
+                </p>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="input-field"
+                    id="adverb-input"
+                    placeholder="Enter an adverb"
+                  />
+                  <button class="btn" id="check-adverb">Check Answer</button>
+                </div>
+                <div class="result" id="adverb-result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Conjunctions Section -->
+      <div class="content-section" id="conjunctions">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-link"></i>
+            B7.3.1.1.6: Conjunctions - Connecting Ideas
+          </h2>
+          <div class="subsection">
+            <h3 class="subsection-title">What are Conjunctions?</h3>
+            <div class="content">
+              <p>
+                Conjunctions are words that connect words, phrases, or clauses.
+                They help create more complex and interesting sentences by
+                showing relationships between ideas.
+              </p>
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Definition
+                </div>
+                <p>
+                  <strong>Conjunction:</strong> A word that connects words,
+                  phrases, or clauses.
+                </p>
+              </div>
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>
+                  I wanted to go to the market,
+                  <span class="highlight">but</span> it started raining.
+                </p>
+                <p>She likes tea <span class="highlight">and</span> coffee.</p>
+                <p>
+                  <span class="highlight">Because</span> she studied hard, she
+                  passed the exam.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Types of Conjunctions</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">1. Coordinating Conjunctions</div>
+                <p>
+                  These connect words, phrases, or independent clauses of equal
+                  importance. Remember the acronym FANBOYS:
+                </p>
+                <div class="example-item">
+                  <span class="highlight">F</span>or - shows reason: She was
+                  tired, <span class="highlight">for</span> she had worked all
+                  day.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">A</span>nd - shows addition: She
+                  bought apples <span class="highlight">and</span> oranges.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">N</span>or - shows negative choice: He
+                  doesn't like coffee, <span class="highlight">nor</span> does
+                  he like tea.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">B</span>ut - shows contrast: She is
+                  smart, <span class="highlight">but</span> sometimes makes
+                  mistakes.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">O</span>r - shows choice: You can
+                  study now, <span class="highlight">or</span> you can play
+                  outside.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Y</span>et - shows contrast: The movie
+                  was long, <span class="highlight">yet</span> it was
+                  interesting.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">S</span>o - shows result: It was
+                  raining, <span class="highlight">so</span> we stayed indoors.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">2. Correlative Conjunctions</div>
+                <p>
+                  These work in pairs to connect grammatically equal elements.
+                </p>
+                <div class="example-item">
+                  <span class="highlight">Either... or</span>: You can
+                  <span class="highlight">either</span> study now
+                  <span class="highlight">or</span> play later.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Neither... nor</span>: She
+                  <span class="highlight">neither</span> called
+                  <span class="highlight">nor</span> texted me.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Not only... but also</span>: He is
+                  <span class="highlight">not only</span> intelligent
+                  <span class="highlight">but also</span> hardworking.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Both... and</span>:
+                  <span class="highlight">Both</span> teachers
+                  <span class="highlight">and</span> students attended the
+                  event.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Whether... or</span>: I don't know
+                  <span class="highlight">whether</span> she will come
+                  <span class="highlight">or</span> not.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">3. Subordinating Conjunctions</div>
+                <p>
+                  These connect a dependent clause to an independent clause,
+                  showing the relationship between them.
+                </p>
+                <div class="example-item">
+                  <span class="highlight">Because</span>:
+                  <span class="highlight">Because</span> it was raining, we
+                  stayed home.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Since</span>:
+                  <span class="highlight">Since</span> you're here, let's start
+                  the meeting.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">As</span>:
+                  <span class="highlight">As</span> I was leaving, the phone
+                  rang.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Although</span>:
+                  <span class="highlight">Although</span> it was expensive, she
+                  bought it.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Though</span>:
+                  <span class="highlight">Though</span> he was tired, he
+                  finished his work.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">While</span>: She read a book
+                  <span class="highlight">while</span> waiting for the bus.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Whereas</span>: He is very outgoing,
+                  <span class="highlight">whereas</span> his brother is shy.
+                </div>
+              </div>
+              <div class="example">
+                <div class="example-title">
+                  4. Adverbs that Function as Conjunctions
+                </div>
+                <p>These adverbial conjunctions connect independent clauses.</p>
+                <div class="example-item">
+                  <span class="highlight">Until</span>: Wait here
+                  <span class="highlight">until</span> I return.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">After</span>:
+                  <span class="highlight">After</span> the movie ended, we went
+                  home.
+                </div>
+                <div class="example-item">
+                  <span class="highlight">Before</span>: Finish your homework
+                  <span class="highlight">before</span> you go out to play.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="subsection">
+            <h3 class="subsection-title">Using Conjunctions Effectively</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Examples in Context:</div>
+                <div class="example-item">
+                  Coordinating: She wanted to join the club,
+                  <span class="highlight">but</span> she didn't have enough
+                  time.
+                </div>
+                <div class="example-item">
+                  Correlative: <span class="highlight">Not only</span> did she
+                  win the race, <span class="highlight">but also</span> broke
+                  the record.
+                </div>
+                <div class="example-item">
+                  Subordinating: <span class="highlight">Although</span> it was
+                  raining, the children continued playing outside.
+                </div>
+                <div class="example-item">
+                  Adverbial Conjunction: We'll wait here
+                  <span class="highlight">until</span> the bus arrives.
+                </div>
+              </div>
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Student Tip
+                </div>
+                <p>
+                  Remember that when using coordinating conjunctions (FANBOYS)
+                  to connect two independent clauses, you need a comma before
+                  the conjunction. Example: "I wanted to go, but it was too
+                  late."
+                </p>
+              </div>
+              <div class="interactive">
+                <div class="interactive-title">Practice Activity</div>
+                <p>
+                  Combine these two sentences using an appropriate conjunction:
+                  "She studied hard. She passed the exam."
+                </p>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="input-field"
+                    id="conjunction-input"
+                    placeholder="Enter combined sentence"
+                  />
+                  <button class="btn" id="check-conjunction">
+                    Check Answer
+                  </button>
+                </div>
+                <div class="result" id="conjunction-result"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // Tab navigation
+      const navTabs = document.querySelectorAll(".nav-tab");
+      const contentSections = document.querySelectorAll(".content-section");
+      navTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetTab = tab.getAttribute("data-tab");
+          // Remove active class from all tabs and sections
+          navTabs.forEach((t) => t.classList.remove("active"));
+          contentSections.forEach((s) => s.classList.remove("active"));
+          // Add active class to clicked tab and corresponding section
+          tab.classList.add("active");
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+
+      // Interactive elements
+      document
+        .getElementById("check-noun-type")
+        .addEventListener("click", () => {
+          const input = document.getElementById("noun-type-select").value;
+          const result = document.getElementById("noun-type-result");
+          if (input === "common") {
+            result.textContent =
+              'Correct! "Children" is a common noun (it names a general group of people).';
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              'Not quite. "Children" is a common noun because it names a general group of people, not a specific one.';
+            result.style.color = "var(--warning-color)";
+          }
+        });
+
+      document.getElementById("check-pronoun").addEventListener("click", () => {
+        const input = document
+          .getElementById("pronoun-input")
+          .value.toLowerCase();
+        const result = document.getElementById("pronoun-result");
+        // Possible correct answers
+        const correctAnswers = [
+          "kofi and ama went to the market, and they bought fruits.",
+          "kofi and ama went to the market, and they bought fruits",
+          "kofi and ama went to the market and they bought fruits.",
+          "kofi and ama went to the market and they bought fruits",
+        ];
+        if (correctAnswers.includes(input)) {
+          result.textContent =
+            'Correct! "They" is the appropriate pronoun to replace "Kofi and Ama".';
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            'Not quite. Try replacing "Kofi and Ama" with a pronoun. Remember: "Kofi and Ama" can be replaced with "they".';
+          result.style.color = "var(--warning-color)";
+        }
+      });
+
+      document
+        .getElementById("check-adjective")
+        .addEventListener("click", () => {
+          const input = document
+            .getElementById("adjective-input")
+            .value.toLowerCase();
+          const result = document.getElementById("adjective-result");
+          // Check if the sentence contains appropriate adjectives
+          const words = input.split(" ");
+          const hasAdjectives = words.some((word) =>
+            [
+              "happy",
+              "sad",
+              "excited",
+              "small",
+              "big",
+              "beautiful",
+              "colorful",
+              "red",
+              "blue",
+              "green",
+              "yellow",
+              "bright",
+              "dark",
+            ].includes(word)
+          );
+          if (hasAdjectives) {
+            result.textContent =
+              "Great! You've added appropriate adjectives to describe the children, garden, and balls.";
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              'Try adding descriptive words like "happy", "excited", "beautiful", "colorful", etc. to make the sentence more vivid.';
+            result.style.color = "var(--warning-color)";
+          }
+        });
+
+      document.getElementById("check-verb").addEventListener("click", () => {
+        const input = document.getElementById("verb-input").value.toLowerCase();
+        const result = document.getElementById("verb-result");
+        if (input === "had been studying") {
+          result.textContent =
+            'Correct! "She had been studying for three hours before the exam started." (Past Perfect Progressive)';
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            'Not quite. Remember: the action (studying) was in progress before another past action (exam started). Try "had been studying".';
+          result.style.color = "var(--warning-color)";
+        }
+      });
+
+      document.getElementById("check-adverb").addEventListener("click", () => {
+        const input = document
+          .getElementById("adverb-input")
+          .value.toLowerCase();
+        const result = document.getElementById("adverb-result");
+        // Check if the input is a valid adverb
+        const commonAdverbs = [
+          "quickly",
+          "slowly",
+          "carefully",
+          "correctly",
+          "incorrectly",
+          "easily",
+          "confidently",
+          "hesitantly",
+          "bravely",
+          "calmly",
+        ];
+        if (commonAdverbs.includes(input)) {
+          result.textContent = `Great! "${input}" is an adverb that describes how the student answered the question.`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Try adding an adverb that describes how the student answered the question. Examples: quickly, slowly, carefully, correctly, confidently.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+
+      document
+        .getElementById("check-conjunction")
+        .addEventListener("click", () => {
+          const input = document
+            .getElementById("conjunction-input")
+            .value.toLowerCase();
+          const result = document.getElementById("conjunction-result");
+          // Possible correct answers
+          const correctAnswers = [
+            "she studied hard, so she passed the exam.",
+            "she studied hard so she passed the exam.",
+            "she studied hard, and she passed the exam.",
+            "she studied hard and she passed the exam.",
+            "she studied hard, therefore she passed the exam.",
+            "because she studied hard, she passed the exam.",
+            "since she studied hard, she passed the exam.",
+          ];
+          if (
+            correctAnswers.some(
+              (answer) =>
+                input.includes(answer.split(",")[0]) &&
+                input.includes(answer.split(",")[1])
+            )
+          ) {
+            result.textContent =
+              "Correct! You've successfully combined the sentences using an appropriate conjunction.";
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              'Try using conjunctions like "so", "and", "because", or "since" to connect the two ideas.';
+            result.style.color = "var(--warning-color)";
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JHS English Guide - Punctuation & Vocabulary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary-color: #5b5fde;
+            --secondary-color: #7c3aed;
+            --accent-color: #ec4899;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --info-color: #3b82f6;
+            --background-color: #f8fafc;
+            --surface-color: #f1f5f9;
+            --card-color: #ffffff;
+            --text-color: #334155;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+            --example-bg: #eff6ff;
+            --note-bg: #fffbeb;
+            --tip-bg: #f0fdf4;
+            --keyword-bg: #f8fafc;
+        }
+        [data-theme="dark"] {
+            --background-color: #1e293b;
+            --surface-color: #0f172a;
+            --card-color: #1e293b;
+            --text-color: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+            --example-bg: #1e3a5f;
+            --note-bg: #451a03;
+            --tip-bg: #14532d;
+            --keyword-bg: #0f172a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 100px;
+        }
+        /* Futuristic Navigation Bar Styles */
+        .futuristic-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            overflow: hidden;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .nav-logo i {
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        .nav-item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .nav-item:hover:before {
+            left: 100%;
+        }
+        .nav-item:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .nav-item.active {
+            color: var(--accent-color);
+            background: rgba(236, 72, 153, 0.1);
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+            text-decoration: none;
+        }
+        .nav-item i {
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .nav-item:hover i {
+            transform: scale(1.1);
+        }
+        .nav-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-item.active .nav-indicator {
+            width: 80%;
+        }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            z-index: 3;
+        }
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-secondary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .nav-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particle-float 10s linear infinite;
+        }
+        .particle:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+        .particle:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+        }
+        .particle:nth-child(3) {
+            left: 50%;
+            animation-delay: 4s;
+        }
+        .particle:nth-child(4) {
+            left: 70%;
+            animation-delay: 6s;
+        }
+        .particle:nth-child(5) {
+            left: 90%;
+            animation-delay: 8s;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes particle-float {
+            0% {
+                top: 100%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                top: -10%;
+                opacity: 0;
+            }
+        }
+        /* Mobile-only Navigation */
+        .mobile-nav {
+            display: none; /* hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+        }
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .mobile-logo {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        .mobile-logo i {
+            margin-right: 8px;
+        }
+        .mobile-nav-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+        .mobile-nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-secondary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .mobile-nav-menu {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px 20px;
+        }
+        .mobile-nav-menu.active {
+            display: flex;
+        }
+        .mobile-nav-item {
+            padding: 10px 15px;
+            background: var(--card-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        .mobile-nav-item:hover {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+        }
+        /* Hamburger animation when active */
+        .mobile-nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .mobile-nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+        /* Show mobile nav only on small screens */
+        @media (max-width: 768px) {
+            .mobile-nav {
+                display: block;
+            }
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px;
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                z-index: 999;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .nav-item {
+                width: 100%;
+                justify-content: center;
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+        /* Small screen adjustments (350px and below) */
+        @media (max-width: 350px) {
+            .container {
+                padding: 10px;
+            }
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+            .nav-logo i {
+                font-size: 1.5rem;
+            }
+            .nav-item {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+            .section {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+        @media (max-width: 968px) {
+            .nav-item {
+                padding: 8px;
+            }
+            .container {
+                padding: 15px;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .section {
+                padding: 20px;
+            }
+            .input-group {
+                flex-direction: column;
+            }
+            .input-field {
+                width: 100%;
+            }
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .theme-toggle {
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        .theme-toggle:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .nav-tab {
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav-tab:hover {
+            background: var(--surface-color);
+            transform: translateY(-2px);
+        }
+        .nav-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(91, 95, 222, 0.3);
+        }
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .content-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .section {
+            background: var(--card-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        .section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title i {
+            font-size: 1.2rem;
+        }
+        .subsection {
+            margin-bottom: 20px;
+        }
+        .subsection-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        .content {
+            margin-bottom: 15px;
+        }
+        .keyword-box {
+            background: var(--keyword-bg);
+            border-left: 4px solid var(--info-color);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        .keyword-box:hover {
+            transform: translateX(5px);
+        }
+        .keyword-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--info-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .example {
+            background: var(--example-bg);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        .example:hover {
+            transform: translateX(5px);
+        }
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        .example-item {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .example-item:before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: var(--primary-color);
+        }
+        .note {
+            background: var(--note-bg);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        .note:hover {
+            transform: translateX(5px);
+        }
+        .note-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--warning-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tip {
+            background: var(--tip-bg);
+            border-left: 4px solid var(--success-color);
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+        }
+        .tip:hover {
+            transform: translateX(5px);
+        }
+        .tip-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--success-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .highlight {
+            background: rgba(91, 95, 222, 0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        .table tr:nth-child(even) {
+            background: var(--surface-color);
+        }
+        .table tr:hover {
+            background: rgba(91, 95, 222, 0.05);
+        }
+        .interactive {
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--surface-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        .interactive:hover {
+            box-shadow: var(--shadow);
+        }
+        .interactive-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .input-field {
+            flex: 1;
+            min-width: 120px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--card-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+        }
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(91, 95, 222, 0.2);
+        }
+        .result {
+            padding: 10px;
+            background: var(--card-color);
+            border-radius: 6px;
+            margin-top: 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+        /* Exercise Section Styles */
+        .exercise-section {
+            background: var(--card-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        .exercise-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        .exercise-item {
+            background: var(--surface-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        .exercise-item:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+        .exercise-item-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        .unpunctuated {
+            background: var(--card-color);
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        .corrected {
+            display: none;
+            background: var(--tip-bg);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid var(--success-color);
+        }
+        .corrected.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        .show-corrected-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .show-corrected-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(236, 72, 153, 0.2);
+        }
+        /* Homework Section Styles */
+        .homework-section {
+            background: var(--card-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--warning-color);
+        }
+        .homework-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--warning-color);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .homework-subtitle {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            text-align: center;
+        }
+        .homework-instruction {
+            background: var(--surface-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--info-color);
+        }
+        .homework-task {
+            background: var(--surface-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+        .homework-task-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        .homework-input {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--card-color);
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-family: inherit;
+            resize: vertical;
+        }
+        .homework-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+        }
+        .matching-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .matching-table th, .matching-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .matching-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        .matching-table tr:nth-child(even) {
+            background: var(--surface-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-book-open"></i>
+                <span>EduHub</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../Science/science.html" class="nav-item" data-subject="science">
+                    <i class="fas fa-microscope"></i>
+                    <span>Science</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="./english.html" class="nav-item active" data-subject="english">
+                    <i class="fas fa-book-open"></i>
+                    <span>English</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="../Maths/maths.html" class="nav-item" data-subject="mathematics">
+                    <i class="fas fa-calculator"></i>
+                    <span>Mathematics</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="../Contact/index.html" class="nav-item" data-subject="contact">
+                    <i class="fas fa-phone"></i>
+                    <span>Contact</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="../External Files/index.html" class="nav-item" data-subject="files" style="background-color: #0a0; color: #fff">
+                    <i class="fas fa-pencil-alt"></i>
+                    <span>Class 6 Files</span>
+                    <div class="nav-indicator"></div>
+                </a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="nav-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </nav>
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-header">
+            <div class="mobile-logo">
+                <i class="fas fa-book-open"></i> EduHub
+            </div>
+            <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-nav-menu" id="mobile-nav-menu">
+            <a href="../Science/science.html" class="mobile-nav-item" data-subject="science">Science</a>
+            <a href="./english.html" class="mobile-nav-item" data-subject="english">English</a>
+            <a href="../Maths/maths.html" class="mobile-nav-item" data-subject="mathematics">Mathematics</a>
+            <a href="../Contact/index.html" class="mobile-nav-item" data-subject="contact">Contact</a>
+            <a href="../External Files/index.html" class="mobile-nav-item" data-subject="files" style="background-color: #0a0; color: #fff">Class 6 Files</a>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>JHS English Guide - Punctuation & Vocabulary</h1>
+            </div>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+            </button>
+        </header>
+        
+        <!-- Exercise Section -->
+        <div class="exercise-section">
+            <h2 class="exercise-title">Punctuation and Capitalization Exercise</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Click "Show Corrected" to see the properly punctuated and capitalized version of each sentence.</p>
+            
+            <div class="exercise-item">
+                <h3 class="exercise-item-title">Example 1</h3>
+                <div class="unpunctuated">yesterday i went to the market i bought oranges bananas mangoes and apples</div>
+                <button class="show-corrected-btn" onclick="showCorrected(1)">Show Corrected</button>
+                <div id="corrected-1" class="corrected">
+                    <strong>Corrected:</strong> Yesterday I went to the market. I bought oranges, bananas, mangoes, and apples.
+                </div>
+            </div>
+            
+            <div class="exercise-item">
+                <h3 class="exercise-item-title">Example 2</h3>
+                <div class="unpunctuated">what is your name where do you live</div>
+                <button class="show-corrected-btn" onclick="showCorrected(2)">Show Corrected</button>
+                <div id="corrected-2" class="corrected">
+                    <strong>Corrected:</strong> What is your name? Where do you live?
+                </div>
+            </div>
+            
+            <div class="exercise-item">
+                <h3 class="exercise-item-title">Example 3</h3>
+                <div class="unpunctuated">stop shouting o brother you are disturbing everyone</div>
+                <button class="show-corrected-btn" onclick="showCorrected(3)">Show Corrected</button>
+                <div id="corrected-3" class="corrected">
+                    <strong>Corrected:</strong> Stop shouting! O brother, you are disturbing everyone.
+                </div>
+            </div>
+            
+            <div class="exercise-item">
+                <h3 class="exercise-item-title">Example 4</h3>
+                <div class="unpunctuated">ama kofi and yaw went to accra they saw the independence square it was beautiful</div>
+                <button class="show-corrected-btn" onclick="showCorrected(4)">Show Corrected</button>
+                <div id="corrected-4" class="corrected">
+                    <strong>Corrected:</strong> Ama, Kofi, and Yaw went to Accra. They saw the Independence Square. It was beautiful!
+                </div>
+            </div>
+            
+            <div class="exercise-item">
+                <h3 class="exercise-item-title">Example 5</h3>
+                <div class="unpunctuated">the sun moon and stars shine in the sky at night i love watching them</div>
+                <button class="show-corrected-btn" onclick="showCorrected(5)">Show Corrected</button>
+                <div id="corrected-5" class="corrected">
+                    <strong>Corrected:</strong> The sun, moon, and stars shine in the sky at night. I love watching them.
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-tab="punctuation">
+                <i class="fas fa-pen"></i>
+                <span>Punctuation & Capitalisation</span>
+            </div>
+            <div class="nav-tab" data-tab="vocabulary">
+                <i class="fas fa-spell-check"></i>
+                <span>Vocabulary</span>
+            </div>
+        </div>
+        
+        <!-- Punctuation and Capitalisation Section -->
+        <div class="content-section active" id="punctuation">
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-pen"></i>
+                    Punctuation and Capitalisation — Teaching Notes for JHS 1
+                </h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">1. Overview: What Are We Learning?</h3>
+                    <div class="content">
+                        <div class="keyword-box">
+                            <div class="keyword-title">
+                                <i class="fas fa-key"></i>
+                                Key Definitions
+                            </div>
+                            <p>
+                                <strong>Punctuation:</strong> Marks used in writing to help readers understand the sentence clearly and correctly.
+                            </p>
+                            <p>
+                                <strong>Capitalisation:</strong> Using capital letters where needed, such as at the beginning of sentences, for names, and for pronouns.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">2. Punctuation: Key Marks & Rules</h3>
+                    <div class="content">
+                        <div class="example">
+                            <div class="example-title">A. Full Stop ( . )</div>
+                            <p>
+                                Use to end a statement.
+                            </p>
+                            <div class="example-item">
+                                Example: "She is reading a book."
+                            </div>
+                            <div class="example-item">
+                                Practice: Add full stops to: "the dog is running"
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">B. Question Mark ( ? )</div>
+                            <p>
+                                Use at the end of questions.
+                            </p>
+                            <div class="example-item">
+                                Example: "Where are you going?"
+                            </div>
+                            <div class="example-item">
+                                Practice: Turn into questions: "you like school"
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">C. Exclamation Mark ( ! )</div>
+                            <p>
+                                Shows strong feeling or excitement.
+                            </p>
+                            <div class="example-item">
+                                Example: "Watch out!"
+                            </div>
+                            <div class="example-item">
+                                Practice: Add exclamation marks: "What a beautiful bird"
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">D. Comma ( , )</div>
+                            <p>
+                                Separates items in a list or parts of a sentence to prevent confusion.
+                            </p>
+                            <div class="example-item">
+                                Example: "I bought pens, books, and erasers."
+                            </div>
+                            <div class="example-item">
+                                Practice: Insert commas: "I have apples bananas mangoes"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">3. Capitalisation: Rules & Examples</h3>
+                    <div class="content">
+                        <div class="example">
+                            <div class="example-title">A. First Word of a Sentence</div>
+                            <p>
+                                Always capitalise.
+                            </p>
+                            <div class="example-item">
+                                Example: "Tomorrow we will visit."
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">B. The Pronoun "I"</div>
+                            <p>
+                                Always written as a capital letter, no matter where it is in a sentence.
+                            </p>
+                            <div class="example-item">
+                                Example: "I am happy."
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">C. The Interjection "O"</div>
+                            <p>
+                                When used to call or address someone, write O with a capital.
+                            </p>
+                            <div class="example-item">
+                                Example: "O Teacher, may we ask a question?"
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">D. Names of People, Animals, Places, and Heavenly Bodies</div>
+                            <p>
+                                Always capitalised.
+                            </p>
+                            <div class="example-item">
+                                People: "Ama, Kofi"
+                            </div>
+                            <div class="example-item">
+                                Animals (as names): "Zoomer the dog"
+                            </div>
+                            <div class="example-item">
+                                Planets: "Earth, Mars"
+                            </div>
+                            <div class="example-item">
+                                Places: "Accra, Ghana"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">4. Combined Examples: Punctuation + Capitalisation</h3>
+                    <div class="content">
+                        <table class="table">
+                            <tr>
+                                <th>Sentence</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>"O children, look at the stars."</td>
+                                <td>"O" is capitalised as an interjection; comma separates direct address; full stop ends the sentence.</td>
+                            </tr>
+                            <tr>
+                                <td>"I like Accra, Kumasi, and Tamale."</td>
+                                <td>"I" is capitalised; commas separate items in a list; full stop ends the sentence.</td>
+                            </tr>
+                            <tr>
+                                <td>"Where is the moon?"</td>
+                                <td>Question mark after a question; "Where" is capitalised because it's the first word.</td>
+                            </tr>
+                            <tr>
+                                <td>"What a bright star!"</td>
+                                <td>Exclamation mark shows excitement; first word is capitalised.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">5. Practice Activity for Students</h3>
+                    <div class="content">
+                        <div class="example">
+                            <div class="example-title">A. Add punctuation and capitals:</div>
+                            <div class="example-item">
+                                Original: "once upon a time o children loved to listen to stories about the moon and stars at night they sat quietly"
+                            </div>
+                            <div class="example-item">
+                                Corrected: "Once upon a time, O children loved to listen to stories about the moon and stars at night. They sat quietly."
+                            </div>
+                            <div class="example-item">
+                                Corrections:
+                                <ul>
+                                    <li>Capitalised Once at start.</li>
+                                    <li>Capitalised O (interjection).</li>
+                                    <li>Added comma after "time".</li>
+                                    <li>Added full stop after "night".</li>
+                                    <li>Capitalised They for new sentence.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">B. Rewrite these correctly:</div>
+                            <div class="example-item">
+                                "we saw earth, mars, venus and jupiter in class today" → "We saw Earth, Mars, Venus, and Jupiter in class today."
+                            </div>
+                            <div class="example-item">
+                                "where is the book i lost" → "Where is the book I lost?"
+                            </div>
+                            <div class="example-item">
+                                "that is a lovely cat!" → "That is a lovely cat!"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">6. Classroom Tips</h3>
+                    <div class="content">
+                        <div class="tip">
+                            <div class="tip-title">
+                                <i class="fas fa-star"></i>
+                                Teaching Tips
+                            </div>
+                            <ul>
+                                <li><strong>Visual Aids:</strong> Draw symbols for punctuation marks and display examples on the board.</li>
+                                <li><strong>Interactive Practice:</strong> Get students to punctuate and capitalise in pairs.</li>
+                                <li><strong>Error Correction:</strong> Present common mistakes and ask students to find and correct them.</li>
+                                <li><strong>Reinforcement:</strong> End each lesson by asking a few students to orally explain one rule.</li>
+                                <li><strong>Short Homework:</strong> Ask students to write 3–5 simple sentences using various punctuation marks and capital letters.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">7. Recap of Key Rules</h3>
+                    <div class="content">
+                        <div class="keyword-box">
+                            <div class="keyword-title">
+                                <i class="fas fa-key"></i>
+                                Punctuation
+                            </div>
+                            <ul>
+                                <li>Full stop (.) for statements</li>
+                                <li>Question mark (?) for questions</li>
+                                <li>Exclamation mark (!) for strong feelings</li>
+                                <li>Comma (,) for lists or clarity</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="keyword-box">
+                            <div class="keyword-title">
+                                <i class="fas fa-key"></i>
+                                Capitalisation
+                            </div>
+                            <ul>
+                                <li>First word of each sentence</li>
+                                <li>Pronoun I</li>
+                                <li>Interjection O</li>
+                                <li>Names (people, animals, places, planets)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Homework Section for Punctuation -->
+                <div class="homework-section">
+                    <h2 class="homework-title">
+                        <i class="fas fa-pencil-alt"></i>
+                        Punctuation Homework
+                    </h2>
+                    <p class="homework-subtitle">Complete the following exercises to test your understanding of punctuation and capitalization.</p>
+                    
+                    <div class="homework-instruction">
+                        <strong>Instructions:</strong> Read the passage below. It has no punctuation and no capital letters. Rewrite it correctly with punctuation marks and capital letters where needed.
+                    </div>
+                    
+                    <div class="homework-task">
+                        <h3 class="homework-task-title">✍🏽 A. Punctuation Exercise</h3>
+                        <div class="unpunctuated">last saturday my friends and i went to the beach we played football on the sand and later swam in the sea suddenly it started to rain o we ran quickly to find shelter when the rain stopped we continued to play it was a very happy day</div>
+                        <p><strong>Task for Students:</strong> Rewrite the passage correctly.</p>
+                        <textarea class="homework-input" placeholder="Rewrite the passage with correct punctuation and capitalization..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vocabulary Section -->
+        <div class="content-section" id="vocabulary">
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-spell-check"></i>
+                    Vocabulary — JHS 1 Teaching Notes
+                </h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">Reference:</h3>
+                    <div class="content">
+                        <div class="example-item">
+                            B7.3.3.1.1: Apply vocabulary appropriately in specific contexts.
+                        </div>
+                        <div class="example-item">
+                            B7.3.4.1.1: Explore the use of proverbs to enrich communication.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">1. Lesson Objectives</h3>
+                    <div class="content">
+                        <p>
+                            By the end of the lesson, pupils should be able to:
+                        </p>
+                        <ul>
+                            <li>Use appropriate vocabulary in specific contexts and situations (e.g., asking for advice, ordering food).</li>
+                            <li>Apply useful expressions when agreeing and disagreeing.</li>
+                            <li>Use vocabulary correctly in social settings (e.g., at a friend's birthday, in conversations with adults and peers).</li>
+                            <li>Identify and use proverbs to enrich their speech and writing.</li>
+                            <li>Demonstrate communication, critical thinking, and presentation skills in role plays and group work.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">2. Core Competencies Developed</h3>
+                    <div class="content">
+                        <table class="table">
+                            <tr>
+                                <th>Competency</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>Communication and Collaboration</td>
+                                <td>Using correct expressions in dialogue and group practice.</td>
+                            </tr>
+                            <tr>
+                                <td>Personal Development and Leadership</td>
+                                <td>Expressing oneself confidently in real-life situations.</td>
+                            </tr>
+                            <tr>
+                                <td>Creativity and Innovation</td>
+                                <td>Choosing different words and proverbs to make speech interesting.</td>
+                            </tr>
+                            <tr>
+                                <td>Critical Thinking and Problem-Solving</td>
+                                <td>Selecting the best vocabulary for the right situation.</td>
+                            </tr>
+                            <tr>
+                                <td>Cultural Identity and Global Citizenship</td>
+                                <td>Applying Ghanaian and English proverbs.</td>
+                            </tr>
+                            <tr>
+                                <td>Digital Literacy</td>
+                                <td>Using digital tools (dictionary apps, online thesaurus) to learn new words.</td>
+                            </tr>
+                            <tr>
+                                <td>Presentation</td>
+                                <td>Performing role plays and presenting corrected dialogues.</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">3. Lesson Content</h3>
+                    <div class="content">
+                        <div class="example">
+                            <div class="example-title">A. Vocabulary in Contexts</div>
+                            
+                            <div class="example-item">
+                                <strong>1. When Asking for and Giving Advice</strong>
+                            </div>
+                            <div class="example-item">
+                                <strong>Asking for advice</strong>
+                                <ul>
+                                    <li>I need some advice. I've no idea what to do.</li>
+                                    <li>What do you think I should do?</li>
+                                    <li>What would you recommend?</li>
+                                    <li>What would you do if you were me?</li>
+                                    <li>Do you think I should …?</li>
+                                </ul>
+                            </div>
+                            <div class="example-item">
+                                <strong>Giving advice</strong>
+                                <ul>
+                                    <li>You could always … (go to the shop and ask for an exchange).</li>
+                                    <li>My advice would be to … (take it back and ask for a refund).</li>
+                                    <li>What you need to do is … (make a copy in case the original gets lost).</li>
+                                    <li>One thing you could do is … (read your speech to a friend).</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="example-item">
+                                <strong>2. When Agreeing and Disagreeing</strong>
+                            </div>
+                            <div class="example-item">
+                                <strong>Agreeing</strong>
+                                <ul>
+                                    <li>I tend to agree with you.</li>
+                                    <li>That's a good idea.</li>
+                                    <li>I'm with you on that point.</li>
+                                    <li>I'll go along with that.</li>
+                                </ul>
+                            </div>
+                            <div class="example-item">
+                                <strong>Disagreeing</strong>
+                                <ul>
+                                    <li>I see things differently.</li>
+                                    <li>I tend to disagree with that idea.</li>
+                                    <li>I agree up to a point. However, …</li>
+                                    <li>You have a point there, but …</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="example-item">
+                                <strong>3. When Ordering Food in a Restaurant</strong>
+                                <ul>
+                                    <li>Can I see the menu, please?</li>
+                                    <li>I would like some fried rice with chicken.</li>
+                                    <li>Could I have a bottle of water, please?</li>
+                                    <li>How much is the meal?</li>
+                                    <li>Thank you for the service.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="example-item">
+                                <strong>4. When Speaking at a Friend's Birthday Party</strong>
+                                <ul>
+                                    <li>I'm happy to be here today.</li>
+                                    <li>Let's all celebrate our dear friend.</li>
+                                    <li>I wish you good health, success, and happiness.</li>
+                                    <li>May this year bring you joy and peace.</li>
+                                    <li>Congratulations on your birthday!</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="example-item">
+                                <strong>5. When in Conversation with Peers and Adults</strong>
+                            </div>
+                            <div class="example-item">
+                                <strong>With peers (informal):</strong>
+                                <ul>
+                                    <li>Hey, how are you doing?</li>
+                                    <li>That was fun!</li>
+                                    <li>Let's play after school.</li>
+                                </ul>
+                            </div>
+                            <div class="example-item">
+                                <strong>With adults (formal):</strong>
+                                <ul>
+                                    <li>Good morning, Madam. How are you?</li>
+                                    <li>Please, may I ask a question?</li>
+                                    <li>Thank you for your guidance.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">B. Aesthetic Language: Proverbs</div>
+                            <p>
+                                (Proverbs enrich speech and connect students to Ghanaian culture.)
+                            </p>
+                            <div class="example-item">
+                                <strong>English Proverb:</strong> A stitch in time saves nine.
+                            </div>
+                            <div class="example-item">
+                                <strong>Ghanaian Equivalent:</strong> "Ɛkɔtɔ nwo anoma, na ɛnkyerɛ sɛ ɔbɔ ne ho ban." (The crab does not give birth to a bird, meaning prevention is better than cure.)
+                            </div>
+                            <div class="example-item">
+                                <strong>Examples for Class Use:</strong>
+                                <ul>
+                                    <li>"If you study hard now, you will succeed later. A stitch in time saves nine."</li>
+                                    <li>"Don't forget your roots. A tree without roots cannot stand."</li>
+                                </ul>
+                            </div>
+                            <div class="example-item">
+                                <strong>Activity:</strong> Students should find local Ghanaian proverbs and explain them in English.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">4. Classroom Activities</h3>
+                    <div class="content">
+                        <div class="example">
+                            <div class="example-title">Role Play (Communication & Collaboration)</div>
+                            <p>
+                                Students act out a situation of asking for and giving advice.
+                            </p>
+                            <div class="example-item">
+                                Example: A friend lost his school bag — what advice can others give?
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">Debate (Agreeing & Disagreeing)</div>
+                            <p>
+                                Motion: "Mobile phones should be allowed in school."
+                            </p>
+                            <div class="example-item">
+                                Students practise expressions of agreement and disagreement.
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">Restaurant Simulation (Creativity & Innovation)</div>
+                            <p>
+                                Classroom turns into a "restaurant."
+                            </p>
+                            <div class="example-item">
+                                Students take turns being waiter/waitress and customer, ordering food using correct expressions.
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">Speech at a Birthday Party (Presentation)</div>
+                            <p>
+                                Pupils prepare a short speech for a friend's birthday and deliver it in front of the class.
+                            </div>
+                        </div>
+                        
+                        <div class="example">
+                            <div class="example-title">Proverb Matching Game (Cultural Identity)</div>
+                            <p>
+                                Teacher writes English proverbs on one side and Ghanaian equivalents on the other.
+                            </p>
+                            <div class="example-item">
+                                Students match them correctly and use them in sentences.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">5. Assessment (Evaluation)</h3>
+                    <div class="content">
+                        <p>
+                            Students will:
+                        </p>
+                        <ul>
+                            <li>Use appropriate vocabulary in role plays (advice, agreement/disagreement, ordering food).</li>
+                            <li>Write a short birthday message with correct expressions.</li>
+                            <li>Match English proverbs with Ghanaian ones and use them in sentences.</li>
+                            <li>Demonstrate correct choice of formal/informal vocabulary when speaking to peers or adults.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">6. Summary (Key Takeaways)</h3>
+                    <div class="content">
+                        <div class="tip">
+                            <div class="tip-title">
+                                <i class="fas fa-star"></i>
+                                Key Takeaways
+                            </div>
+                            <ul>
+                                <li>Vocabulary must fit the context: advice, discussion, ordering food, birthday, formal/informal talk.</li>
+                                <li>Proverbs make speech richer and more meaningful.</li>
+                                <li>Choosing the right words shows respect, intelligence, and confidence.</li>
+                                <li>Communication is not just about speaking, but about speaking appropriately and effectively.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Homework Section for Vocabulary -->
+                <div class="homework-section">
+                    <h2 class="homework-title">
+                        <i class="fas fa-spell-check"></i>
+                        Vocabulary Homework
+                    </h2>
+                    <p class="homework-subtitle">Complete the following exercises to test your understanding of vocabulary in context.</p>
+                    
+                    <div class="homework-task">
+                        <h3 class="homework-task-title">✍🏽 B. Vocabulary Exercises</h3>
+                        
+                        <div class="example-item">
+                            <strong>1. Asking for and Giving Advice</strong>
+                            <p>Your friend failed a test and does not know what to do. Write one sentence asking for advice and one sentence giving advice.</p>
+                            <textarea class="homework-input" placeholder="Write your sentences here..."></textarea>
+                        </div>
+                        
+                        <div class="example-item">
+                            <strong>2. Agreeing and Disagreeing</strong>
+                            <p>Fill in the blanks with the correct expression (agreeing or disagreeing).</p>
+                            <p>i) "I think school uniforms are important."</p>
+                            <p>Answer: ____________________________</p>
+                            <p>ii) "I believe mobile phones should not be allowed in school."</p>
+                            <p>Answer: ____________________________</p>
+                            <textarea class="homework-input" placeholder="Write your answers here..."></textarea>
+                        </div>
+                        
+                        <div class="example-item">
+                            <strong>3. Ordering Food in a Restaurant</strong>
+                            <p>Imagine you are at a restaurant. Write three polite sentences to order food and drink.</p>
+                            <textarea class="homework-input" placeholder="Write your sentences here..."></textarea>
+                        </div>
+                        
+                        <div class="example-item">
+                            <strong>4. Speaking at a Friend's Birthday</strong>
+                            <p>Write two short birthday wishes you can say at your best friend's birthday party.</p>
+                            <textarea class="homework-input" placeholder="Write your birthday wishes here..."></textarea>
+                        </div>
+                        
+                        <div class="example-item">
+                            <strong>5. Proverbs</strong>
+                            <p>Match the proverb to its meaning.</p>
+                            <table class="matching-table">
+                                <tr>
+                                    <th>Proverb</th>
+                                    <th>Meaning</th>
+                                </tr>
+                                <tr>
+                                    <td>a) A stitch in time saves nine.</td>
+                                    <td>
+                                        <select class="input-field">
+                                            <option value="">Select meaning</option>
+                                            <option value="1">A person must remember and respect their culture.</option>
+                                            <option value="2">Solve problems early before they get worse.</option>
+                                            <option value="3">Children often resemble their parents.</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>b) The crab does not give birth to a bird.</td>
+                                    <td>
+                                        <select class="input-field">
+                                            <option value="">Select meaning</option>
+                                            <option value="1">A person must remember and respect their culture.</option>
+                                            <option value="2">Solve problems early before they get worse.</option>
+                                            <option value="3">Children often resemble their parents.</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>c) A tree without roots cannot stand.</td>
+                                    <td>
+                                        <select class="input-field">
+                                            <option value="">Select meaning</option>
+                                            <option value="1">A person must remember and respect their culture.</option>
+                                            <option value="2">Solve problems early before they get worse.</option>
+                                            <option value="3">Children often resemble their parents.</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>&copy; 2025 Created with ❤️ by Kenzy. All resources are for educational purposes only.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Navigation functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            const navItems = document.querySelectorAll(".nav-item");
+            const navToggle = document.getElementById("nav-toggle");
+            const navMenu = document.getElementById("nav-menu");
+            
+            // Handle navigation item clicks
+            navItems.forEach(item => {
+                item.addEventListener("click", function(e) {
+                    // Remove active class from all items
+                    navItems.forEach(nav => nav.classList.remove("active"));
+                    // Add active class to clicked item
+                    this.classList.add("active");
+                    // The link will handle navigation automatically
+                    // No need for alert or manual navigation
+                    // Close mobile menu if open
+                    navToggle.classList.remove("active");
+                    navMenu.classList.remove("active");
+                });
+            });
+            
+            // Mobile menu toggle
+            navToggle.addEventListener("click", function() {
+                this.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+            
+            // Mobile nav toggle
+            const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+            const mobileNavMenu = document.getElementById("mobile-nav-menu");
+            const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+            
+            mobileNavToggle.addEventListener("click", () => {
+                mobileNavToggle.classList.toggle("active");
+                mobileNavMenu.classList.toggle("active");
+            });
+            
+            // Handle mobile nav item clicks
+            mobileNavItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    // Close menu
+                    mobileNavMenu.classList.remove("active");
+                    mobileNavToggle.classList.remove("active");
+                    // The link will handle navigation automatically
+                });
+            });
+            
+            // Add hover effect to logo
+            const navLogo = document.querySelector(".nav-logo");
+            navLogo.addEventListener("mouseenter", function() {
+                this.style.transform = "scale(1.05)";
+            });
+            navLogo.addEventListener("mouseleave", function() {
+                this.style.transform = "scale(1)";
+            });
+        });
+        
+        // Theme toggle functionality
+        const themeToggle = document.getElementById("theme-toggle");
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector("i");
+        const themeText = themeToggle.querySelector("span");
+        
+        // Check for saved theme preference or default to light
+        const currentTheme = localStorage.getItem("theme") || "light";
+        if (currentTheme === "dark") {
+            body.setAttribute("data-theme", "dark");
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+            themeText.textContent = "Light Mode";
+        }
+        
+        themeToggle.addEventListener("click", () => {
+            if (body.getAttribute("data-theme") === "dark") {
+                body.removeAttribute("data-theme");
+                themeIcon.classList.remove("fa-sun");
+                themeIcon.classList.add("fa-moon");
+                themeText.textContent = "Dark Mode";
+                localStorage.setItem("theme", "light");
+            } else {
+                body.setAttribute("data-theme", "dark");
+                themeIcon.classList.remove("fa-moon");
+                themeIcon.classList.add("fa-sun");
+                themeText.textContent = "Light Mode";
+                localStorage.setItem("theme", "dark");
+            }
+        });
+        
+        // Tab navigation
+        const navTabs = document.querySelectorAll(".nav-tab");
+        const contentSections = document.querySelectorAll(".content-section");
+        
+        navTabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                const targetTab = tab.getAttribute("data-tab");
+                
+                // Remove active class from all tabs and sections
+                navTabs.forEach(t => t.classList.remove("active"));
+                contentSections.forEach(s => s.classList.remove("active"));
+                
+                // Add active class to clicked tab and corresponding section
+                tab.classList.add("active");
+                document.getElementById(targetTab).classList.add("active");
+            });
+        });
+        
+        // Exercise functionality
+        function showCorrected(id) {
+            const correctedDiv = document.getElementById(`corrected-${id}`);
+            correctedDiv.classList.add('show');
+        }
+    </script>
+</body>
+</html>
