@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Communication Skills - Teacher Notes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #5b5fde;
+        --secondary-color: #7c3aed;
+        --accent-color: #ec4899;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --info-color: #3b82f6;
+        --background-color: #f8fafc;
+        --surface-color: #f1f5f9;
+        --card-color: #ffffff;
+        --text-color: #334155;
+        --text-secondary: #64748b;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #eff6ff;
+        --note-bg: #fffbeb;
+        --tip-bg: #f0fdf4;
+        --keyword-bg: #f8fafc;
+      }
+      [data-theme="dark"] {
+        --background-color: #1e293b;
+        --surface-color: #0f172a;
+        --card-color: #1e293b;
+        --text-color: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1e3a5f;
+        --note-bg: #451a03;
+        --tip-bg: #14532d;
+        --keyword-bg: #0f172a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(236, 72, 153, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(236, 72, 153, 0.1);
+        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+      }
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      .nav-tab {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-tab:hover {
+        background: var(--surface-color);
+        transform: translateY(-2px);
+      }
+      .nav-tab.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        box-shadow: 0 4px 10px rgba(91, 95, 222, 0.3);
+      }
+      .content-section {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      .content-section.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .keyword-box {
+        background: var(--keyword-bg);
+        border-left: 4px solid var(--info-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .keyword-box:hover {
+        transform: translateX(5px);
+      }
+      .keyword-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--info-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .example:hover {
+        transform: translateX(5px);
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .note:hover {
+        transform: translateX(5px);
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .tip:hover {
+        transform: translateX(5px);
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .highlight {
+        background: rgba(91, 95, 222, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .table tr:hover {
+        background: rgba(91, 95, 222, 0.05);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .interactive:hover {
+        box-shadow: var(--shadow);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(91, 95, 222, 0.2);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="./english.html"
+            class="nav-item active"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../contact/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #0a0; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <i class="fas fa-graduation-cap"></i> EduHub
+        </div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a href="./english.html" class="mobile-nav-item" data-subject="english"
+          >English</a
+        >
+        <a
+          href="../Maths/maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+        >
+          Mathematics
+        </a>
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="../External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #0a0; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-comments"></i>
+          <h1>Communication Skills - Teacher Notes</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+      <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="formal-informal">
+          <i class="fas fa-exchange-alt"></i>
+          <span>Formal & Informal</span>
+        </div>
+        <div class="nav-tab" data-tab="questions">
+          <i class="fas fa-question-circle"></i>
+          <span>Asking Questions</span>
+        </div>
+        <div class="nav-tab" data-tab="experiences">
+          <i class="fas fa-history"></i>
+          <span>Describing Experiences</span>
+        </div>
+        <div class="nav-tab" data-tab="directions">
+          <i class="fas fa-map-marked-alt"></i>
+          <span>Giving Directions</span>
+        </div>
+        <div class="nav-tab" data-tab="techniques">
+          <i class="fas fa-microphone-alt"></i>
+          <span>Communication Techniques</span>
+        </div>
+        <div class="nav-tab" data-tab="summary">
+          <i class="fas fa-bookmark"></i>
+          <span>Summary</span>
+        </div>
+      </div>
+
+      <!-- Formal and Informal Communication Section -->
+      <div class="content-section active" id="formal-informal">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-exchange-alt"></i>
+            Formal and Informal Communication
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Formal Communication</h3>
+            <div class="content">
+              <p>
+                Formal communication is when we talk politely and respectfully
+                in official or serious situations.
+              </p>
+
+              <div class="example">
+                <div class="example-title">Examples of formal situations:</div>
+                <div class="example-item">
+                  At school (talking to a teacher/headteacher)
+                </div>
+                <div class="example-item">
+                  In the workplace (interviews, business meetings)
+                </div>
+                <div class="example-item">
+                  In public offices (police station, hospital, bank)
+                </div>
+                <div class="example-item">
+                  Announcements or official speeches
+                </div>
+              </div>
+
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Features of formal language:
+                </div>
+                <div class="example-item">No slang or street language</div>
+                <div class="example-item">Complete sentences</div>
+                <div class="example-item">
+                  Polite expressions (please, kindly, may I…)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>
+                  "Good morning, Sir. Please, may I speak with you about my
+                  homework?"
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Informal Communication</h3>
+            <div class="content">
+              <p>
+                Informal communication is when we talk in a casual or relaxed
+                way with friends, family, or classmates.
+              </p>
+
+              <div class="example">
+                <div class="example-title">
+                  Examples of informal situations:
+                </div>
+                <div class="example-item">Talking with friends at school</div>
+                <div class="example-item">Chatting with siblings at home</div>
+                <div class="example-item">Playing football with teammates</div>
+              </div>
+
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Features of informal language:
+                </div>
+                <div class="example-item">Slang and short forms</div>
+                <div class="example-item">Use of nicknames</div>
+                <div class="example-item">Friendly tone, not too strict</div>
+                <div class="example-item">
+                  Can include non-verbal expressions (smiles, gestures,
+                  handshakes)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>"Hey! What's up? Are you coming to the field?"</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>
+              Identify whether the following communication is formal or
+              informal:
+            </p>
+            <p>"Hi teach! Can I borrow your notes for the test?"</p>
+            <div class="input-group">
+              <select class="input-field" id="comm-type-select">
+                <option value="">Select communication type</option>
+                <option value="formal">Formal</option>
+                <option value="informal">Informal</option>
+              </select>
+              <button class="btn" id="check-comm-type">Check Answer</button>
+            </div>
+            <div class="result" id="comm-type-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asking and Answering Questions Section -->
+      <div class="content-section" id="questions">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-question-circle"></i>
+            Asking and Answering Questions in Conversations
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Meaningful Questions</h3>
+            <div class="content">
+              <p>
+                To keep conversations meaningful, we ask questions that make
+                others explain more.
+              </p>
+
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Question words that help get more details:
+                </div>
+                <div class="example-item">Why</div>
+                <div class="example-item">How</div>
+                <div class="example-item">For what reason</div>
+                <div class="example-item">In what way</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Example Dialogue</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Conversation Example:</div>
+                <p>
+                  <strong>Ama:</strong> "Do you think girls should study
+                  engineering?"
+                </p>
+                <p><strong>Aziz:</strong> "Yes."</p>
+                <p><strong>Ama:</strong> "Why do you think so?"</p>
+                <p>
+                  <strong>Aziz:</strong> "Because girls are also intelligent,
+                  and they should be given equal opportunities."
+                </p>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Communication Tip
+                </div>
+                <p>
+                  This shows critical thinking and elaboration. When you ask
+                  "why" or "how," you encourage deeper thinking and more
+                  detailed responses.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>
+              Turn this simple answer into a more detailed response by asking a
+              follow-up question:
+            </p>
+            <p><strong>Student:</strong> "I enjoyed the school trip."</p>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input-field"
+                id="question-input"
+                placeholder="Ask a follow-up question"
+              />
+              <button class="btn" id="check-question">Check Question</button>
+            </div>
+            <div class="result" id="question-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Describing Experiences Section -->
+      <div class="content-section" id="experiences">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-history"></i>
+            Describing Experiences
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">How to Describe Experiences</h3>
+            <div class="content">
+              <p>When telling people about your experiences:</p>
+
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key elements to include:
+                </div>
+                <div class="example-item">
+                  Use correct tenses (past, present, future)
+                </div>
+                <div class="example-item">
+                  Use adjectives, adverbs, and figurative expressions to make it
+                  interesting
+                </div>
+                <div class="example-item">
+                  Include specific details about what happened, how you felt,
+                  and what you learned
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>
+                  "Yesterday, I went to the market. The place was very busy. The
+                  traders shouted loudly to call customers. I felt excited but
+                  also tired because of the crowd."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Situations to Describe</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">
+                  Common situations you might need to describe:
+                </div>
+                <div class="example-item">Visiting the hospital</div>
+                <div class="example-item">Shopping at a supermarket</div>
+                <div class="example-item">Travelling by bus or trotro</div>
+                <div class="example-item">Attending a cultural event</div>
+                <div class="example-item">
+                  Participating in a school competition
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>
+              Describe your experience of a recent school event using at least 3
+              adjectives and 1 adverb:
+            </p>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input-field"
+                id="experience-input"
+                placeholder="Describe your experience"
+              />
+              <button class="btn" id="check-experience">
+                Check Description
+              </button>
+            </div>
+            <div class="result" id="experience-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Giving and Listening to Directions Section -->
+      <div class="content-section" id="directions">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-map-marked-alt"></i>
+            Giving and Listening to Directions
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">How to Give Directions</h3>
+            <div class="content">
+              <p>We often give directions to help people find places.</p>
+
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Direction words to use:
+                </div>
+                <div class="example-item">opposite</div>
+                <div class="example-item">adjacent</div>
+                <div class="example-item">near</div>
+                <div class="example-item">turn left/right</div>
+                <div class="example-item">straight ahead</div>
+                <div class="example-item">a few metres away</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Mention landmarks:</div>
+                <div class="example-item">church</div>
+                <div class="example-item">mosque</div>
+                <div class="example-item">filling station</div>
+                <div class="example-item">hospital</div>
+                <div class="example-item">market</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Example Directions</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>
+                  "The bank is opposite the post office. Walk straight for about
+                  5 minutes, then turn right after the filling station."
+                </p>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Listening Tip
+                </div>
+                <p>
+                  When receiving directions, listen carefully for landmarks and
+                  direction words. You can repeat the directions back to make
+                  sure you understood correctly.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Give directions from your school to the nearest market:</p>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input-field"
+                id="direction-input"
+                placeholder="Write directions"
+              />
+              <button class="btn" id="check-direction">Check Directions</button>
+            </div>
+            <div class="result" id="direction-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Techniques for Effective Oral Communication Section -->
+      <div class="content-section" id="techniques">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-microphone-alt"></i>
+            Techniques for Effective Oral Communication
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Voice Modulation</h3>
+            <div class="content">
+              <p>
+                To communicate well, pay attention to how you use your voice:
+              </p>
+
+              <div class="example">
+                <div class="example-title">Elements of voice modulation:</div>
+                <div class="example-item">
+                  <strong>Volume</strong> - not too loud, not too low
+                </div>
+                <div class="example-item">
+                  <strong>Tone</strong> - polite and respectful
+                </div>
+                <div class="example-item">
+                  <strong>Stress</strong> - know which word to emphasize
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example:</div>
+                <p>
+                  <strong>INcrease</strong> (noun) vs. in<strong>CREASE</strong>
+                  (verb)
+                </p>
+                <p>The word stress changes the meaning of the word.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Eye Contact</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Effective eye contact:</div>
+                <div class="example-item">
+                  Look at the person you are speaking to
+                </div>
+                <div class="example-item">
+                  Show interest with your face and posture
+                </div>
+                <div class="example-item">
+                  Maintain natural eye contact, not staring
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Non-verbal Cues</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Non-verbal communication:</div>
+                <div class="example-item">
+                  Nodding, smiling, or saying "I see," "Alright," to show
+                  attention
+                </div>
+                <div class="example-item">
+                  Do not interrupt when others are speaking
+                </div>
+                <div class="example-item">
+                  Use appropriate gestures to support your message
+                </div>
+                <div class="example-item">Maintain an open posture</div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Communication Tip
+                </div>
+                <p>
+                  Remember that non-verbal communication often speaks louder
+                  than words. Your body language should match what you're
+                  saying.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>
+              Which of these demonstrates good non-verbal communication during a
+              conversation?
+            </p>
+            <div class="input-group">
+              <select class="input-field" id="nonverbal-select">
+                <option value="">Select an option</option>
+                <option value="a">
+                  Looking at your phone while someone is talking
+                </option>
+                <option value="b">Nodding and maintaining eye contact</option>
+                <option value="c">Crossing your arms and looking away</option>
+              </select>
+              <button class="btn" id="check-nonverbal">Check Answer</button>
+            </div>
+            <div class="result" id="nonverbal-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="content-section" id="summary">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-bookmark"></i>
+            Quick Recall Summary
+          </h2>
+
+          <div class="content">
+            <div class="keyword-box">
+              <div class="keyword-title">
+                <i class="fas fa-key"></i>
+                Key Points to Remember
+              </div>
+              <div class="example-item">
+                <strong>Formal</strong> = serious situations (school, work,
+                offices). → Polite, no slang.
+              </div>
+              <div class="example-item">
+                <strong>Informal</strong> = relaxed situations (friends,
+                family). → Can use slang and short forms.
+              </div>
+              <div class="example-item">
+                <strong>Good conversations</strong> = ask "Why, How, For what
+                reason" to get more details.
+              </div>
+              <div class="example-item">
+                <strong>Describe experiences</strong> using correct tenses +
+                adjectives + clear details.
+              </div>
+              <div class="example-item">
+                <strong>Directions</strong> = use landmarks + clear words (left,
+                right, opposite, near).
+              </div>
+              <div class="example-item">
+                <strong>Speak well</strong> = use good voice, eye contact, and
+                body language.
+              </div>
+            </div>
+
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Final Tip
+              </div>
+              <p>
+                Good communication skills are essential for success in school
+                and in life. Practice these skills every day in different
+                situations.
+              </p>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Test Your Knowledge</div>
+            <p>
+              Match the communication situation with the appropriate
+              communication style:
+            </p>
+            <div class="input-group">
+              <select class="input-field" id="style-select">
+                <option value="">Select a situation</option>
+                <option value="a">
+                  Talking to the headteacher about a problem
+                </option>
+                <option value="b">
+                  Chatting with friends during break time
+                </option>
+                <option value="c">Asking a stranger for directions</option>
+              </select>
+              <select class="input-field" id="style-match">
+                <option value="">Select communication style</option>
+                <option value="formal">Formal</option>
+                <option value="informal">Informal</option>
+                <option value="semi-formal">Semi-formal</option>
+              </select>
+              <button class="btn" id="check-style">Check Match</button>
+            </div>
+            <div class="result" id="style-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+      // Tab navigation
+      const navTabs = document.querySelectorAll(".nav-tab");
+      const contentSections = document.querySelectorAll(".content-section");
+      navTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetTab = tab.getAttribute("data-tab");
+          // Remove active class from all tabs and sections
+          navTabs.forEach((t) => t.classList.remove("active"));
+          contentSections.forEach((s) => s.classList.remove("active"));
+          // Add active class to clicked tab and corresponding section
+          tab.classList.add("active");
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+      // Interactive elements
+      document
+        .getElementById("check-comm-type")
+        .addEventListener("click", () => {
+          const input = document.getElementById("comm-type-select").value;
+          const result = document.getElementById("comm-type-result");
+          if (input === "informal") {
+            result.textContent =
+              'Correct! "Hi teach! Can I borrow your notes for the test?" is informal communication because it uses casual language and a nickname ("teach").';
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              'Not quite. This is informal communication because it uses casual language ("Hi teach!") and a direct question without polite expressions.';
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document
+        .getElementById("check-question")
+        .addEventListener("click", () => {
+          const input = document
+            .getElementById("question-input")
+            .value.toLowerCase();
+          const result = document.getElementById("question-result");
+          // Check if the input contains appropriate question words
+          const hasQuestionWord = ["why", "how", "what", "where", "when"].some(
+            (word) => input.includes(word)
+          );
+          if (hasQuestionWord && input.includes("?")) {
+            result.textContent =
+              "Great! You've asked a meaningful follow-up question that will encourage a more detailed response.";
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              'Try asking a question with words like "Why," "How," "What," "Where," or "When" to get more details about the experience.';
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document
+        .getElementById("check-experience")
+        .addEventListener("click", () => {
+          const input = document
+            .getElementById("experience-input")
+            .value.toLowerCase();
+          const result = document.getElementById("experience-result");
+          // Check if the input contains adjectives and adverbs
+          const commonAdjectives = [
+            "exciting",
+            "boring",
+            "fun",
+            "interesting",
+            "amazing",
+            "wonderful",
+            "terrible",
+            "great",
+            "good",
+            "bad",
+            "beautiful",
+            "ugly",
+            "nice",
+          ];
+          const commonAdverbs = [
+            "quickly",
+            "slowly",
+            "carefully",
+            "happily",
+            "sadly",
+            "loudly",
+            "quietly",
+            "well",
+            "badly",
+            "really",
+            "very",
+            "extremely",
+          ];
+
+          const hasAdjectives = commonAdjectives.some((adj) =>
+            input.includes(adj)
+          );
+          const hasAdverbs = commonAdverbs.some((adv) => input.includes(adv));
+
+          if (hasAdjectives && hasAdverbs) {
+            result.textContent =
+              "Excellent! Your description includes both adjectives and adverbs to make your experience more vivid and interesting.";
+            result.style.color = "var(--success-color)";
+          } else if (hasAdjectives || hasAdverbs) {
+            result.textContent =
+              "Good start! Try to include both adjectives (describing words) and adverbs (words describing actions) to make your description more detailed.";
+            result.style.color = "var(--warning-color)";
+          } else {
+            result.textContent =
+              "Try adding descriptive words like adjectives (exciting, beautiful) and adverbs (quickly, carefully) to make your experience more vivid.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document
+        .getElementById("check-direction")
+        .addEventListener("click", () => {
+          const input = document
+            .getElementById("direction-input")
+            .value.toLowerCase();
+          const result = document.getElementById("direction-result");
+          // Check if the input contains direction words and landmarks
+          const directionWords = [
+            "left",
+            "right",
+            "straight",
+            "opposite",
+            "near",
+            "adjacent",
+            "turn",
+          ];
+          const landmarks = [
+            "market",
+            "school",
+            "church",
+            "mosque",
+            "hospital",
+            "bank",
+            "filling station",
+          ];
+
+          const hasDirections = directionWords.some((word) =>
+            input.includes(word)
+          );
+          const hasLandmarks = landmarks.some((landmark) =>
+            input.includes(landmark)
+          );
+
+          if (hasDirections && hasLandmarks) {
+            result.textContent =
+              "Excellent! Your directions include both direction words and landmarks, making them clear and easy to follow.";
+            result.style.color = "var(--success-color)";
+          } else if (hasDirections || hasLandmarks) {
+            result.textContent =
+              "Good start! Try to include both direction words (left, right, straight) and landmarks (market, church, school) to make your directions clearer.";
+            result.style.color = "var(--warning-color)";
+          } else {
+            result.textContent =
+              "Try adding direction words like 'left', 'right', 'straight', and landmarks like 'market', 'church', or 'school' to make your directions clearer.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document
+        .getElementById("check-nonverbal")
+        .addEventListener("click", () => {
+          const input = document.getElementById("nonverbal-select").value;
+          const result = document.getElementById("nonverbal-result");
+          if (input === "b") {
+            result.textContent =
+              "Correct! Nodding and maintaining eye contact shows you're paying attention and interested in the conversation.";
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Not quite. Good non-verbal communication involves showing you're paying attention through eye contact and positive body language.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document.getElementById("check-style").addEventListener("click", () => {
+        const situation = document.getElementById("style-select").value;
+        const style = document.getElementById("style-match").value;
+        const result = document.getElementById("style-result");
+
+        if (situation === "a" && style === "formal") {
+          result.textContent =
+            "Correct! Talking to the headteacher about a problem requires formal communication.";
+          result.style.color = "var(--success-color)";
+        } else if (situation === "b" && style === "informal") {
+          result.textContent =
+            "Correct! Chatting with friends during break time is informal communication.";
+          result.style.color = "var(--success-color)";
+        } else if (situation === "c" && style === "semi-formal") {
+          result.textContent =
+            "Correct! Asking a stranger for directions typically uses semi-formal communication - polite but not overly formal.";
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Not quite. Try to match the communication style to the situation. Formal for authority figures, informal with friends, and semi-formal with strangers.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JHS Science Guide - States of Matter and Periodic Table</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #2c7a7b;
+        --secondary-color: #319795;
+        --accent-color: #38b2ac;
+        --success-color: #48bb78;
+        --warning-color: #ed8936;
+        --info-color: #4299e1;
+        --error-color: #e53e3e;
+        --background-color: #f7fafc;
+        --surface-color: #edf2f7;
+        --card-color: #ffffff;
+        --text-color: #2d3748;
+        --text-secondary: #4a5568;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #e6fffa;
+        --note-bg: #fffaf0;
+        --tip-bg: #f0fff4;
+        --keyword-bg: #ebf8ff;
+      }
+      [data-theme="dark"] {
+        --background-color: #1a202c;
+        --surface-color: #2d3748;
+        --card-color: #2d3748;
+        --text-color: #f7fafc;
+        --text-secondary: #cbd5e0;
+        --border-color: #4a5568;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1a3c3d;
+        --note-bg: #3d2f1f;
+        --tip-bg: #1f3d1f;
+        --keyword-bg: #1c2f3d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .video-section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+      }
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1a3c3d, #2d5a5b);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .video-placeholder:hover {
+        background: linear-gradient(135deg, #2d5a5b, #3a797a);
+      }
+      .video-placeholder i {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+      }
+      .video-placeholder h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .video-placeholder p {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+      .video-player {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      .nav-tab {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-tab:hover {
+        background: var(--surface-color);
+      }
+      .nav-tab.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+      .content-section {
+        display: none;
+      }
+      .content-section.active {
+        display: block;
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .keyword-box {
+        background: var(--keyword-bg);
+        border-left: 4px solid var(--info-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .keyword-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--info-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .highlight {
+        background: rgba(44, 122, 123, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+      .model-instructions {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      .model-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        gap: 15px;
+      }
+      .step-number {
+        background: var(--primary-color);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .step-content {
+        flex: 1;
+      }
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .image {
+        display: block;
+        width: 100%;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(56, 178, 172, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(56, 178, 172, 0.1);
+        box-shadow: 0 4px 15px rgba(56, 178, 172, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+        .logo h1 {
+          font-size: 1.4rem;
+        }
+        .theme-toggle {
+          padding: 6px 12px;
+        }
+        .model-step {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .step-number {
+          align-self: flex-start;
+        }
+      }
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+      #drawCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* allows clicking through when not drawing */
+        z-index: 9999; /* stays above everything */
+      }
+      .matter-states {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .matter-state {
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+        background: var(--surface-color);
+        width: 30%;
+        min-width: 200px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+      .matter-state:hover {
+        transform: translateY(-5px);
+      }
+      .matter-icon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      .solid-icon {
+        color: var(--error-color);
+      }
+      .liquid-icon {
+        color: var(--info-color);
+      }
+      .gas-icon {
+        color: var(--warning-color);
+      }
+      .periodic-table {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        margin: 20px 0;
+      }
+      .element {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+      .element:hover {
+        transform: scale(1.05);
+        background: var(--primary-color);
+        color: white;
+      }
+      .element-symbol {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      .element-number {
+        font-size: 0.8rem;
+        opacity: 0.7;
+      }
+      .element-name {
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item active"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../English/english.html"
+            class="nav-item"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Contact/index.html"
+            class="nav-item"
+            data-subject="contact"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #f00; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <i class="fas fa-graduation-cap"></i> EduHub
+        </div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a
+          href="../English/english.html"
+          class="mobile-nav-item"
+          data-subject="english"
+          >English</a
+        >
+        <a
+          href="../Maths/maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+        >
+          Mathematics
+        </a>
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="../External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #f00; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-atom"></i>
+          <h1>JHS Science Guide - States of Matter and Periodic Table</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+      <div class="video-section">
+        <h2 class="section-title">
+          <i class="fas fa-play-circle"></i>
+          States of Matter Tutorial
+        </h2>
+        <div class="video-container">
+          <div class="video-placeholder" id="video-placeholder">
+            <i class="fas fa-play-circle"></i>
+            <h3>Click to Play Video</h3>
+            <p>Introduction to States of Matter and Periodic Table</p>
+          </div>
+          <video class="video-player" id="video-player" controls>
+            <source src="../External Files/matter.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="states-of-matter">
+          <i class="fas fa-cube"></i>
+          <span>States of Matter</span>
+        </div>
+        <div class="nav-tab" data-tab="liquids">
+          <i class="fas fa-tint"></i>
+          <span>Importance of Liquids</span>
+        </div>
+        <div class="nav-tab" data-tab="solids">
+          <i class="fas fa-cube"></i>
+          <span>Importance of Solids</span>
+        </div>
+        <div class="nav-tab" data-tab="periodic-table">
+          <i class="fas fa-table"></i>
+          <span>Periodic Table</span>
+        </div>
+        <div class="nav-tab" data-tab="summary">
+          <i class="fas fa-bookmark"></i>
+          <span>Summary</span>
+        </div>
+      </div>
+
+      <!-- States of Matter Section -->
+      <div class="content-section active" id="states-of-matter">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-cube"></i>
+            Classifying Materials into Liquids, Solids and Gases
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">What are the States of Matter?</h3>
+            <div class="content">
+              <p>
+                All materials around us exist in three main states of matter:
+                solid, liquid, and gas.
+              </p>
+
+              <div class="matter-states">
+                <div class="matter-state">
+                  <div class="matter-icon solid-icon">
+                    <i class="fas fa-cube"></i>
+                  </div>
+                  <h4>Solids</h4>
+                  <p>Fixed shape and volume</p>
+                </div>
+                <div class="matter-state">
+                  <div class="matter-icon liquid-icon">
+                    <i class="fas fa-tint"></i>
+                  </div>
+                  <h4>Liquids</h4>
+                  <p>Fixed volume, no fixed shape</p>
+                </div>
+                <div class="matter-state">
+                  <div class="matter-icon gas-icon">
+                    <i class="fas fa-wind"></i>
+                  </div>
+                  <h4>Gases</h4>
+                  <p>No fixed shape or volume</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Characteristics of Solids</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Characteristics
+                </div>
+                <div class="example-item">
+                  Have a fixed shape and fixed volume
+                </div>
+                <div class="example-item">
+                  Cannot be easily compressed (squeezed)
+                </div>
+                <div class="example-item">
+                  Particles are packed closely together
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Examples of Solids:</div>
+                <div class="example-item">
+                  Stone, wood, chalk, books, desks, iron, glass, plastic bottle,
+                  shoe, phone
+                </div>
+                <div class="example-item">
+                  Natural solids: cocoa pod, yam, maize, salt, sugar
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Characteristics of Liquids</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Characteristics
+                </div>
+                <div class="example-item">
+                  Have a fixed volume but no fixed shape (take the shape of
+                  their container)
+                </div>
+                <div class="example-item">
+                  Can flow from one place to another
+                </div>
+                <div class="example-item">Cannot be easily compressed</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Examples of Liquids:</div>
+                <div class="example-item">
+                  Water, milk, cooking oil, blood, kerosene, soup, palm wine,
+                  juice
+                </div>
+                <div class="example-item">
+                  Natural liquids: coconut water, honey, rainwater
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Characteristics of Gases</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Characteristics
+                </div>
+                <div class="example-item">
+                  Have no fixed shape and no fixed volume
+                </div>
+                <div class="example-item">Can spread out to fill any space</div>
+                <div class="example-item">
+                  Can be compressed (squeezed into smaller volume)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Examples of Gases:</div>
+                <div class="example-item">
+                  Oxygen (O₂), carbon dioxide (CO₂), nitrogen, cooking gas
+                  (LPG), smoke, air in balloons, steam from boiling water
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Simple Classroom Activity</h3>
+            <div class="content">
+              <p>Create a table like this to classify different materials:</p>
+
+              <table class="table">
+                <tr>
+                  <th>Material</th>
+                  <th>State of Matter</th>
+                  <th>Colour</th>
+                  <th>Texture</th>
+                  <th>Shape/Appearance</th>
+                </tr>
+                <tr>
+                  <td>Stone</td>
+                  <td>Solid</td>
+                  <td>Grey</td>
+                  <td>Rough</td>
+                  <td>Fixed</td>
+                </tr>
+                <tr>
+                  <td>Water</td>
+                  <td>Liquid</td>
+                  <td>Colourless</td>
+                  <td>Smooth</td>
+                  <td>Takes container</td>
+                </tr>
+                <tr>
+                  <td>Air in balloon</td>
+                  <td>Gas</td>
+                  <td>Invisible</td>
+                  <td>Light</td>
+                  <td>Expands</td>
+                </tr>
+              </table>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Bring real examples of solids, liquids, and gases to class for
+                  students to observe and classify. This hands-on approach helps
+                  students better understand the characteristics of each state
+                  of matter.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Classify the following materials as solid, liquid, or gas:</p>
+            <div class="input-group">
+              <select class="input-field" id="matter-select">
+                <option value="">Select a material</option>
+                <option value="milk">Milk</option>
+                <option value="wood">Wood</option>
+                <option value="oxygen">Oxygen</option>
+                <option value="juice">Juice</option>
+                <option value="iron">Iron</option>
+                <option value="steam">Steam</option>
+              </select>
+              <button class="btn" id="check-matter">Check State</button>
+            </div>
+            <div class="result" id="matter-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Importance of Liquids Section -->
+      <div class="content-section" id="liquids">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-tint"></i>
+            Importance of Liquids in Human Life
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Why Liquids are Important</h3>
+            <div class="content">
+              <p>Liquids are very important because they:</p>
+
+              <div class="example">
+                <div class="example-title">Key Functions of Liquids:</div>
+                <div class="example-item">
+                  <strong>Help in survival</strong> – water for drinking
+                </div>
+                <div class="example-item">
+                  <strong>Used in cooking</strong> – oil, soup, milk
+                </div>
+                <div class="example-item">
+                  <strong>Transport</strong> – petrol, diesel for cars, kerosene
+                  for lamps
+                </div>
+                <div class="example-item">
+                  <strong>Medicine</strong> – syrups and injections are liquid
+                  forms
+                </div>
+                <div class="example-item">
+                  <strong>Body functions</strong> – blood transports oxygen and
+                  nutrients
+                </div>
+                <div class="example-item">
+                  <strong>Cleaning</strong> – water is used for bathing, washing
+                  clothes, and cleaning homes
+                </div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Discuss with students how their daily lives would be different
+                  without liquids. This helps them appreciate the importance of
+                  liquids in everyday life.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Examples of Liquids in Daily Life</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">At Home:</div>
+                <div class="example-item">
+                  Water – for drinking, cooking, cleaning
+                </div>
+                <div class="example-item">Oil – for cooking, frying</div>
+                <div class="example-item">
+                  Milk – for drinking, making tea, cooking
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">In School:</div>
+                <div class="example-item">Ink – for writing</div>
+                <div class="example-item">Sanitizer – for cleaning hands</div>
+                <div class="example-item">Water – for drinking, cleaning</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">In the Community:</div>
+                <div class="example-item">Petrol – for cars, motorcycles</div>
+                <div class="example-item">
+                  Palm wine – for local ceremonies and drinks
+                </div>
+                <div class="example-item">Liquid soap – for cleaning</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the liquid to its use:</p>
+            <div class="input-group">
+              <select class="input-field" id="liquid-select">
+                <option value="">Select a liquid</option>
+                <option value="water">Water</option>
+                <option value="petrol">Petrol</option>
+                <option value="milk">Milk</option>
+                <option value="medicine">Medicine</option>
+              </select>
+              <button class="btn" id="check-liquid">Check Use</button>
+            </div>
+            <div class="result" id="liquid-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Importance of Solids Section -->
+      <div class="content-section" id="solids">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-cube"></i>
+            Importance of Specific Solids in Life
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Why Solids are Important</h3>
+            <div class="content">
+              <p>Solids are equally useful because they:</p>
+
+              <div class="example">
+                <div class="example-title">Key Functions of Solids:</div>
+                <div class="example-item">
+                  <strong>Provide shelter and tools</strong> – wood for
+                  building, iron for machines, cement for houses
+                </div>
+                <div class="example-item">
+                  <strong>Food</strong> – yam, maize, rice, groundnuts
+                </div>
+                <div class="example-item">
+                  <strong>Transport</strong> – car tyres (rubber), metals for
+                  car parts
+                </div>
+                <div class="example-item">
+                  <strong>Storage</strong> – plastic containers, glass bottles
+                </div>
+                <div class="example-item">
+                  <strong>Health</strong> – chalk (calcium carbonate), salt
+                  (sodium chloride)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Examples of Useful Solids</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">
+                  Salt → gives taste and helps preserve food
+                </div>
+                <p>
+                  Salt is used in cooking to make food taste better. It also
+                  helps preserve food by preventing the growth of bacteria.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Charcoal → used for cooking</div>
+                <p>
+                  Charcoal is used as fuel for cooking, especially in areas
+                  where gas or electricity is not available.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">
+                  Metals (iron, aluminium, copper) → used in construction and
+                  electricity
+                </div>
+                <p>
+                  Iron is used for building structures and making tools.
+                  Aluminium is used for making pots, pans, and window frames.
+                  Copper is used for electrical wires.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">
+                  Rubber → used for shoes, tyres, buckets
+                </div>
+                <p>
+                  Rubber is flexible and waterproof, making it ideal for shoes,
+                  car tyres, and buckets.
+                </p>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Bring different solid objects to class and discuss their uses.
+                  Encourage students to think about how their lives would be
+                  different without these important solids.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the solid to its use:</p>
+            <div class="input-group">
+              <select class="input-field" id="solid-select">
+                <option value="">Select a solid</option>
+                <option value="wood">Wood</option>
+                <option value="iron">Iron</option>
+                <option value="salt">Salt</option>
+                <option value="rubber">Rubber</option>
+              </select>
+              <button class="btn" id="check-solid">Check Use</button>
+            </div>
+            <div class="result" id="solid-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Periodic Table Section -->
+      <div class="content-section" id="periodic-table">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-table"></i>
+            The Periodic Table – Arrangement of Elements
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">What is the Periodic Table?</h3>
+            <div class="content">
+              <p>
+                The periodic table is a scientific chart that shows all the
+                elements in the world.
+              </p>
+
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Key Facts
+                </div>
+                <div class="example-item">
+                  It has metals, non-metals, and noble gases
+                </div>
+                <div class="example-item">
+                  Elements are arranged in order of their atomic number
+                  (smallest particle number)
+                </div>
+                <div class="example-item">
+                  Elements in the same group (vertical column) have similar
+                  properties
+                </div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Show students a large periodic table chart and point out the
+                  patterns. Explain how elements in the same group have similar
+                  properties and how the table is organized.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">The First 20 Elements</h3>
+            <div class="content">
+              <p>Here are the first 20 elements with their symbols:</p>
+
+              <div class="periodic-table">
+                <div class="element">
+                  <div class="element-number">1</div>
+                  <div class="element-symbol">H</div>
+                  <div class="element-name">Hydrogen</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">2</div>
+                  <div class="element-symbol">He</div>
+                  <div class="element-name">Helium</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">3</div>
+                  <div class="element-symbol">Li</div>
+                  <div class="element-name">Lithium</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">4</div>
+                  <div class="element-symbol">Be</div>
+                  <div class="element-name">Beryllium</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">5</div>
+                  <div class="element-symbol">B</div>
+                  <div class="element-name">Boron</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">6</div>
+                  <div class="element-symbol">C</div>
+                  <div class="element-name">Carbon</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">7</div>
+                  <div class="element-symbol">N</div>
+                  <div class="element-name">Nitrogen</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">8</div>
+                  <div class="element-symbol">O</div>
+                  <div class="element-name">Oxygen</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">9</div>
+                  <div class="element-symbol">F</div>
+                  <div class="element-name">Fluorine</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">10</div>
+                  <div class="element-symbol">Ne</div>
+                  <div class="element-name">Neon</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">11</div>
+                  <div class="element-symbol">Na</div>
+                  <div class="element-name">Sodium</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">12</div>
+                  <div class="element-symbol">Mg</div>
+                  <div class="element-name">Magnesium</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">13</div>
+                  <div class="element-symbol">Al</div>
+                  <div class="element-name">Aluminium</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">14</div>
+                  <div class="element-symbol">Si</div>
+                  <div class="element-name">Silicon</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">15</div>
+                  <div class="element-symbol">P</div>
+                  <div class="element-name">Phosphorus</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">16</div>
+                  <div class="element-symbol">S</div>
+                  <div class="element-name">Sulphur</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">17</div>
+                  <div class="element-symbol">Cl</div>
+                  <div class="element-name">Chlorine</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">18</div>
+                  <div class="element-symbol">Ar</div>
+                  <div class="element-name">Argon</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">19</div>
+                  <div class="element-symbol">K</div>
+                  <div class="element-name">Potassium</div>
+                </div>
+                <div class="element">
+                  <div class="element-number">20</div>
+                  <div class="element-symbol">Ca</div>
+                  <div class="element-name">Calcium</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Types of Elements</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Metals:</div>
+                <div class="example-item">
+                  Sodium (Na), Magnesium (Mg), Aluminium (Al), Potassium (K),
+                  Calcium (Ca)
+                </div>
+                <p>
+                  Metals are typically shiny, good conductors of heat and
+                  electricity, and can be hammered into thin sheets or drawn
+                  into wires.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Non-Metals:</div>
+                <div class="example-item">
+                  Hydrogen (H), Carbon (C), Nitrogen (N), Oxygen (O), Sulphur
+                  (S), Phosphorus (P)
+                </div>
+                <p>
+                  Non-metals are typically not shiny, poor conductors of heat
+                  and electricity, and cannot be hammered into sheets or drawn
+                  into wires.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Noble Gases (inactive gases):</div>
+                <div class="example-item">
+                  Helium (He), Neon (Ne), Argon (Ar)
+                </div>
+                <p>
+                  Noble gases are called "inactive" because they rarely react
+                  with other elements. They are used in lighting and balloons.
+                </p>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Use mnemonics to help students remember the first 20 elements.
+                  For example: "Happy Henry Likes Beer But Could Not Offer Full
+                  Nudges, Naughty Maggie Always Sings Poorly, Clumsy Arnold
+                  Kisses Cathy."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>
+              Classify the following element as metal, non-metal, or noble gas:
+            </p>
+            <div class="input-group">
+              <select class="input-field" id="element-select">
+                <option value="">Select an element</option>
+                <option value="sodium">Sodium (Na)</option>
+                <option value="carbon">Carbon (C)</option>
+                <option value="neon">Neon (Ne)</option>
+                <option value="oxygen">Oxygen (O)</option>
+                <option value="aluminium">Aluminium (Al)</option>
+                <option value="argon">Argon (Ar)</option>
+              </select>
+              <button class="btn" id="check-element">Check Type</button>
+            </div>
+            <div class="result" id="element-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="content-section" id="summary">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-bookmark"></i>
+            Quick Recall Summary
+          </h2>
+
+          <div class="content">
+            <div class="keyword-box">
+              <div class="keyword-title">
+                <i class="fas fa-key"></i>
+                Key Points to Remember
+              </div>
+              <div class="example-item"><strong>States of Matter:</strong></div>
+              <div class="example-item">
+                Solid = fixed shape and volume (stone, salt)
+              </div>
+              <div class="example-item">
+                Liquid = fixed volume, no fixed shape (water, oil)
+              </div>
+              <div class="example-item">
+                Gas = no fixed shape, no fixed volume (air, steam)
+              </div>
+
+              <div class="example-item">
+                <strong>Importance of Liquids:</strong> drinking, cooking,
+                transport, medicine, cleaning
+              </div>
+
+              <div class="example-item">
+                <strong>Importance of Solids:</strong> building, food, machines,
+                storage, health
+              </div>
+
+              <div class="example-item"><strong>Periodic Table:</strong></div>
+              <div class="example-item">
+                First 20 elements → know their names and symbols
+              </div>
+              <div class="example-item">
+                Metals (Na, Mg, Al), Non-metals (H, C, O), Noble gases (He, Ne,
+                Ar)
+              </div>
+            </div>
+
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Final Tip
+              </div>
+              <p>
+                Understanding the states of matter and the periodic table is
+                fundamental to science. These concepts help us understand the
+                world around us and how materials behave in different
+                conditions.
+              </p>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Test Your Knowledge</div>
+            <p>Which state of matter has a fixed shape and fixed volume?</p>
+            <div class="input-group">
+              <select class="input-field" id="state-select">
+                <option value="">Select your answer</option>
+                <option value="solid">Solid</option>
+                <option value="liquid">Liquid</option>
+                <option value="gas">Gas</option>
+              </select>
+              <button class="btn" id="check-state">Check Answer</button>
+            </div>
+            <div class="result" id="state-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+    <canvas id="drawCanvas"></canvas>
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+      // Video player functionality
+      const videoPlaceholder = document.getElementById("video-placeholder");
+      const videoPlayer = document.getElementById("video-player");
+      videoPlaceholder.addEventListener("click", () => {
+        videoPlaceholder.style.display = "none";
+        videoPlayer.style.display = "block";
+        videoPlayer.play();
+      });
+      // Tab navigation
+      const navTabs = document.querySelectorAll(".nav-tab");
+      const contentSections = document.querySelectorAll(".content-section");
+      navTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetTab = tab.getAttribute("data-tab");
+          // Remove active class from all tabs and sections
+          navTabs.forEach((t) => t.classList.remove("active"));
+          contentSections.forEach((s) => s.classList.remove("active"));
+          // Add active class to clicked tab and corresponding section
+          tab.classList.add("active");
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+      // Interactive elements
+      document.getElementById("check-matter").addEventListener("click", () => {
+        const input = document.getElementById("matter-select").value;
+        const result = document.getElementById("matter-result");
+        const states = {
+          milk: "Liquid",
+          wood: "Solid",
+          oxygen: "Gas",
+          juice: "Liquid",
+          iron: "Solid",
+          steam: "Gas",
+        };
+        if (states[input]) {
+          result.textContent = `Correct! ${
+            input.charAt(0).toUpperCase() + input.slice(1)
+          } is a ${states[input]}.`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Please select a material to check its state of matter.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-liquid").addEventListener("click", () => {
+        const input = document.getElementById("liquid-select").value;
+        const result = document.getElementById("liquid-result");
+        const uses = {
+          water: "Used for drinking, cooking, cleaning, and bathing.",
+          petrol: "Used as fuel for cars, motorcycles, and generators.",
+          milk: "Used for drinking, making tea, and cooking.",
+          medicine: "Used for treating illnesses and maintaining health.",
+        };
+        if (uses[input]) {
+          result.textContent = `Correct! ${
+            input.charAt(0).toUpperCase() + input.slice(1)
+          } is ${uses[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select a liquid to check its use.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-solid").addEventListener("click", () => {
+        const input = document.getElementById("solid-select").value;
+        const result = document.getElementById("solid-result");
+        const uses = {
+          wood: "Used for building houses, making furniture, and as fuel.",
+          iron: "Used for construction, making tools, and in car manufacturing.",
+          salt: "Used for cooking, preserving food, and for taste.",
+          rubber:
+            "Used for making shoes, tyres, buckets, and other waterproof items.",
+        };
+        if (uses[input]) {
+          result.textContent = `Correct! ${
+            input.charAt(0).toUpperCase() + input.slice(1)
+          } is ${uses[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select a solid to check its use.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-element").addEventListener("click", () => {
+        const input = document.getElementById("element-select").value;
+        const result = document.getElementById("element-result");
+        const types = {
+          sodium:
+            "Metal - Shiny, good conductor of heat and electricity, used in compounds like table salt.",
+          carbon:
+            "Non-metal - Found in all living things, used in pencils (graphite) and diamonds.",
+          neon: "Noble Gas - Used in lighting signs and balloons because it doesn't react with other elements.",
+          oxygen:
+            "Non-metal - Essential for breathing and burning, makes up about 21% of air.",
+          aluminium:
+            "Metal - Lightweight, doesn't rust, used in cans, window frames, and aircraft.",
+          argon:
+            "Noble Gas - Used in light bulbs to prevent the filament from burning out.",
+        };
+        if (types[input]) {
+          result.textContent = `Correct! ${
+            input.charAt(0).toUpperCase() + input.slice(1)
+          } is a ${types[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select an element to check its type.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-state").addEventListener("click", () => {
+        const input = document.getElementById("state-select").value;
+        const result = document.getElementById("state-result");
+        if (input === "solid") {
+          result.textContent =
+            "Correct! Solids have both a fixed shape and a fixed volume. Examples include stone, wood, and salt.";
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Not quite. Solids have both a fixed shape and a fixed volume. Liquids have a fixed volume but no fixed shape, while gases have neither fixed shape nor volume.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      // Canvas drawing functionality
+      const canvas = document.getElementById("drawCanvas");
+      const ctx = canvas.getContext("2d");
+      // Adjust canvas size
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+      let drawing = false;
+      canvas.addEventListener("mousedown", (e) => {
+        drawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY);
+      });
+      canvas.addEventListener("mousemove", (e) => {
+        if (!drawing) return;
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "red";
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.stroke();
+      });
+      canvas.addEventListener("mouseup", () => {
+        drawing = false;
+      });
+      // Toggle drawing mode with "D" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "d" || e.key === "D") {
+          if (canvas.style.pointerEvents === "none") {
+            canvas.style.pointerEvents = "auto"; // enable drawing
+          } else {
+            canvas.style.pointerEvents = "none"; // disable drawing
+          }
+        }
+      });
+      // Clear screen with "C" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "c" || e.key === "C") {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      });
+    </script>
+  </body>
+</html>
