@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JHS Science Guide - Agricultural Science: Crop Production</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #2c7a7b;
+        --secondary-color: #319795;
+        --accent-color: #38b2ac;
+        --success-color: #48bb78;
+        --warning-color: #ed8936;
+        --info-color: #4299e1;
+        --error-color: #e53e3e;
+        --background-color: #f7fafc;
+        --surface-color: #edf2f7;
+        --card-color: #ffffff;
+        --text-color: #2d3748;
+        --text-secondary: #4a5568;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #e6fffa;
+        --note-bg: #fffaf0;
+        --tip-bg: #f0fff4;
+        --keyword-bg: #ebf8ff;
+      }
+      [data-theme="dark"] {
+        --background-color: #1a202c;
+        --surface-color: #2d3748;
+        --card-color: #2d3748;
+        --text-color: #f7fafc;
+        --text-secondary: #cbd5e0;
+        --border-color: #4a5568;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1a3c3d;
+        --note-bg: #3d2f1f;
+        --tip-bg: #1f3d1f;
+        --keyword-bg: #1c2f3d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .video-section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+      }
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1a3c3d, #2d5a5b);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .video-placeholder:hover {
+        background: linear-gradient(135deg, #2d5a5b, #3a797a);
+      }
+      .video-placeholder i {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+      }
+      .video-placeholder h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .video-placeholder p {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+      .video-player {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      .nav-tab {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-tab:hover {
+        background: var(--surface-color);
+      }
+      .nav-tab.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+      .content-section {
+        display: none;
+      }
+      .content-section.active {
+        display: block;
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .keyword-box {
+        background: var(--keyword-bg);
+        border-left: 4px solid var(--info-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .keyword-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--info-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .highlight {
+        background: rgba(44, 122, 123, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+      .model-instructions {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      .model-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        gap: 15px;
+      }
+      .step-number {
+        background: var(--primary-color);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .step-content {
+        flex: 1;
+      }
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .image {
+        display: block;
+        width: 100%;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(56, 178, 172, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(56, 178, 172, 0.1);
+        box-shadow: 0 4px 15px rgba(56, 178, 172, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+        .logo h1 {
+          font-size: 1.4rem;
+        }
+        .theme-toggle {
+          padding: 6px 12px;
+        }
+        .model-step {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .step-number {
+          align-self: flex-start;
+        }
+      }
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+      #drawCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* allows clicking through when not drawing */
+        z-index: 9999; /* stays above everything */
+      }
+      .fertilizer-types {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .fertilizer-type {
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+        background: var(--surface-color);
+        width: 45%;
+        min-width: 200px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+      .fertilizer-type:hover {
+        transform: translateY(-5px);
+      }
+      .fertilizer-icon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      .organic-icon {
+        color: var(--success-color);
+      }
+      .inorganic-icon {
+        color: var(--info-color);
+      }
+      .plant-types {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .plant-type {
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+        background: var(--surface-color);
+        width: 30%;
+        min-width: 200px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+      .plant-type:hover {
+        transform: translateY(-5px);
+      }
+      .plant-icon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      .vegetable-icon {
+        color: var(--success-color);
+      }
+      .fruit-icon {
+        color: var(--warning-color);
+      }
+      .root-icon {
+        color: var(--error-color);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item active"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../English/english.html"
+            class="nav-item"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Contact/index.html"
+            class="nav-item"
+            data-subject="contact"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #f00; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <i class="fas fa-graduation-cap"></i> EduHub
+        </div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a
+          href="../English/english.html"
+          class="mobile-nav-item"
+          data-subject="english"
+          >English</a
+        >
+        <a
+          href="../Maths/maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+        >
+          Mathematics
+        </a>
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="../External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #f00; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-seedling"></i>
+          <h1>JHS Science Guide - Agricultural Science: Crop Production</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+      <div class="video-section">
+        <h2 class="section-title">
+          <i class="fas fa-play-circle"></i>
+          Plant Nutrients Tutorial
+        </h2>
+        <div class="video-container">
+          <div class="video-placeholder" id="video-placeholder">
+            <i class="fas fa-play-circle"></i>
+            <h3>Click to Play Video</h3>
+            <p>Introduction to Organic and Inorganic Fertilizers</p>
+          </div>
+          <video class="video-player" id="video-player" controls>
+            <source src="../External Files/fertilizers.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="sources">
+          <i class="fas fa-flask"></i>
+          <span>Sources of Nutrients</span>
+        </div>
+        <div class="nav-tab" data-tab="differences">
+          <i class="fas fa-balance-scale"></i>
+          <span>Differences</span>
+        </div>
+        <div class="nav-tab" data-tab="needs">
+          <i class="fas fa-leaf"></i>
+          <span>Plant Nutrient Needs</span>
+        </div>
+        <div class="nav-tab" data-tab="characteristics">
+          <i class="fas fa-microscope"></i>
+          <span>Characteristics</span>
+        </div>
+        <div class="nav-tab" data-tab="application">
+          <i class="fas fa-spray-can"></i>
+          <span>Application</span>
+        </div>
+        <div class="nav-tab" data-tab="practical">
+          <i class="fas fa-hands-helping"></i>
+          <span>Practical Work</span>
+        </div>
+        <div class="nav-tab" data-tab="summary">
+          <i class="fas fa-bookmark"></i>
+          <span>Summary</span>
+        </div>
+      </div>
+
+      <!-- Sources of Plant Nutrients Section -->
+      <div class="content-section active" id="sources">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-flask"></i>
+            Sources of Plant Nutrients
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Introduction to Plant Nutrients</h3>
+            <div class="content">
+              <p>
+                Plants need nutrients to grow well, just like humans need food.
+                Nutrients for plants come from two main sources:
+              </p>
+
+              <div class="fertilizer-types">
+                <div class="fertilizer-type">
+                  <div class="fertilizer-icon organic-icon">
+                    <i class="fas fa-leaf"></i>
+                  </div>
+                  <h4>Organic Nutrients</h4>
+                  <p>From natural sources</p>
+                </div>
+                <div class="fertilizer-type">
+                  <div class="fertilizer-icon inorganic-icon">
+                    <i class="fas fa-vial"></i>
+                  </div>
+                  <h4>Inorganic Nutrients</h4>
+                  <p>Manufactured chemicals</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Organic Nutrients</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What are Organic Nutrients?
+                </div>
+                <p>
+                  Organic nutrients come from living things. They are natural
+                  materials that provide essential elements for plant growth.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Examples of Organic Nutrients:</div>
+                <div class="example-item">
+                  <strong>Animal manure</strong> – cow dung, poultry droppings,
+                  goat droppings
+                </div>
+                <div class="example-item">
+                  <strong>Compost</strong> – rotted leaves, kitchen waste, plant
+                  residues
+                </div>
+                <div class="example-item">
+                  <strong>Green manure</strong> – fresh plants buried in soil
+                </div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Bring samples of different organic fertilizers to class for
+                  students to observe and compare. Discuss how each is made and
+                  its benefits for plants.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Inorganic Nutrients</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What are Inorganic Nutrients?
+                </div>
+                <p>
+                  Inorganic nutrients are manufactured in factories. They are
+                  chemical fertilizers that provide specific nutrients to
+                  plants.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">
+                  Examples of Inorganic Nutrients:
+                </div>
+                <div class="example-item"><strong>NPK fertilizer</strong></div>
+                <div class="example-item">
+                  <strong>Ammonium sulphate</strong>
+                </div>
+                <div class="example-item"><strong>Urea</strong></div>
+                <div class="example-item">
+                  <strong>Potassium nitrate</strong>
+                </div>
+              </div>
+
+              <div class="note">
+                <div class="note-title">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Important Note
+                </div>
+                <p>
+                  Inorganic fertilizers are concentrated and should be used
+                  carefully according to instructions. Overuse can harm plants
+                  and the environment.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Classify the following as organic or inorganic nutrients:</p>
+            <div class="input-group">
+              <select class="input-field" id="nutrient-select">
+                <option value="">Select a nutrient source</option>
+                <option value="cow-dung">Cow dung</option>
+                <option value="npk">NPK fertilizer</option>
+                <option value="compost">Compost</option>
+                <option value="urea">Urea</option>
+                <option value="poultry-droppings">Poultry droppings</option>
+                <option value="potassium-nitrate">Potassium nitrate</option>
+              </select>
+              <button class="btn" id="check-nutrient">Check Type</button>
+            </div>
+            <div class="result" id="nutrient-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Differences Between Organic and Inorganic Nutrients Section -->
+      <div class="content-section" id="differences">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-balance-scale"></i>
+            Differences Between Organic and Inorganic Nutrients
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Comparison Table</h3>
+            <div class="content">
+              <table class="table">
+                <tr>
+                  <th>Feature</th>
+                  <th>Organic Nutrients</th>
+                  <th>Inorganic Nutrients</th>
+                </tr>
+                <tr>
+                  <td>Source</td>
+                  <td>Natural (plants, animals, waste)</td>
+                  <td>Manufactured in factories</td>
+                </tr>
+                <tr>
+                  <td>Nutrient release</td>
+                  <td>Slow, over a long time</td>
+                  <td>Quick, immediate</td>
+                </tr>
+                <tr>
+                  <td>Cost</td>
+                  <td>Cheap, can be made locally</td>
+                  <td>Expensive, must be bought</td>
+                </tr>
+                <tr>
+                  <td>Effect on soil</td>
+                  <td>Improves soil structure and fertility</td>
+                  <td>May damage soil if used too much</td>
+                </tr>
+                <tr>
+                  <td>Example</td>
+                  <td>Manure, compost, green manure</td>
+                  <td>NPK, Urea, Ammonium sulphate</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Advantages and Disadvantages</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Organic Nutrients</div>
+                <div class="example-item">
+                  <strong>Advantages:</strong>
+                  <ul>
+                    <li>Improves soil structure</li>
+                    <li>Increases water-holding capacity</li>
+                    <li>Releases nutrients slowly</li>
+                    <li>Environmentally friendly</li>
+                    <li>Can be made locally at low cost</li>
+                  </ul>
+                </div>
+                <div class="example-item">
+                  <strong>Disadvantages:</strong>
+                  <ul>
+                    <li>Bulky and difficult to transport</li>
+                    <li>Nutrient content is lower</li>
+                    <li>Slower to show results</li>
+                    <li>May contain weed seeds or pathogens</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Inorganic Nutrients</div>
+                <div class="example-item">
+                  <strong>Advantages:</strong>
+                  <ul>
+                    <li>High nutrient content</li>
+                    <li>Quick results</li>
+                    <li>Easy to transport and apply</li>
+                    <li>Specific nutrient ratios available</li>
+                  </ul>
+                </div>
+                <div class="example-item">
+                  <strong>Disadvantages:</strong>
+                  <ul>
+                    <li>Expensive</li>
+                    <li>Can damage soil structure over time</li>
+                    <li>May cause environmental pollution</li>
+                    <li>Requires careful application</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the characteristic to the type of nutrient:</p>
+            <div class="input-group">
+              <select class="input-field" id="characteristic-select">
+                <option value="">Select a characteristic</option>
+                <option value="slow-release">Slow release of nutrients</option>
+                <option value="quick-results">Quick results</option>
+                <option value="improves-soil">Improves soil structure</option>
+                <option value="high-concentration">
+                  High nutrient concentration
+                </option>
+              </select>
+              <button class="btn" id="check-characteristic">Check Type</button>
+            </div>
+            <div class="result" id="characteristic-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nutrient Needs of Different Plants Section -->
+      <div class="content-section" id="needs">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-leaf"></i>
+            Nutrient Needs of Different Plants
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              Plant-Specific Nutrient Requirements
+            </h3>
+            <div class="content">
+              <p>
+                Different plants have different nutrient needs based on their
+                growth patterns and the parts we harvest.
+              </p>
+
+              <div class="plant-types">
+                <div class="plant-type">
+                  <div class="plant-icon vegetable-icon">
+                    <i class="fas fa-carrot"></i>
+                  </div>
+                  <h4>Vegetables</h4>
+                  <p>Need more nitrogen for leaf growth</p>
+                </div>
+                <div class="plant-type">
+                  <div class="plant-icon fruit-icon">
+                    <i class="fas fa-apple-alt"></i>
+                  </div>
+                  <h4>Fruit Crops</h4>
+                  <p>Need more potassium for flowering and fruiting</p>
+                </div>
+                <div class="plant-type">
+                  <div class="plant-icon root-icon">
+                    <i class="fas fa-seedling"></i>
+                  </div>
+                  <h4>Root/Tuber Crops</h4>
+                  <p>Need phosphorus for root development</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Examples and Nutrient Requirements</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Vegetables</div>
+                <div class="example-item">
+                  <strong>Examples:</strong> lettuce, cabbage, tomatoes
+                </div>
+                <div class="example-item">
+                  <strong>Nutrient Need:</strong> High nitrogen (N) for leaf
+                  development
+                </div>
+                <div class="example-item">
+                  <strong>Reason:</strong> Leaves are the main harvested part,
+                  so plants need plenty of nitrogen to produce lush, green
+                  foliage
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Fruit Crops</div>
+                <div class="example-item">
+                  <strong>Examples:</strong> mango, orange, pawpaw
+                </div>
+                <div class="example-item">
+                  <strong>Nutrient Need:</strong> High potassium (K) for
+                  flowering and fruiting
+                </div>
+                <div class="example-item">
+                  <strong>Reason:</strong> Potassium helps with flower
+                  formation, fruit development, and disease resistance
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Root/Tuber Crops</div>
+                <div class="example-item">
+                  <strong>Examples:</strong> yam, cassava, carrots
+                </div>
+                <div class="example-item">
+                  <strong>Nutrient Need:</strong> High phosphorus (P) for root
+                  development
+                </div>
+                <div class="example-item">
+                  <strong>Reason:</strong> Phosphorus promotes strong root
+                  growth and helps plants store energy in their roots
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Volume Considerations</h3>
+            <div class="content">
+              <div class="note">
+                <div class="note-title">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Important Note
+                </div>
+                <p>
+                  Sometimes organic fertilizers are bulky, so large amounts are
+                  needed to provide sufficient nutrients. Inorganic fertilizers
+                  are smaller in volume but richer in nutrients.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Volume Comparison</div>
+                <div class="example-item">
+                  <strong>Organic:</strong> May need 5-10 kg of compost per
+                  square meter
+                </div>
+                <div class="example-item">
+                  <strong>Inorganic:</strong> May need only 100-200 grams of NPK
+                  per square meter
+                </div>
+                <div class="example-item">
+                  <strong>Consideration:</strong> While inorganic fertilizers
+                  require less volume, they must be applied more carefully to
+                  avoid over-fertilization
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the plant type to its primary nutrient need:</p>
+            <div class="input-group">
+              <select class="input-field" id="plant-select">
+                <option value="">Select a plant type</option>
+                <option value="cabbage">Cabbage</option>
+                <option value="mango">Mango</option>
+                <option value="cassava">Cassava</option>
+                <option value="tomato">Tomato</option>
+                <option value="carrot">Carrot</option>
+                <option value="orange">Orange</option>
+              </select>
+              <button class="btn" id="check-plant">Check Nutrient</button>
+            </div>
+            <div class="result" id="plant-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Physical Characteristics of Plant Nutrients Section -->
+      <div class="content-section" id="characteristics">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-microscope"></i>
+            Physical Characteristics of Plant Nutrients
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Organic Nutrients</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Appearance</div>
+                <div class="example-item">
+                  Look like rotted leaves, animal droppings, or soil-like
+                  compost
+                </div>
+                <div class="example-item">
+                  Bulky and dark brown/black in colour
+                </div>
+                <div class="example-item">
+                  Smell earthy or sometimes unpleasant
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Texture and Structure</div>
+                <div class="example-item">
+                  <strong>Compost:</strong> Crumbly texture, similar to rich
+                  garden soil
+                </div>
+                <div class="example-item">
+                  <strong>Animal manure:</strong> Can be powdery or fibrous
+                  depending on the animal and how it's processed
+                </div>
+                <div class="example-item">
+                  <strong>Green manure:</strong> Fresh plant material that is
+                  still recognizable as plant parts
+                </div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Bring samples of different organic fertilizers for students to
+                  see, touch, and smell. This hands-on experience helps them
+                  remember the characteristics better.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Inorganic Nutrients</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Appearance</div>
+                <div class="example-item">
+                  Appear as granules, powder, or crystals
+                </div>
+                <div class="example-item">Light in weight but concentrated</div>
+                <div class="example-item">
+                  Come in small colourful packs (e.g. white, blue, or pink
+                  granules)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Common Forms and Colors</div>
+                <div class="example-item">
+                  <strong>Urea:</strong> White, round granules or crystals
+                </div>
+                <div class="example-item">
+                  <strong>NPK:</strong> Often blue or grey granules (may be
+                  multi-colored in blended formulas)
+                </div>
+                <div class="example-item">
+                  <strong>Ammonium sulphate:</strong> White crystals or granules
+                </div>
+                <div class="example-item">
+                  <strong>Potassium nitrate:</strong> White crystalline powder
+                  or granules
+                </div>
+              </div>
+
+              <div class="note">
+                <div class="note-title">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Safety Note
+                </div>
+                <p>
+                  Inorganic fertilizers should be handled with care. Avoid
+                  inhaling dust, wash hands after use, and store away from
+                  children and animals.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Identify the type of nutrient based on its description:</p>
+            <div class="input-group">
+              <select class="input-field" id="appearance-select">
+                <option value="">Select a description</option>
+                <option value="dark-crumbly">
+                  Dark brown, crumbly material with earthy smell
+                </option>
+                <option value="white-granules">
+                  White, round granules in a sealed bag
+                </option>
+                <option value="blue-pellets">
+                  Blue or grey pellets with chemical smell
+                </option>
+                <option value="rotted-leaves">
+                  Partially decomposed leaves and plant material
+                </option>
+              </select>
+              <button class="btn" id="check-appearance">Check Type</button>
+            </div>
+            <div class="result" id="appearance-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Application of Plant Nutrients Section -->
+      <div class="content-section" id="application">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-spray-can"></i>
+            Application of Plant Nutrients
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Organic Fertilizers Application</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Methods of Application</div>
+                <div class="example-item">
+                  <strong>Spread on the soil and dug in:</strong> Manure and
+                  compost are spread evenly over the soil surface and then mixed
+                  into the soil with a hoe or tiller
+                </div>
+                <div class="example-item">
+                  <strong>Applied in heaps or ridges:</strong> Before planting,
+                  organic fertilizers can be placed in planting holes, heaps, or
+                  ridges where seeds or seedlings will be planted
+                </div>
+                <div class="example-item">
+                  <strong>Liquid manure:</strong> Some organic fertilizers can
+                  be soaked in water to create a nutrient-rich liquid that is
+                  poured near the base of plants
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Best Practices</div>
+                <div class="example-item">
+                  Apply organic fertilizers 2-4 weeks before planting to allow
+                  time for decomposition
+                </div>
+                <div class="example-item">
+                  Ensure organic fertilizers are well-composted to avoid
+                  introducing pathogens or burning plants
+                </div>
+                <div class="example-item">
+                  Mix thoroughly with soil to distribute nutrients evenly
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Inorganic Fertilizers Application</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Methods of Application</div>
+                <div class="example-item">
+                  <strong>Broadcasting:</strong> Spreading fertilizer evenly
+                  over the entire soil surface, usually before planting or
+                  during early growth stages
+                </div>
+                <div class="example-item">
+                  <strong>Side dressing:</strong> Applying fertilizer beside
+                  growing plants, usually in a shallow trench or band a few
+                  inches from the plant stem
+                </div>
+                <div class="example-item">
+                  <strong>Ring method:</strong> Applying fertilizer in a ring
+                  around the base of a plant, especially for fruit trees or
+                  established plants
+                </div>
+                <div class="example-item">
+                  <strong>Foliar feeding:</strong> Spraying liquid fertilizer
+                  directly on leaves, where nutrients are absorbed quickly
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Best Practices</div>
+                <div class="example-item">
+                  Follow recommended application rates on the package
+                </div>
+                <div class="example-item">
+                  Apply when soil is moist to prevent burning plants
+                </div>
+                <div class="example-item">
+                  Avoid direct contact with plant stems and leaves (except for
+                  foliar feeding)
+                </div>
+                <div class="example-item">
+                  Water after application to help dissolve and distribute
+                  nutrients
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Timing and Frequency</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  When to Apply Fertilizers
+                </div>
+                <div class="example-item">
+                  <strong>Organic:</strong> Apply before planting or during soil
+                  preparation. Can also be applied as a top dressing during the
+                  growing season
+                </div>
+                <div class="example-item">
+                  <strong>Inorganic:</strong> Apply at specific growth stages:
+                  <ul>
+                    <li>Basal application: Before or at planting</li>
+                    <li>Top dressing: During active growth phases</li>
+                    <li>
+                      Flowering/fruiting stage: To support flower and fruit
+                      development
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Create a calendar showing when to apply different types of
+                  fertilizers for common crops. This helps students understand
+                  the importance of timing in fertilizer application.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the application method to its description:</p>
+            <div class="input-group">
+              <select class="input-field" id="application-select">
+                <option value="">Select an application method</option>
+                <option value="broadcasting">Broadcasting</option>
+                <option value="side-dressing">Side dressing</option>
+                <option value="ring-method">Ring method</option>
+                <option value="foliar-feeding">Foliar feeding</option>
+              </select>
+              <button class="btn" id="check-application">
+                Check Description
+              </button>
+            </div>
+            <div class="result" id="application-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practical Work Section -->
+      <div class="content-section" id="practical">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-hands-helping"></i>
+            Practical Work (School Garden Activities)
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              Activity 1: Identifying Nutrient Sources
+            </h3>
+            <div class="content">
+              <div class="model-instructions">
+                <div class="model-step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <strong>Objective:</strong> Identify nutrient sources
+                    available in your community
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <strong>Materials needed:</strong> Notebook, pen, camera
+                    (optional), sample bags
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <strong>Procedure:</strong>
+                    <ul>
+                      <li>Walk around the school and nearby community</li>
+                      <li>
+                        Look for examples of organic and inorganic fertilizers
+                      </li>
+                      <li>Record what you find (name, source, appearance)</li>
+                      <li>Take photos if possible</li>
+                      <li>Collect small samples if appropriate and safe</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <strong>Examples to look for:</strong> Poultry manure,
+                    compost heap, NPK fertilizer, animal droppings, kitchen
+                    waste composting area
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Activity 2: Comparing Fertilizers</h3>
+            <div class="content">
+              <div class="model-instructions">
+                <div class="model-step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <strong>Objective:</strong> Compare organic vs inorganic
+                    fertilizers
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <strong>Materials needed:</strong> Samples of organic and
+                    inorganic fertilizers, observation table, magnifying glass
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <strong>Procedure:</strong>
+                    <ul>
+                      <li>
+                        Observe the physical characteristics of each fertilizer
+                      </li>
+                      <li>Record color, texture, smell, and form</li>
+                      <li>Compare the cost (if information is available)</li>
+                      <li>Discuss the effects on soil and plants</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <strong>Create a comparison table</strong> with the
+                    following headings: Type, Appearance, Smell, Cost, Effect on
+                    Soil, Advantages, Disadvantages
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Activity 3: Applying Fertilizers</h3>
+            <div class="content">
+              <div class="model-instructions">
+                <div class="model-step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <strong>Objective:</strong> Practice applying both types of
+                    fertilizers in the school garden
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <strong>Materials needed:</strong> Organic fertilizer
+                    (compost or manure), inorganic fertilizer (NPK), garden
+                    tools, watering can, measuring tools
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <strong>Procedure:</strong>
+                    <ul>
+                      <li>Prepare garden beds for planting</li>
+                      <li>
+                        Apply organic fertilizer to one bed using the digging-in
+                        method
+                      </li>
+                      <li>
+                        Apply inorganic fertilizer to another bed using
+                        broadcasting
+                      </li>
+                      <li>Plant the same type of seeds in both beds</li>
+                      <li>Water both beds equally</li>
+                      <li>Observe and record plant growth over time</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="model-step">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <strong>Record observations:</strong> Note differences in
+                    germination rate, growth speed, plant health, and yield
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Safety Considerations</h3>
+            <div class="content">
+              <div class="note">
+                <div class="note-title">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Safety First
+                </div>
+                <ul>
+                  <li>Always wash hands after handling fertilizers</li>
+                  <li>Wear gloves when handling inorganic fertilizers</li>
+                  <li>Avoid inhaling dust from fertilizers</li>
+                  <li>Do not apply fertilizers on windy days</li>
+                  <li>
+                    Store fertilizers in a safe, dry place away from children
+                  </li>
+                  <li>Follow recommended application rates</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the activity to its objective:</p>
+            <div class="input-group">
+              <select class="input-field" id="activity-select">
+                <option value="">Select an activity</option>
+                <option value="identify-sources">
+                  Identifying nutrient sources
+                </option>
+                <option value="compare-fertilizers">
+                  Comparing fertilizers
+                </option>
+                <option value="applying-fertilizers">
+                  Applying fertilizers
+                </option>
+              </select>
+              <button class="btn" id="check-activity">Check Objective</button>
+            </div>
+            <div class="result" id="activity-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="content-section" id="summary">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-bookmark"></i>
+            Quick Recall Summary
+          </h2>
+
+          <div class="content">
+            <div class="keyword-box">
+              <div class="keyword-title">
+                <i class="fas fa-key"></i>
+                Key Points to Remember
+              </div>
+              <div class="example-item">
+                <strong>Sources of Plant Nutrients:</strong>
+              </div>
+              <div class="example-item">
+                Organic → from living things (manure, compost, green manure)
+              </div>
+              <div class="example-item">
+                Inorganic → manufactured chemicals (NPK, Urea, Ammonium
+                sulphate)
+              </div>
+
+              <div class="example-item">
+                <strong>Differences:</strong>
+              </div>
+              <div class="example-item">
+                Organic → slow release, improves soil, cheaper, bulky
+              </div>
+              <div class="example-item">
+                Inorganic → quick results, may damage soil, expensive,
+                concentrated
+              </div>
+
+              <div class="example-item">
+                <strong>Nutrient Needs:</strong>
+              </div>
+              <div class="example-item">Vegetables → nitrogen for leaves</div>
+              <div class="example-item">
+                Fruit crops → potassium for flowering and fruiting
+              </div>
+              <div class="example-item">
+                Root/tuber crops → phosphorus for root development
+              </div>
+
+              <div class="example-item">
+                <strong>Application Methods:</strong>
+              </div>
+              <div class="example-item">
+                Organic → digging in, heaps/ridges, liquid manure
+              </div>
+              <div class="example-item">
+                Inorganic → broadcasting, side dressing, ring method, foliar
+                feeding
+              </div>
+            </div>
+
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Final Tip
+              </div>
+              <p>
+                Understanding plant nutrients is essential for successful crop
+                production. Both organic and inorganic fertilizers have their
+                place in agriculture. The best approach often involves using
+                both types in a balanced way to maintain soil health while
+                providing plants with the nutrients they need.
+              </p>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Test Your Knowledge</div>
+            <p>
+              Which type of fertilizer improves soil structure and releases
+              nutrients slowly?
+            </p>
+            <div class="input-group">
+              <select class="input-field" id="summary-select">
+                <option value="">Select your answer</option>
+                <option value="organic">Organic fertilizer</option>
+                <option value="inorganic">Inorganic fertilizer</option>
+                <option value="both">Both types equally</option>
+              </select>
+              <button class="btn" id="check-summary">Check Answer</button>
+            </div>
+            <div class="result" id="summary-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+    <canvas id="drawCanvas"></canvas>
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+      // Video player functionality
+      const videoPlaceholder = document.getElementById("video-placeholder");
+      const videoPlayer = document.getElementById("video-player");
+      videoPlaceholder.addEventListener("click", () => {
+        videoPlaceholder.style.display = "none";
+        videoPlayer.style.display = "block";
+        videoPlayer.play();
+      });
+      // Tab navigation
+      const navTabs = document.querySelectorAll(".nav-tab");
+      const contentSections = document.querySelectorAll(".content-section");
+      navTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetTab = tab.getAttribute("data-tab");
+          // Remove active class from all tabs and sections
+          navTabs.forEach((t) => t.classList.remove("active"));
+          contentSections.forEach((s) => s.classList.remove("active"));
+          // Add active class to clicked tab and corresponding section
+          tab.classList.add("active");
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+      // Interactive elements
+      document
+        .getElementById("check-nutrient")
+        .addEventListener("click", () => {
+          const input = document.getElementById("nutrient-select").value;
+          const result = document.getElementById("nutrient-result");
+          const types = {
+            "cow-dung": "Organic - Comes from animal waste",
+            npk: "Inorganic - Manufactured chemical fertilizer",
+            compost: "Organic - Made from decomposed plant and kitchen waste",
+            urea: "Inorganic - Nitrogen-rich chemical fertilizer",
+            "poultry-droppings": "Organic - Comes from bird waste",
+            "potassium-nitrate":
+              "Inorganic - Chemical fertilizer providing potassium and nitrogen",
+          };
+          if (types[input]) {
+            result.textContent = `Correct! ${types[input]}`;
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Please select a nutrient source to check its type.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document
+        .getElementById("check-characteristic")
+        .addEventListener("click", () => {
+          const input = document.getElementById("characteristic-select").value;
+          const result = document.getElementById("characteristic-result");
+          const types = {
+            "slow-release": "Organic - Releases nutrients slowly over time",
+            "quick-results":
+              "Inorganic - Provides immediate nutrients to plants",
+            "improves-soil": "Organic - Enhances soil structure and fertility",
+            "high-concentration":
+              "Inorganic - Contains concentrated nutrients in small volume",
+          };
+          if (types[input]) {
+            result.textContent = `Correct! ${types[input]}`;
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Please select a characteristic to check its type.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document.getElementById("check-plant").addEventListener("click", () => {
+        const input = document.getElementById("plant-select").value;
+        const result = document.getElementById("plant-result");
+        const nutrients = {
+          cabbage: "Nitrogen (N) - For leaf development",
+          mango: "Potassium (K) - For flowering and fruiting",
+          cassava: "Phosphorus (P) - For root development",
+          tomato: "Nitrogen (N) - For leaf development",
+          carrot: "Phosphorus (P) - For root development",
+          orange: "Potassium (K) - For flowering and fruiting",
+        };
+        if (nutrients[input]) {
+          result.textContent = `Correct! ${
+            input.charAt(0).toUpperCase() + input.slice(1)
+          } needs ${nutrients[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Please select a plant type to check its nutrient need.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document
+        .getElementById("check-appearance")
+        .addEventListener("click", () => {
+          const input = document.getElementById("appearance-select").value;
+          const result = document.getElementById("appearance-result");
+          const types = {
+            "dark-crumbly":
+              "Organic - This describes compost or well-rotted manure",
+            "white-granules":
+              "Inorganic - This describes urea or similar chemical fertilizers",
+            "blue-pellets":
+              "Inorganic - This describes NPK or similar compound fertilizers",
+            "rotted-leaves":
+              "Organic - This describes partially decomposed plant material",
+          };
+          if (types[input]) {
+            result.textContent = `Correct! ${types[input]}`;
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Please select a description to check the type of nutrient.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document
+        .getElementById("check-application")
+        .addEventListener("click", () => {
+          const input = document.getElementById("application-select").value;
+          const result = document.getElementById("application-result");
+          const descriptions = {
+            broadcasting:
+              "Spreading fertilizer evenly over the entire soil surface",
+            "side-dressing":
+              "Applying fertilizer beside growing plants in a shallow trench",
+            "ring-method":
+              "Applying fertilizer in a ring around the base of a plant",
+            "foliar-feeding":
+              "Spraying liquid fertilizer directly on leaves for quick absorption",
+          };
+          if (descriptions[input]) {
+            result.textContent = `Correct! ${
+              input.replace("-", " ").charAt(0).toUpperCase() +
+              input.replace("-", " ").slice(1)
+            } is ${descriptions[input]}`;
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Please select an application method to check its description.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document
+        .getElementById("check-activity")
+        .addEventListener("click", () => {
+          const input = document.getElementById("activity-select").value;
+          const result = document.getElementById("activity-result");
+          const objectives = {
+            "identify-sources":
+              "To identify nutrient sources available in your community",
+            "compare-fertilizers":
+              "To compare organic vs inorganic fertilizers (appearance, cost, effect on soil)",
+            "applying-fertilizers":
+              "To practice applying both types of fertilizers in the school garden",
+          };
+          if (objectives[input]) {
+            result.textContent = `Correct! The objective of ${input.replace(
+              "-",
+              " "
+            )} is ${objectives[input]}`;
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Please select an activity to check its objective.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document.getElementById("check-summary").addEventListener("click", () => {
+        const input = document.getElementById("summary-select").value;
+        const result = document.getElementById("summary-result");
+        if (input === "organic") {
+          result.textContent =
+            "Correct! Organic fertilizers improve soil structure and release nutrients slowly over time, providing long-term benefits to the soil.";
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Not quite. Organic fertilizers are known for improving soil structure and releasing nutrients slowly. Inorganic fertilizers provide quick nutrients but don't typically improve soil structure.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      // Canvas drawing functionality
+      const canvas = document.getElementById("drawCanvas");
+      const ctx = canvas.getContext("2d");
+      // Adjust canvas size
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+      let drawing = false;
+      canvas.addEventListener("mousedown", (e) => {
+        drawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY);
+      });
+      canvas.addEventListener("mousemove", (e) => {
+        if (!drawing) return;
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "red";
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.stroke();
+      });
+      canvas.addEventListener("mouseup", () => {
+        drawing = false;
+      });
+      // Toggle drawing mode with "D" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "d" || e.key === "D") {
+          if (canvas.style.pointerEvents === "none") {
+            canvas.style.pointerEvents = "auto"; // enable drawing
+          } else {
+            canvas.style.pointerEvents = "none"; // disable drawing
+          }
+        }
+      });
+      // Clear screen with "C" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "c" || e.key === "C") {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      });
+    </script>
+  </body>
+</html>

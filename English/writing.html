@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JHS English Guide - Writing Skills</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #5b5fde;
+        --secondary-color: #7c3aed;
+        --accent-color: #ec4899;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --info-color: #3b82f6;
+        --background-color: #f8fafc;
+        --surface-color: #f1f5f9;
+        --card-color: #ffffff;
+        --text-color: #334155;
+        --text-secondary: #64748b;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #eff6ff;
+        --note-bg: #fffbeb;
+        --tip-bg: #f0fdf4;
+        --keyword-bg: #f8fafc;
+      }
+      [data-theme="dark"] {
+        --background-color: #1e293b;
+        --surface-color: #0f172a;
+        --card-color: #1e293b;
+        --text-color: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1e3a5f;
+        --note-bg: #451a03;
+        --tip-bg: #14532d;
+        --keyword-bg: #0f172a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(236, 72, 153, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(236, 72, 153, 0.1);
+        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+      }
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      .nav-tab {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-tab:hover {
+        background: var(--surface-color);
+        transform: translateY(-2px);
+      }
+      .nav-tab.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        box-shadow: 0 4px 10px rgba(91, 95, 222, 0.3);
+      }
+      .content-section {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      .content-section.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .keyword-box {
+        background: var(--keyword-bg);
+        border-left: 4px solid var(--info-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .keyword-box:hover {
+        transform: translateX(5px);
+      }
+      .keyword-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--info-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .example:hover {
+        transform: translateX(5px);
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .note:hover {
+        transform: translateX(5px);
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .tip:hover {
+        transform: translateX(5px);
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .highlight {
+        background: rgba(91, 95, 222, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .table tr:hover {
+        background: rgba(91, 95, 222, 0.05);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .interactive:hover {
+        box-shadow: var(--shadow);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(91, 95, 222, 0.2);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+      /* Exercise Section Styles */
+      .exercise-section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+      .exercise-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+        text-align: center;
+      }
+      .exercise-item {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .exercise-item:hover {
+        box-shadow: var(--shadow);
+        transform: translateY(-2px);
+      }
+      .exercise-item-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--secondary-color);
+      }
+      .unimproved {
+        background: var(--card-color);
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-style: italic;
+      }
+      .improved {
+        display: none;
+        background: var(--tip-bg);
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 15px;
+        border-left: 4px solid var(--success-color);
+      }
+      .improved.show {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+      .show-improved-btn {
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .show-improved-btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(236, 72, 153, 0.2);
+      }
+      /* Homework Section Styles */
+      .homework-section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        border-left: 5px solid var(--warning-color);
+      }
+      .homework-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--warning-color);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .homework-subtitle {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+        color: var(--text-color);
+        text-align: center;
+      }
+      .homework-instruction {
+        background: var(--surface-color);
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid var(--info-color);
+      }
+      .homework-task {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+      }
+      .homework-task-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+      }
+      .homework-input {
+        width: 100%;
+        min-height: 100px;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+        margin-bottom: 15px;
+        font-family: inherit;
+        resize: vertical;
+      }
+      .homework-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+      }
+      .matching-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .matching-table th,
+      .matching-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .matching-table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .matching-table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-book-open"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="./english.html"
+            class="nav-item active"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Contact/index.html"
+            class="nav-item"
+            data-subject="contact"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="files"
+            style="background-color: #0a0; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo"><i class="fas fa-book-open"></i> EduHub</div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a href="./english.html" class="mobile-nav-item" data-subject="english"
+          >English</a
+        >
+        <a
+          href="../Maths/maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+          >Mathematics</a
+        >
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+          >Contact</a
+        >
+        <a
+          href="../External Files/index.html"
+          class="mobile-nav-item"
+          data-subject="files"
+          style="background-color: #0a0; color: #fff"
+          >Class 6 Files</a
+        >
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-book-open"></i>
+          <h1>JHS English Guide - Writing Skills</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+
+      <!-- Exercise Section -->
+      <div class="exercise-section">
+        <h2 class="exercise-title">Writing Skills Exercise</h2>
+        <p style="text-align: center; margin-bottom: 20px">
+          Click "Show Improved" to see how the writing can be enhanced using
+          appropriate techniques.
+        </p>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 1: Personal Narrative</h3>
+          <div class="unimproved">
+            I went to the market. I bought fruits. I saw my friend. I went home.
+          </div>
+          <button class="show-improved-btn" onclick="showImproved(1)">
+            Show Improved
+          </button>
+          <div id="improved-1" class="improved">
+            <strong>Improved:</strong>
+            <span class="highlight">Last Saturday</span>, I went to the market
+            <span class="highlight">with my mother</span>.
+            <span class="highlight">First</span>, we bought fresh fruits.
+            <span class="highlight">Then</span>, I saw my friend,
+            <span class="highlight">who was very happy to see me</span>.
+            <span class="highlight">Finally</span>, I went home
+            <span class="highlight">feeling excited about our meeting</span>.
+          </div>
+        </div>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 2: Descriptive Writing</h3>
+          <div class="unimproved">
+            The man walked in the room. His clothes were dirty. The room was
+            dark.
+          </div>
+          <button class="show-improved-btn" onclick="showImproved(2)">
+            Show Improved
+          </button>
+          <div id="improved-2" class="improved">
+            <strong>Improved:</strong> The
+            <span class="highlight">tall</span> man
+            <span class="highlight">staggered</span> into the room. His clothes
+            were <span class="highlight">torn and muddy</span>, and a
+            <span class="highlight">strong smell of smoke</span> filled the
+            <span class="highlight">dimly lit</span> room.
+          </div>
+        </div>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 3: Advertisement</h3>
+          <div class="unimproved">
+            Buy our soap. It is good. It cleans clothes. It is cheap.
+          </div>
+          <button class="show-improved-btn" onclick="showImproved(3)">
+            Show Improved
+          </button>
+          <div id="improved-3" class="improved">
+            <strong>Improved:</strong>
+            <span class="highlight">Amazing Bright Soap!</span>
+            <span class="highlight">Do you want clean clothes every day?</span>
+            Buy Bright Soap today. It is
+            <span class="highlight">cheap, fast, and effective</span>.
+            <span class="highlight">Try it now and see the difference!</span>
+          </div>
+        </div>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 4: Process Writing</h3>
+          <div class="unimproved">
+            How to make tea. Get water. Boil it. Put tea in cup. Pour water. Add
+            milk.
+          </div>
+          <button class="show-improved-btn" onclick="showImproved(4)">
+            Show Improved
+          </button>
+          <div id="improved-4" class="improved">
+            <strong>Improved:</strong>
+            <span class="highlight">How to Make Tea</span>
+            <span class="highlight">First</span>, get some clean water.
+            <span class="highlight">Next</span>, boil the water until it
+            bubbles. <span class="highlight">Then</span>, put a tea bag in your
+            cup. <span class="highlight">After that</span>, pour the hot water
+            over the tea bag. <span class="highlight">Finally</span>, add milk
+            or sugar to taste.
+          </div>
+        </div>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 5: Dialogue Writing</h3>
+          <div class="unimproved">
+            Kofi: Where are you going? Ama: I am going to the market. Kofi: Can
+            I come? Ama: Yes.
+          </div>
+          <button class="show-improved-btn" onclick="showImproved(5)">
+            Show Improved
+          </button>
+          <div id="improved-5" class="improved">
+            <strong>Improved:</strong> Kofi: "<span class="highlight"
+              >Where are you going in such a hurry?</span
+            >"<br />
+            Ama: "<span class="highlight"
+              >I'm going to the market to buy some vegetables for dinner.</span
+            >"<br />
+            Kofi: "<span class="highlight"
+              >That sounds interesting! Can I come with you?</span
+            >"<br />
+            Ama: "<span class="highlight">Of course! I'd love the company.</span
+            >"
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="narrative">
+          <i class="fas fa-feather-alt"></i>
+          <span>Narrative & Descriptive</span>
+        </div>
+        <div class="nav-tab" data-tab="ads">
+          <i class="fas fa-ad"></i>
+          <span>Ads & Process</span>
+        </div>
+        <div class="nav-tab" data-tab="letters">
+          <i class="fas fa-envelope"></i>
+          <span>Letters & Notes</span>
+        </div>
+        <div class="nav-tab" data-tab="articles">
+          <i class="fas fa-newspaper"></i>
+          <span>Articles & Dialogue</span>
+        </div>
+      </div>
+
+      <!-- Narrative & Descriptive Writing Section -->
+      <div class="content-section active" id="narrative">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-feather-alt"></i>
+            Narrative and Descriptive Writing
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              1. Personal Narratives (B7.4.2.1.1)
+            </h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is a Personal Narrative?
+                </div>
+                <p>
+                  A personal narrative is a story about your own life or
+                  experience.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Personal Narratives</div>
+                <div class="example-item">
+                  Written in first person (I, me, my, we, our).
+                </div>
+                <div class="example-item">
+                  Uses descriptive details (setting, events, feelings).
+                </div>
+                <div class="example-item">
+                  Follows a logical order (beginning → middle → end).
+                </div>
+                <div class="example-item">
+                  Uses grammar correctly:
+                  <ul>
+                    <li>Adjectives – big, beautiful, red, etc.</li>
+                    <li>Adverbs – slowly, quickly, happily.</li>
+                    <li>Connectors – first, then, afterwards, finally.</li>
+                    <li>Direct/indirect speech – "I said…", He told me…</li>
+                    <li>Prepositions – in, on, at, near, with.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example of a Personal Narrative</div>
+                <div class="example-item">
+                  "Last Saturday, I went to the market with my mother. First, we
+                  bought fresh vegetables. Then, we saw my aunt. I was so happy
+                  because she gave me money."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              2. Descriptive Writing (B7.4.2.1.2)
+            </h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is Descriptive Writing?
+                </div>
+                <p>
+                  Descriptive writing creates a clear picture of a person,
+                  place, or event.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Descriptive Writing</div>
+                <div class="example-item">
+                  Uses precise words (not just "walked" but "staggered,"
+                  "marched," "tiptoed").
+                </div>
+                <div class="example-item">
+                  Uses sensory language (words for sight, sound, smell, taste,
+                  touch).
+                </div>
+                <div class="example-item">
+                  Uses grammar correctly: adjectives, adverbs, connectors,
+                  prepositions, direct speech.
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example of Descriptive Writing</div>
+                <div class="example-item">
+                  "The tall man staggered into the room. His clothes were torn,
+                  and a strong smell of smoke filled the air."
+                </div>
+              </div>
+
+              <div class="interactive">
+                <div class="interactive-title">Practice Activity</div>
+                <p>Transform this simple description into a more vivid one:</p>
+                <div class="example-item">
+                  Original: "The girl walked to school. She was happy. The sun
+                  was shining."
+                </div>
+                <div class="example-item">
+                  Improved: "The young girl skipped happily to school, with a
+                  bright smile on her face. The warm morning sun cast golden
+                  rays on the path ahead, making everything seem magical."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3. Classroom Tips</h3>
+            <div class="content">
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tips
+                </div>
+                <ul>
+                  <li>
+                    <strong>Use Sensory Prompts:</strong> Give students objects
+                    to touch, taste, smell, or hear before writing descriptions.
+                  </li>
+                  <li>
+                    <strong>Memory Lane:</strong> Ask students to close their
+                    eyes and recall a memorable event before writing personal
+                    narratives.
+                  </li>
+                  <li>
+                    <strong>Show, Don't Tell:</strong> Teach students to
+                    describe actions and feelings rather than just stating them.
+                  </li>
+                  <li>
+                    <strong>Word Banks:</strong> Create lists of strong verbs,
+                    adjectives, and adverbs for students to use in their
+                    writing.
+                  </li>
+                  <li>
+                    <strong>Peer Review:</strong> Have students read each
+                    other's work and suggest improvements.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homework Section for Narrative & Descriptive Writing -->
+          <div class="homework-section">
+            <h2 class="homework-title">
+              <i class="fas fa-pencil-alt"></i>
+              Narrative & Descriptive Writing Homework
+            </h2>
+            <p class="homework-subtitle">
+              Complete the following exercises to test your understanding of
+              narrative and descriptive writing.
+            </p>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 A. Personal Narrative</h3>
+              <p>
+                Write a personal narrative about a memorable event in your life.
+                Remember to use first person, descriptive details, and a logical
+                order.
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your personal narrative here..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 B. Descriptive Writing</h3>
+              <p>
+                Describe your favorite place using sensory language. Include
+                details about what you see, hear, smell, taste, and feel when
+                you are there.
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your descriptive paragraph here..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ads & Process Writing Section -->
+      <div class="content-section" id="ads">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-ad"></i>
+            Advertisements and Process Writing
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">1. Advertisements (B7.4.2.1.3)</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is an Advertisement?
+                </div>
+                <p>
+                  An advertisement is a short message to persuade people to buy
+                  a product or service.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Advertisements</div>
+                <div class="example-item">Has a title (catchy).</div>
+                <div class="example-item">
+                  Body – information about the product/service.
+                </div>
+                <div class="example-item">Target audience – who is it for?</div>
+                <div class="example-item">Selling points – why is it good?</div>
+                <div class="example-item">
+                  Uses language techniques:
+                  <ul>
+                    <li>Simple present tense (This soap cleans fast.)</li>
+                    <li>Modals/commands (Buy now! You must try this!)</li>
+                    <li>
+                      Rhetorical questions (Are you tired of dirty clothes?)
+                    </li>
+                    <li>Repetition (Fresh! Fresh! Fresh!)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example of an Advertisement</div>
+                <div class="example-item">
+                  <strong>Amazing Bright Soap!</strong><br />
+                  Do you want clean clothes every day? Buy Bright Soap today. It
+                  is cheap, fast, and effective. Try it now and see the
+                  difference!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              2. Process/Expository Writing (B7.4.2.1.4)
+            </h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is Process Writing?
+                </div>
+                <p>
+                  Process writing explains how something is done or how
+                  something works.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Process Writing</div>
+                <div class="example-item">State the aim.</div>
+                <div class="example-item">List materials needed.</div>
+                <div class="example-item">Give steps in the correct order.</div>
+                <div class="example-item">
+                  Use connectors: first, next, then, finally.
+                </div>
+                <div class="example-item">Use simple present tense.</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">
+                  Example: How to Brush Your Teeth
+                </div>
+                <div class="example-item">
+                  First, take your toothbrush and toothpaste.
+                </div>
+                <div class="example-item">
+                  Next, put toothpaste on the brush.
+                </div>
+                <div class="example-item">
+                  Then, brush your teeth gently up and down.
+                </div>
+                <div class="example-item">
+                  After that, rinse your mouth with water.
+                </div>
+                <div class="example-item">Finally, clean your toothbrush.</div>
+              </div>
+
+              <div class="interactive">
+                <div class="interactive-title">Practice Activity</div>
+                <p>Write a process paragraph for one of these activities:</p>
+                <div class="example-item">How to make a sandwich</div>
+                <div class="example-item">How to plant a seed</div>
+                <div class="example-item">How to send an email</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3. Classroom Tips</h3>
+            <div class="content">
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tips
+                </div>
+                <ul>
+                  <li>
+                    <strong>Analyze Real Ads:</strong> Bring in real
+                    advertisements and have students identify the persuasive
+                    techniques used.
+                  </li>
+                  <li>
+                    <strong>Create a Product:</strong> Have students invent a
+                    product and create an advertisement for it.
+                  </li>
+                  <li>
+                    <strong>Step-by-Step:</strong> For process writing, have
+                    students first perform the task, then write down the steps.
+                  </li>
+                  <li>
+                    <strong>Sequence Cards:</strong> Create cards with steps of
+                    a process mixed up, and have students arrange them in order.
+                  </li>
+                  <li>
+                    <strong>Peer Evaluation:</strong> Have students evaluate
+                    each other's advertisements and process instructions for
+                    clarity.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homework Section for Ads & Process Writing -->
+          <div class="homework-section">
+            <h2 class="homework-title">
+              <i class="fas fa-pencil-alt"></i>
+              Ads & Process Writing Homework
+            </h2>
+            <p class="homework-subtitle">
+              Complete the following exercises to test your understanding of
+              advertisements and process writing.
+            </p>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 A. Create an Advertisement</h3>
+              <p>
+                Create an advertisement for a product of your choice. Include a
+                catchy title, information about the product, and use at least
+                two language techniques (rhetorical questions, commands, or
+                repetition).
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your advertisement here..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 B. Process Writing</h3>
+              <p>
+                Write step-by-step instructions for how to do something you know
+                well (e.g., how to make your favorite food, how to play a game,
+                or how to care for a pet).
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your process instructions here..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letters & Notes Section -->
+      <div class="content-section" id="letters">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-envelope"></i>
+            Letters and Notes-Taking
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">1. Informal Letters (B7.4.2.2.1)</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What are Informal Letters?
+                </div>
+                <p>Letters written to friends or family.</p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Informal Letters</div>
+                <div class="example-item">
+                  Writer's address & date (top right).
+                </div>
+                <div class="example-item">Greeting/Salutation (Dear Ama,).</div>
+                <div class="example-item">Body – main message.</div>
+                <div class="example-item">
+                  Closing (Yours sincerely/Your friend,).
+                </div>
+                <div class="example-item">Name.</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">
+                  Example Opening of an Informal Letter
+                </div>
+                <div class="example-item">
+                  "Dear Kofi,<br />
+                  How are you? I hope you are fine. I want to tell you about my
+                  new school..."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">2. Formal Letters (B7.4.2.2.2)</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What are Formal Letters?
+                </div>
+                <p>Letters written to officials or institutions.</p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Formal Letters</div>
+                <div class="example-item">Writer's address & date.</div>
+                <div class="example-item">Recipient's address.</div>
+                <div class="example-item">Heading/Subject.</div>
+                <div class="example-item">Salutation (Dear Sir/Madam,).</div>
+                <div class="example-item">
+                  Body (polite and straight to the point).
+                </div>
+                <div class="example-item">Closing (Yours faithfully,).</div>
+                <div class="example-item">Signature & name.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3. Notes-Taking (B7.4.2.2.3)</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is Notes-Taking?
+                </div>
+                <p>
+                  Taking notes means writing short, clear points from a lesson,
+                  text, or speech.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Tips for Notes-Taking</div>
+                <div class="example-item">Write headings.</div>
+                <div class="example-item">Use bullet points.</div>
+                <div class="example-item">
+                  Record key ideas only (not full sentences).
+                </div>
+                <div class="example-item">
+                  Use drawings or symbols if needed.
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example of Notes</div>
+                <div class="example-item">
+                  <strong>Causes of Flooding</strong><br />
+                  • Heavy rain<br />
+                  • Choked gutters<br />
+                  • Building in water areas
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">4. Classroom Tips</h3>
+            <div class="content">
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tips
+                </div>
+                <ul>
+                  <li>
+                    <strong>Letter Templates:</strong> Provide templates for
+                    both formal and informal letters to help students understand
+                    the structure.
+                  </li>
+                  <li>
+                    <strong>Real Contexts:</strong> Have students write letters
+                    for real purposes (e.g., to invite a guest speaker, to
+                    request information).
+                  </li>
+                  <li>
+                    <strong>Listening Practice:</strong> Play short audio clips
+                    or give short talks and have students take notes.
+                  </li>
+                  <li>
+                    <strong>Compare Notes:</strong> After note-taking
+                    activities, have students compare their notes with a
+                    partner.
+                  </li>
+                  <li>
+                    <strong>Letter Exchange:</strong> Organize a pen pal system
+                    where students write and receive letters.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homework Section for Letters & Notes -->
+          <div class="homework-section">
+            <h2 class="homework-title">
+              <i class="fas fa-pencil-alt"></i>
+              Letters & Notes-Taking Homework
+            </h2>
+            <p class="homework-subtitle">
+              Complete the following exercises to test your understanding of
+              letter writing and notes-taking.
+            </p>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 A. Informal Letter</h3>
+              <p>
+                Write an informal letter to a friend telling them about your
+                recent holiday or a special event you attended.
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your informal letter here..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 B. Formal Letter</h3>
+              <p>
+                Write a formal letter to your headteacher requesting permission
+                to organize a club or activity in the school.
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your formal letter here..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 C. Notes-Taking</h3>
+              <p>
+                Imagine you attended a talk about "The Importance of Reading".
+                Write notes on the key points that might have been discussed.
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your notes here..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Articles & Dialogue Section -->
+      <div class="content-section" id="articles">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-newspaper"></i>
+            Articles and Dialogue Writing
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              1. Notices and Posters (B7.4.2.2.4)
+            </h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What are Notices and Posters?
+                </div>
+                <p>Used to give information to a group.</p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Notices and Posters</div>
+                <div class="example-item">Short and clear.</div>
+                <div class="example-item">Has a heading.</div>
+                <div class="example-item">Uses simple present tense.</div>
+                <div class="example-item">May include drawings/pictures.</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example of a Notice</div>
+                <div class="example-item">
+                  <strong>NOTICE</strong><br />
+                  There will be a clean-up exercise on Saturday, 7:00 a.m. All
+                  students must be present.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">2. Article Writing (B7.4.2.2.5)</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is an Article?
+                </div>
+                <p>
+                  Articles are written for publication (school magazine,
+                  newspaper, blog).
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Articles</div>
+                <div class="example-item">Title/Heading.</div>
+                <div class="example-item">Introduction (topic).</div>
+                <div class="example-item">Body (main points, arguments).</div>
+                <div class="example-item">
+                  Conclusion (summary, call to action).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3. Dialogue Writing (B7.4.2.2.6)</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is Dialogue?
+                </div>
+                <p>Dialogue is a conversation between two or more people.</p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Features of Dialogue</div>
+                <div class="example-item">Use quotation marks (" ").</div>
+                <div class="example-item">Each speaker gets a new line.</div>
+                <div class="example-item">Keep it short and clear.</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Example of Dialogue</div>
+                <div class="example-item">
+                  Ama: "Where are you going?"<br />
+                  Kojo: "I'm going to the library. Do you want to join me?"
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">4. Classroom Tips</h3>
+            <div class="content">
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tips
+                </div>
+                <ul>
+                  <li>
+                    <strong>School Newspaper:</strong> Create a class or school
+                    newspaper where students can contribute articles.
+                  </li>
+                  <li>
+                    <strong>Role Play:</strong> Have students act out dialogues
+                    to practice natural conversation.
+                  </li>
+                  <li>
+                    <strong>Notice Board:</strong> Create a classroom notice
+                    board where students can post their own notices.
+                  </li>
+                  <li>
+                    <strong>Interview Practice:</strong> Have students interview
+                    each other and write articles based on the interviews.
+                  </li>
+                  <li>
+                    <strong>Dialogue Completion:</strong> Provide incomplete
+                    dialogues for students to finish.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">5. Key Reminder</h3>
+            <div class="content">
+              <div class="note">
+                <div class="note-title">
+                  <i class="fas fa-lightbulb"></i>
+                  Remember
+                </div>
+                <p>
+                  Good writing should be clear, logical, and appropriate for the
+                  audience and purpose. Always edit and proofread your work.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homework Section for Articles & Dialogue -->
+          <div class="homework-section">
+            <h2 class="homework-title">
+              <i class="fas fa-pencil-alt"></i>
+              Articles & Dialogue Writing Homework
+            </h2>
+            <p class="homework-subtitle">
+              Complete the following exercises to test your understanding of
+              article writing and dialogue.
+            </p>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 A. Notice or Poster</h3>
+              <p>
+                Create a notice or poster for a school event (e.g., sports day,
+                cultural festival, science fair).
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your notice or poster here..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 B. Article</h3>
+              <p>
+                Write a short article for your school magazine about a topic of
+                your choice (e.g., the importance of exercise, protecting the
+                environment, or a recent school event).
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your article here..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 C. Dialogue</h3>
+              <p>
+                Write a dialogue between two friends discussing their plans for
+                the weekend. Remember to use quotation marks and start a new
+                line for each speaker.
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your dialogue here..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.transform = "scale(1)";
+        });
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // Tab navigation
+      const navTabs = document.querySelectorAll(".nav-tab");
+      const contentSections = document.querySelectorAll(".content-section");
+
+      navTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetTab = tab.getAttribute("data-tab");
+
+          // Remove active class from all tabs and sections
+          navTabs.forEach((t) => t.classList.remove("active"));
+          contentSections.forEach((s) => s.classList.remove("active"));
+
+          // Add active class to clicked tab and corresponding section
+          tab.classList.add("active");
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+
+      // Exercise functionality
+      function showImproved(id) {
+        const improvedDiv = document.getElementById(`improved-${id}`);
+        improvedDiv.classList.add("show");
+      }
+    </script>
+  </body>
+</html>

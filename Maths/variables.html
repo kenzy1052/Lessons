@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables and Equations - Teacher Notes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #5b5fde;
+        --secondary-color: #7c3aed;
+        --accent-color: #ec4899;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --info-color: #3b82f6;
+        --background-color: #f8fafc;
+        --surface-color: #f1f5f9;
+        --card-color: #ffffff;
+        --text-color: #334155;
+        --text-secondary: #64748b;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #eff6ff;
+        --note-bg: #fffbeb;
+        --tip-bg: #f0fdf4;
+        --keyword-bg: #f8fafc;
+      }
+      [data-theme="dark"] {
+        --background-color: #1e293b;
+        --surface-color: #0f172a;
+        --card-color: #1e293b;
+        --text-color: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1e3a5f;
+        --note-bg: #451a03;
+        --tip-bg: #14532d;
+        --keyword-bg: #0f172a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(236, 72, 153, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(236, 72, 153, 0.1);
+        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .example:hover {
+        transform: translateX(5px);
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .note:hover {
+        transform: translateX(5px);
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .tip:hover {
+        transform: translateX(5px);
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .formula {
+        font-family: "Courier New", monospace;
+        background: var(--surface-color);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 500;
+        color: var(--primary-color);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .interactive:hover {
+        box-shadow: var(--shadow);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(91, 95, 222, 0.2);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .table-container {
+        width: 100%;
+        overflow-x: auto;
+        margin: 15px 0;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .table tr:hover {
+        background: rgba(91, 95, 222, 0.05);
+      }
+      .highlight {
+        background: rgba(91, 95, 222, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../English/english.html"
+            class="nav-item"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item active"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Contact/index.html"
+            class="nav-item"
+            data-subject="contact"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #00f; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <i class="fas fa-graduation-cap"></i> EduHub
+        </div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a
+          href="../English/english.html"
+          class="mobile-nav-item"
+          data-subject="english"
+          >English</a
+        >
+        <a
+          href="./maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+        >
+          Mathematics
+        </a>
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="../External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #00f; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-superscript"></i>
+          <h1>Variables and Equations - Teacher Notes</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-book-open"></i>
+          Introduction to Variables and Equations
+        </h2>
+        <div class="content">
+          <p>
+            Variables and equations are fundamental concepts in algebra that
+            allow us to represent and solve mathematical problems. A variable is
+            a symbol that represents an unknown value, while an equation is a
+            statement that two expressions are equal.
+          </p>
+          <div class="note">
+            <div class="note-title">
+              <i class="fas fa-lightbulb"></i>
+              Teaching Tip
+            </div>
+            <p>
+              Start with concrete examples that students can relate to before
+              moving to abstract concepts. Use visual aids and real-world
+              scenarios to help students understand the relationship between
+              variables and equations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-font"></i>
+          What is a Variable?
+        </h2>
+        <div class="content">
+          <div class="keyword-box">
+            <div class="keyword-title">
+              <i class="fas fa-key"></i>
+              Definition
+            </div>
+            <p>
+              A variable is a symbol (usually a letter like x, y, k) that stands
+              for an unknown number.
+            </p>
+          </div>
+
+          <div class="example">
+            <div class="example-title">Example:</div>
+            <div class="example-item">
+              In the equation <span class="formula">x + 3 = 7</span>, the
+              variable is <span class="formula">x</span>.
+            </div>
+          </div>
+
+          <div class="tip">
+            <div class="tip-title">
+              <i class="fas fa-star"></i>
+              Student Tip
+            </div>
+            <p>
+              Think of a variable as a placeholder for a number you don't know
+              yet. It's like a box that contains a mystery number that you need
+              to find.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-equals"></i>
+          What is an Equation?
+        </h2>
+        <div class="content">
+          <div class="keyword-box">
+            <div class="keyword-title">
+              <i class="fas fa-key"></i>
+              Definition
+            </div>
+            <p>
+              An equation is a mathematical statement showing that two
+              expressions are equal. It always has an equals sign (=).
+            </p>
+          </div>
+
+          <div class="example">
+            <div class="example-title">Example:</div>
+            <div class="example-item">
+              <span class="formula">2x – 7 = 41</span> is an equation.
+            </div>
+          </div>
+
+          <div class="note">
+            <div class="note-title">
+              <i class="fas fa-lightbulb"></i>
+              Teaching Tip
+            </div>
+            <p>
+              Emphasize that an equation is like a balanced scale. Whatever
+              operation you perform on one side must also be performed on the
+              other side to maintain balance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-project-diagram"></i>
+          Linear Equations in One Variable
+        </h2>
+        <div class="content">
+          <div class="keyword-box">
+            <div class="keyword-title">
+              <i class="fas fa-key"></i>
+              Definition
+            </div>
+            <p>
+              A linear equation is an equation where the variable has a power of
+              1 (no squares, cubes, etc.).
+            </p>
+            <p>
+              General form: <span class="formula">x + a = b</span> (where a and
+              b are integers).
+            </p>
+          </div>
+
+          <div class="example">
+            <div class="example-title">Example:</div>
+            <div class="example-item">
+              <span class="formula">x + 5 = 10</span> is a linear equation in
+              one variable.
+            </div>
+          </div>
+
+          <div class="tip">
+            <div class="tip-title">
+              <i class="fas fa-star"></i>
+              Student Tip
+            </div>
+            <p>
+              "Linear" means "straight line" when graphed. Linear equations in
+              one variable can be represented as points on a number line.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-language"></i>
+          Translating Word Problems into Equations
+        </h2>
+        <div class="content">
+          <div class="subsection">
+            <h3 class="subsection-title">Example 1</h3>
+            <div class="example">
+              <div class="example-title">Problem:</div>
+              <div class="example-item">
+                Think of a number, double it and subtract 7. The result is 41.
+                What is the number?
+              </div>
+              <div class="example-title">Solution:</div>
+              <div class="example-item">
+                Let the number = <span class="formula">x</span>
+              </div>
+              <div class="example-item">
+                Double it → <span class="formula">2x</span>
+              </div>
+              <div class="example-item">
+                Subtract 7 → <span class="formula">2x – 7</span>
+              </div>
+              <div class="example-item">
+                Equation: <span class="formula">2x – 7 = 41</span>
+              </div>
+              <div class="example-item">
+                Solve:
+                <div class="example-item">
+                  <span class="formula">2x – 7 = 41</span>
+                </div>
+                <div class="example-item">
+                  <span class="formula">2x = 41 + 7 = 48</span>
+                </div>
+                <div class="example-item">
+                  <span class="formula">x = 48 ÷ 2 = 24</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Example 2</h3>
+            <div class="example">
+              <div class="example-title">Problem:</div>
+              <div class="example-item">
+                The sum of the ages of two friends is 25. The older is 4 times
+                the younger. Find their ages.
+              </div>
+              <div class="example-title">Solution:</div>
+              <div class="example-item">
+                Let younger = <span class="formula">x</span>
+              </div>
+              <div class="example-item">
+                Older = <span class="formula">4x</span>
+              </div>
+              <div class="example-item">
+                Equation: <span class="formula">x + 4x = 25</span>
+              </div>
+              <div class="example-item">
+                <span class="formula">5x = 25 → x = 5</span>
+              </div>
+              <div class="example-item">
+                Younger = 5 years, Older = 20 years
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Example 3</h3>
+            <div class="example">
+              <div class="example-title">Problem:</div>
+              <div class="example-item">
+                Adaako and Afrakoma shared 40 oranges. Afrakoma had 6 more than
+                Adaako. How many did each get?
+              </div>
+              <div class="example-title">Solution:</div>
+              <div class="example-item">
+                Let Adaako = <span class="formula">x</span>
+              </div>
+              <div class="example-item">
+                Afrakoma = <span class="formula">x + 6</span>
+              </div>
+              <div class="example-item">
+                Total = 40 → <span class="formula">x + (x + 6) = 40</span>
+              </div>
+              <div class="example-item">
+                <span class="formula">2x + 6 = 40</span>
+              </div>
+              <div class="example-item">
+                <span class="formula">2x = 34 → x = 17</span>
+              </div>
+              <div class="example-item">Adaako = 17, Afrakoma = 23</div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Try It Yourself!</div>
+            <p>
+              Translate this word problem into an equation: "A number increased
+              by 8 equals 15."
+            </p>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input-field"
+                id="translate-input"
+                placeholder="Enter your equation"
+              />
+              <button class="btn" id="check-translate">Check Answer</button>
+            </div>
+            <div class="result" id="translate-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-exchange-alt"></i>
+          Writing Word Problems from Equations
+        </h2>
+        <div class="content">
+          <div class="example">
+            <div class="example-title">Examples:</div>
+            <div class="example-item">
+              <span class="formula">x + x = 15</span> → The sum of two equal
+              numbers is 15.
+            </div>
+            <div class="example-item">
+              <span class="formula">2x – 4 = 12</span> → When 4 is subtracted
+              from twice a number, the result is 12.
+            </div>
+            <div class="example-item">
+              <span class="formula">(2/3)x = 4</span> → Two-thirds of a number
+              is 4.
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Create a word problem for this equation: 3x - 5 = 10</p>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input-field"
+                id="wordproblem-input"
+                placeholder="Enter your word problem"
+              />
+              <button class="btn" id="check-wordproblem">Check Answer</button>
+            </div>
+            <div class="result" id="wordproblem-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-balance-scale"></i>
+          Solving Equations
+        </h2>
+        <div class="content">
+          <div class="subsection">
+            <h3 class="subsection-title">Rule of Solving Equations</h3>
+            <div class="example">
+              <div class="example-item">
+                Whatever you add, subtract, multiply, or divide on one side must
+                also be done on the other side (balance method).
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Examples</h3>
+            <div class="example">
+              <div class="example-item">
+                <span class="formula">x + 3 = 7</span>
+                <div class="example-item">
+                  Subtract 3 both sides →
+                  <span class="formula">x = 7 – 3 = 4</span>
+                </div>
+              </div>
+
+              <div class="example-item">
+                <span class="formula">3x + 1 = 3x + 5</span>
+                <div class="example-item">
+                  Subtract 3x both sides →
+                  <span class="formula">1 = 5</span> (impossible)
+                </div>
+                <div class="example-item">No solution</div>
+              </div>
+
+              <div class="example-item">
+                <span class="formula">3y + 4 = 2y + 8</span>
+                <div class="example-item">
+                  Subtract 2y both sides →
+                  <span class="formula">y + 4 = 8</span>
+                </div>
+                <div class="example-item">
+                  Subtract 4 both sides → <span class="formula">y = 4</span>
+                </div>
+              </div>
+
+              <div class="example-item">
+                <span class="formula">3x + 5 = 20</span>
+                <div class="example-item">
+                  Subtract 5 both sides → <span class="formula">3x = 15</span>
+                </div>
+                <div class="example-item">
+                  Divide both sides by 3 → <span class="formula">x = 5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              Practice-type Equations (similar to exams)
+            </h3>
+            <div class="example">
+              <div class="example-item">
+                <span class="formula">4x + 1 = 3x + 7</span>
+                <div class="example-item">
+                  <span class="formula">x = 6</span>
+                </div>
+              </div>
+
+              <div class="example-item">
+                <span class="formula">7w + 3 = 2w + 18</span>
+                <div class="example-item">
+                  <span class="formula"
+                    >7w – 2w = 18 – 3 → 5w = 15 → w = 3</span
+                  >
+                </div>
+              </div>
+
+              <div class="example-item">
+                <span class="formula">5o – 3 = o – 1</span>
+                <div class="example-item">
+                  <span class="formula">5o – o = –1 + 3 → 4o = 2 → o = ½</span>
+                </div>
+              </div>
+
+              <div class="example-item">
+                <span class="formula">20 – 3k = k + 12</span>
+                <div class="example-item">
+                  <span class="formula">20 – 12 = 3k + k → 8 = 4k → k = 2</span>
+                </div>
+              </div>
+
+              <div class="example-item">
+                <span class="formula">6z + 4 = 28</span>
+                <div class="example-item">
+                  <span class="formula">6z = 28 – 4 → 6z = 24 → z = 4</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Solve the Equation</div>
+            <p>Solve: 5x - 7 = 18</p>
+            <div class="input-group">
+              <input
+                type="text"
+                class="input-field"
+                id="solve-input"
+                placeholder="Enter your answer"
+              />
+              <button class="btn" id="check-solve">Check Answer</button>
+            </div>
+            <div class="result" id="solve-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-chalkboard-teacher"></i>
+          Teaching Strategies
+        </h2>
+        <div class="content">
+          <div class="subsection">
+            <h3 class="subsection-title">Visual Learning</h3>
+            <p>
+              Use visual representations to help students understand abstract
+              concepts:
+            </p>
+            <ul style="margin-left: 20px">
+              <li>
+                Use balance scales to demonstrate the equality in equations
+              </li>
+              <li>Draw diagrams to represent word problems</li>
+              <li>
+                Use color coding to distinguish between variables and constants
+              </li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Progressive Difficulty</h3>
+            <p>
+              Start with simple equations and gradually increase complexity:
+            </p>
+            <ul style="margin-left: 20px">
+              <li>Begin with one-step equations (x + a = b)</li>
+              <li>Progress to two-step equations (ax + b = c)</li>
+              <li>Introduce equations with variables on both sides</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Real-World Connections</h3>
+            <p>
+              Help students see the relevance of equations in everyday life:
+            </p>
+            <ul style="margin-left: 20px">
+              <li>Use examples from shopping (discounts, taxes)</li>
+              <li>Connect to sports statistics</li>
+              <li>Relate to measurement problems</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Collaborative Learning</h3>
+            <p>Encourage peer-to-peer learning:</p>
+            <ul style="margin-left: 20px">
+              <li>Pair students to check each other's work</li>
+              <li>Use group problem-solving activities</li>
+              <li>Have students create their own word problems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-clipboard-list"></i>
+          Assessment Ideas
+        </h2>
+        <div class="content">
+          <div class="subsection">
+            <h3 class="subsection-title">Formative Assessment</h3>
+            <ul style="margin-left: 20px">
+              <li>Exit tickets with 1-2 problems to check understanding</li>
+              <li>Quick quizzes on specific skills</li>
+              <li>Observation during group work</li>
+              <li>Student self-assessment of confidence with concepts</li>
+            </ul>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Summative Assessment</h3>
+            <ul style="margin-left: 20px">
+              <li>Unit tests covering all concepts</li>
+              <li>
+                Project where students create real-world problems and equations
+              </li>
+              <li>Problem-solving tasks with multiple steps</li>
+              <li>Peer teaching presentations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-bookmark"></i>
+          Summary
+        </h2>
+        <div class="content">
+          <div class="keyword-box">
+            <div class="keyword-title">
+              <i class="fas fa-key"></i>
+              Key Points to Remember
+            </div>
+            <div class="example-item">
+              A variable is a letter representing an unknown number.
+            </div>
+            <div class="example-item">
+              An equation shows equality between two expressions.
+            </div>
+            <div class="example-item">
+              Linear equations have the variable raised to power 1.
+            </div>
+            <div class="example-item">
+              Word problems can be translated into equations using variables.
+            </div>
+            <div class="example-item">
+              To solve, use the balance method (do the same operation on both
+              sides).
+            </div>
+          </div>
+
+          <div class="tip">
+            <div class="tip-title">
+              <i class="fas fa-star"></i>
+              Final Tip
+            </div>
+            <p>
+              Understanding variables and equations is foundational for success
+              in algebra. These concepts allow us to represent and solve
+              real-world problems mathematically.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // Interactive elements
+      document
+        .getElementById("check-translate")
+        .addEventListener("click", () => {
+          const input = document
+            .getElementById("translate-input")
+            .value.toLowerCase();
+          const result = document.getElementById("translate-result");
+          // Possible correct answers
+          const correctAnswers = [
+            "x + 8 = 15",
+            "x+8=15",
+            "8 + x = 15",
+            "8+x=15",
+          ];
+          if (correctAnswers.includes(input)) {
+            result.textContent =
+              "Correct! 'A number increased by 8 equals 15' translates to x + 8 = 15.";
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              'Not quite. Remember: "A number increased by 8 equals 15" means we add 8 to the number x to get 15.';
+            result.style.color = "var(--warning-color)";
+          }
+        });
+
+      document
+        .getElementById("check-wordproblem")
+        .addEventListener("click", () => {
+          const input = document.getElementById("wordproblem-input").value;
+          const result = document.getElementById("wordproblem-result");
+          // Check if the input describes the equation 3x - 5 = 10
+          // This is more open-ended, so we'll check for key phrases
+          const keyPhrases = [
+            "three times",
+            "triple",
+            "3 times",
+            "multiply by 3",
+            "subtract 5",
+            "minus 5",
+            "equals 10",
+            "is 10",
+            "results in 10",
+          ];
+
+          let hasKeyPhrases = 0;
+          keyPhrases.forEach((phrase) => {
+            if (input.toLowerCase().includes(phrase)) {
+              hasKeyPhrases++;
+            }
+          });
+
+          if (hasKeyPhrases >= 3) {
+            result.textContent =
+              "Good job! Your word problem accurately represents the equation 3x - 5 = 10.";
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Try again. Make sure your word problem includes multiplying a number by 3, subtracting 5, and getting a result of 10.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+
+      document.getElementById("check-solve").addEventListener("click", () => {
+        const input = document.getElementById("solve-input").value;
+        const result = document.getElementById("solve-result");
+        // Check if input is a number and equals the correct answer
+        const inputValue = parseFloat(input);
+        const correctAnswer = (18 + 7) / 5; // 5x - 7 = 18 → 5x = 25 → x = 5
+        if (
+          !isNaN(inputValue) &&
+          Math.abs(inputValue - correctAnswer) < 0.001
+        ) {
+          result.textContent = `Correct! 5x - 7 = 18 → 5x = 25 → x = 5`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = `Not quite. Remember to add 7 to both sides first, then divide by 5.`;
+          result.style.color = "var(--warning-color)";
+        }
+      });
+    </script>
+  </body>
+</html>

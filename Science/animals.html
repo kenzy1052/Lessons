@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JHS Science Guide - Animal Production</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #2c7a7b;
+        --secondary-color: #319795;
+        --accent-color: #38b2ac;
+        --success-color: #48bb78;
+        --warning-color: #ed8936;
+        --info-color: #4299e1;
+        --error-color: #e53e3e;
+        --background-color: #f7fafc;
+        --surface-color: #edf2f7;
+        --card-color: #ffffff;
+        --text-color: #2d3748;
+        --text-secondary: #4a5568;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #e6fffa;
+        --note-bg: #fffaf0;
+        --tip-bg: #f0fff4;
+        --keyword-bg: #ebf8ff;
+      }
+      [data-theme="dark"] {
+        --background-color: #1a202c;
+        --surface-color: #2d3748;
+        --card-color: #2d3748;
+        --text-color: #f7fafc;
+        --text-secondary: #cbd5e0;
+        --border-color: #4a5568;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1a3c3d;
+        --note-bg: #3d2f1f;
+        --tip-bg: #1f3d1f;
+        --keyword-bg: #1c2f3d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .video-section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #000;
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+      }
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #1a3c3d, #2d5a5b);
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .video-placeholder:hover {
+        background: linear-gradient(135deg, #2d5a5b, #3a797a);
+      }
+      .video-placeholder i {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+      }
+      .video-placeholder h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .video-placeholder p {
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+      .video-player {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      .nav-tab {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-tab:hover {
+        background: var(--surface-color);
+      }
+      .nav-tab.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+      }
+      .content-section {
+        display: none;
+      }
+      .content-section.active {
+        display: block;
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .keyword-box {
+        background: var(--keyword-bg);
+        border-left: 4px solid var(--info-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .keyword-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--info-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .highlight {
+        background: rgba(44, 122, 123, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+      .model-instructions {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      .model-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        gap: 15px;
+      }
+      .step-number {
+        background: var(--primary-color);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .step-content {
+        flex: 1;
+      }
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .image {
+        display: block;
+        width: 100%;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(56, 178, 172, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(56, 178, 172, 0.1);
+        box-shadow: 0 4px 15px rgba(56, 178, 172, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+        .logo h1 {
+          font-size: 1.4rem;
+        }
+        .theme-toggle {
+          padding: 6px 12px;
+        }
+        .model-step {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .step-number {
+          align-self: flex-start;
+        }
+      }
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+      #drawCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* allows clicking through when not drawing */
+        z-index: 9999; /* stays above everything */
+      }
+      .animal-types {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .animal-type {
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+        background: var(--surface-color);
+        width: 30%;
+        min-width: 200px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+      .animal-type:hover {
+        transform: translateY(-5px);
+      }
+      .animal-icon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      .ruminant-icon {
+        color: var(--info-color);
+      }
+      .monogastric-icon {
+        color: var(--warning-color);
+      }
+      .poultry-icon {
+        color: var(--success-color);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item active"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../English/english.html"
+            class="nav-item"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Contact/index.html"
+            class="nav-item"
+            data-subject="contact"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #f00; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <i class="fas fa-graduation-cap"></i> EduHub
+        </div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a
+          href="../English/english.html"
+          class="mobile-nav-item"
+          data-subject="english"
+          >English</a
+        >
+        <a
+          href="../Maths/maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+        >
+          Mathematics
+        </a>
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="../External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #f00; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-horse"></i>
+          <h1>JHS Science Guide - Animal Production</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+      <div class="video-section">
+        <h2 class="section-title">
+          <i class="fas fa-play-circle"></i>
+          Domestic Animals Tutorial
+        </h2>
+        <div class="video-container">
+          <div class="video-placeholder" id="video-placeholder">
+            <i class="fas fa-play-circle"></i>
+            <h3>Click to Play Video</h3>
+            <p>Introduction to Domestic Animals and Their Classification</p>
+          </div>
+          <video class="video-player" id="video-player" controls>
+            <source src="../External Files/animals.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="introduction">
+          <i class="fas fa-home"></i>
+          <span>Introduction</span>
+        </div>
+        <div class="nav-tab" data-tab="characteristics">
+          <i class="fas fa-search"></i>
+          <span>Characteristics</span>
+        </div>
+        <div class="nav-tab" data-tab="classification">
+          <i class="fas fa-sitemap"></i>
+          <span>Classification</span>
+        </div>
+        <div class="nav-tab" data-tab="differences">
+          <i class="fas fa-balance-scale"></i>
+          <span>Differences</span>
+        </div>
+        <div class="nav-tab" data-tab="similarities">
+          <i class="fas fa-equals"></i>
+          <span>Similarities</span>
+        </div>
+        <div class="nav-tab" data-tab="uses">
+          <i class="fas fa-tools"></i>
+          <span>Uses</span>
+        </div>
+        <div class="nav-tab" data-tab="byproducts">
+          <i class="fas fa-box-open"></i>
+          <span>By-products</span>
+        </div>
+        <div class="nav-tab" data-tab="summary">
+          <i class="fas fa-bookmark"></i>
+          <span>Summary</span>
+        </div>
+      </div>
+
+      <!-- Introduction Section -->
+      <div class="content-section active" id="introduction">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-home"></i>
+            Introduction to Domestic Animals
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">What are Domestic Animals?</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Definition
+                </div>
+                <p>
+                  Domestic animals are animals that have been tamed and kept by
+                  humans for different purposes such as food, work, and
+                  companionship.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Examples of Domestic Animals</div>
+                <div class="example-item">Goats</div>
+                <div class="example-item">Sheep</div>
+                <div class="example-item">Cattle</div>
+                <div class="example-item">Pigs</div>
+                <div class="example-item">Rabbits</div>
+                <div class="example-item">Chickens</div>
+                <div class="example-item">Ducks</div>
+                <div class="example-item">Turkeys</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Why Domestic Animals Matter</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Importance to Humans</div>
+                <div class="example-item">
+                  <strong>Food Source:</strong> Provide meat, milk, eggs, and other
+                  food products
+                </div>
+                <div class="example-item">
+                  <strong>Labour:</strong> Help with farming tasks like ploughing and
+                  transportation
+                </div>
+                <div class="example-item">
+                  <strong>Income:</strong> Can be sold for money or their products
+                  can be sold
+                </div>
+                <div class="example-item">
+                  <strong>Companionship:</strong> Some animals are kept as pets for
+                  emotional support
+                </div>
+                <div class="example-item">
+                  <strong>By-products:</strong> Provide materials like leather,
+                  wool, and manure for fertilizer
+                </div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Show students pictures or videos of different domestic animals
+                  and discuss their importance in daily life. Ask students to
+                  share their experiences with domestic animals.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Classify the following as domestic or wild animals:</p>
+            <div class="input-group">
+              <select class="input-field" id="animal-select">
+                <option value="">Select an animal</option>
+                <option value="cow">Cow</option>
+                <option value="lion">Lion</option>
+                <option value="chicken">Chicken</option>
+                <option value="elephant">Elephant</option>
+                <option value="goat">Goat</option>
+                <option value="tiger">Tiger</option>
+              </select>
+              <button class="btn" id="check-animal">Check Type</button>
+            </div>
+            <div class="result" id="animal-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Characteristics Section -->
+      <div class="content-section" id="characteristics">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-search"></i>
+            Characteristics Used to Identify Domestic Animals
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Key Identifying Features</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Shape & Size</div>
+                <div class="example-item">
+                  Animals vary greatly in size and shape, which helps in
+                  identification
+                </div>
+                <div class="example-item">
+                  Example: Cattle are bigger than goats
+                </div>
+                <div class="example-item">
+                  Example: Chickens are smaller than turkeys
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Colour</div>
+                <div class="example-item">
+                  Coat or feather color is a common identifying feature
+                </div>
+                <div class="example-item">Examples: White, black, brown, spotted</div>
+                <div class="example-item">
+                  Example: Some cattle are white with black spots (Holstein)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Food/Feeding Habit</div>
+                <div class="example-item">
+                  What an animal eats helps classify it
+                </div>
+                <div class="example-item">
+                  <strong>Herbivores:</strong> Eat only plants (cattle, goats,
+                  sheep)
+                </div>
+                <div class="example-item">
+                  <strong>Omnivores:</strong> Eat both plants and meat (pigs, dogs,
+                  chickens)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Uses</div>
+                <div class="example-item">
+                  The purpose for which an animal is kept helps identify its
+                  type
+                </div>
+                <div class="example-item">Examples: Meat, milk, eggs, labour</div>
+                <div class="example-item">
+                  Example: Dairy cattle are kept mainly for milk production
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the characteristic to its description:</p>
+            <div class="input-group">
+              <select class="input-field" id="char-select">
+                <option value="">Select a characteristic</option>
+                <option value="shape-size">Shape & Size</option>
+                <option value="colour">Colour</option>
+                <option value="feeding-habit">Food/Feeding Habit</option>
+                <option value="uses">Uses</option>
+              </select>
+              <button class="btn" id="check-char">Check Description</button>
+            </div>
+            <div class="result" id="char-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Classification Section -->
+      <div class="content-section" id="classification">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-sitemap"></i>
+            Classification of Domestic Animals
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Main Classes of Domestic Animals</h3>
+            <div class="content">
+              <p>
+                Domestic animals can be grouped into three main classes based on
+                their digestive systems and other characteristics:
+              </p>
+
+              <div class="animal-types">
+                <div class="animal-type">
+                  <div class="animal-icon ruminant-icon">
+                    <i class="fas fa-cow"></i>
+                  </div>
+                  <h4>Ruminants</h4>
+                  <p>Four-compartment stomach</p>
+                </div>
+                <div class="animal-type">
+                  <div class="animal-icon monogastric-icon">
+                    <i class="fas fa-piggy-bank"></i>
+                  </div>
+                  <h4>Monogastrics</h4>
+                  <p>Single-compartment stomach</p>
+                </div>
+                <div class="animal-type">
+                  <div class="animal-icon poultry-icon">
+                    <i class="fas fa-egg"></i>
+                  </div>
+                  <h4>Poultry</h4>
+                  <p>Birds with beaks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">1. Ruminants</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What are Ruminants?
+                </div>
+                <p>
+                  Animals with a stomach divided into four compartments. They chew
+                  food, swallow, bring it back (cud), and chew again.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Examples of Ruminants</div>
+                <div class="example-item">Cattle</div>
+                <div class="example-item">Sheep</div>
+                <div class="example-item">Goats</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Characteristics of Ruminants</div>
+                <div class="example-item">Have horns (mostly)</div>
+                <div class="example-item">Chew cud</div>
+                <div class="example-item">Produce milk (in females)</div>
+                <div class="example-item">
+                  Strong and can be used for work (e.g., ploughing)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Feeding Habit</div>
+                <div class="example-item">
+                  <strong>Herbivores</strong> - eat only plants
+                </div>
+                <div class="example-item">
+                  Can digest tough plant fibers thanks to their specialized
+                  digestive system
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">2. Monogastrics</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What are Monogastrics?
+                </div>
+                <p>
+                  Animals with a simple (single) stomach. They cannot chew cud.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Examples of Monogastrics</div>
+                <div class="example-item">Pigs</div>
+                <div class="example-item">Rabbits</div>
+                <div class="example-item">Dogs</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Characteristics of Monogastrics</div>
+                <div class="example-item">Digest food once</div>
+                <div class="example-item">Grow fast</div>
+                <div class="example-item">
+                  Eat different types of food (depending on the species)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Feeding Habit</div>
+                <div class="example-item">
+                  <strong>Omnivores</strong> (pigs, dogs) - eat plants and meat
+                </div>
+                <div class="example-item">
+                  <strong>Herbivores</strong> (rabbits) - eat only plants
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3. Poultry</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is Poultry?
+                </div>
+                <p>
+                  Monogastric herbivores with beaks. Domesticated birds kept for
+                  meat, eggs, and feathers.
+                </p>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Examples of Poultry</div>
+                <div class="example-item">Chickens</div>
+                <div class="example-item">Turkeys</div>
+                <div class="example-item">Ducks</div>
+                <div class="example-item">Guinea fowls</div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Characteristics of Poultry</div>
+                <div class="example-item">Have beaks instead of teeth</div>
+                <div class="example-item">Lay eggs</div>
+                <div class="example-item">Covered with feathers</div>
+                <div class="example-item">
+                  Lightweight bones for easy movement
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Feeding Habit</div>
+                <div class="example-item">
+                  Mostly eat grains, seeds, and plants
+                </div>
+                <div class="example-item">
+                  Use gizzard to grind food since they don't have teeth
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Classify the following animal based on its description:</p>
+            <div class="input-group">
+              <select class="input-field" id="class-select">
+                <option value="">Select an animal</option>
+                <option value="cow">Cow - has four stomach compartments</option>
+                <option value="pig">Pig - has a simple stomach</option>
+                <option value="chicken">Chicken - has a beak and lays eggs</option>
+                <option value="sheep">Sheep - chews cud</option>
+                <option value="rabbit">Rabbit - has a simple stomach but eats only plants</option>
+                <option value="duck">Duck - has feathers and a beak</option>
+              </select>
+              <button class="btn" id="check-class">Check Classification</button>
+            </div>
+            <div class="result" id="class-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Differences Section -->
+      <div class="content-section" id="differences">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-balance-scale"></i>
+            Differences Between Ruminants, Monogastrics and Poultry
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Comparative Features</h3>
+            <div class="content">
+              <table class="table">
+                <tr>
+                  <th>Feature</th>
+                  <th>Ruminants</th>
+                  <th>Monogastrics</th>
+                  <th>Poultry</th>
+                </tr>
+                <tr>
+                  <td>Stomach</td>
+                  <td>Four compartments</td>
+                  <td>One compartment</td>
+                  <td>One compartment</td>
+                </tr>
+                <tr>
+                  <td>Examples</td>
+                  <td>Cattle, sheep, goats</td>
+                  <td>Pig, rabbit, dog</td>
+                  <td>Chicken, duck, turkey</td>
+                </tr>
+                <tr>
+                  <td>Feeding habit</td>
+                  <td>Herbivores</td>
+                  <td>Omnivores/herbivores</td>
+                  <td>Mostly grains, plants</td>
+                </tr>
+                <tr>
+                  <td>Food digestion</td>
+                  <td>Chew cud</td>
+                  <td>No cud chewing</td>
+                  <td>Use gizzard to grind</td>
+                </tr>
+                <tr>
+                  <td>Body covering</td>
+                  <td>Hair/fur</td>
+                  <td>Hair/fur</td>
+                  <td>Feathers</td>
+                </tr>
+                <tr>
+                  <td>Reproduction</td>
+                  <td>Give birth (viviparous)</td>
+                  <td>Give birth (viviparous)</td>
+                  <td>Lay eggs (oviparous)</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Digestive System Differences</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Ruminant Digestive System</div>
+                <div class="example-item">
+                  Four compartments: rumen, reticulum, omasum, abomasum
+                </div>
+                <div class="example-item">
+                  Can digest cellulose (plant fiber) efficiently
+                </div>
+                <div class="example-item">
+                  Process: Chew → Swallow → Regurgitate as cud → Chew again
+                  → Digest
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Monogastric Digestive System</div>
+                <div class="example-item">
+                  Simple stomach with one compartment
+                </div>
+                <div class="example-item">
+                  Cannot digest cellulose as efficiently as ruminants
+                </div>
+                <div class="example-item">
+                  Process: Chew → Swallow → Digest (single pass)
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Poultry Digestive System</div>
+                <div class="example-item">
+                  Simple stomach with one compartment
+                </div>
+                <div class="example-item">
+                  Have a gizzard that grinds food (compensates for lack of teeth)
+                </div>
+                <div class="example-item">
+                  Process: Swallow whole → Store in crop → Grind in gizzard →
+                  Digest
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the feature to the correct animal type:</p>
+            <div class="input-group">
+              <select class="input-field" id="diff-select">
+                <option value="">Select a feature</option>
+                <option value="four-stomachs">Has four stomach compartments</option>
+                <option value="gizzard">Uses gizzard to grind food</option>
+                <option value="simple-stomach">Has a simple stomach</option>
+                <option value="chews-cud">Chews cud</option>
+                <option value="lays-eggs">Lays eggs</option>
+                <option value="viviparous">Gives birth to live young</option>
+              </select>
+              <button class="btn" id="check-diff">Check Animal Type</button>
+            </div>
+            <div class="result" id="diff-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Similarities Section -->
+      <div class="content-section" id="similarities">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-equals"></i>
+            Similarities Among Ruminants, Monogastrics and Poultry
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Common Features</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Domestication</div>
+                <div class="example-item">
+                  All are domesticated by humans for various purposes
+                </div>
+                <div class="example-item">
+                  Have been selectively bred for specific traits over many
+                  generations
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Food Production</div>
+                <div class="example-item">
+                  All are used for food (meat, eggs, milk)
+                </div>
+                <div class="example-item">
+                  Form an important part of the human food chain
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Basic Needs</div>
+                <div class="example-item">
+                  All need feeding, water, and shelter to survive and thrive
+                </div>
+                <div class="example-item">
+                  Require proper care and management for optimal health and
+                  productivity
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Economic Importance</div>
+                <div class="example-item">
+                  All can be reared for commercial or domestic purposes
+                </div>
+                <div class="example-item">
+                  Contribute to the economy through agriculture and food
+                  production
+                </div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Create a Venn diagram with students showing the similarities
+                  and differences between ruminants, monogastrics, and poultry.
+                  This visual representation helps students understand the
+                  relationships between these animal groups.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Which of the following is a similarity among all three animal types?</p>
+            <div class="input-group">
+              <select class="input-field" id="sim-select">
+                <option value="">Select your answer</option>
+                <option value="domestication">All are domesticated by humans</option>
+                <option value="stomach">All have the same type of stomach</option>
+                <option value="reproduction">All reproduce in the same way</option>
+                <option value="covering">All have the same body covering</option>
+              </select>
+              <button class="btn" id="check-sim">Check Answer</button>
+            </div>
+            <div class="result" id="sim-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Uses Section -->
+      <div class="content-section" id="uses">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-tools"></i>
+            Uses of Domestic Animals
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">1. Domestic Uses</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Food</div>
+                <div class="example-item">
+                  <strong>Meat:</strong> Beef from cattle, pork from pigs, mutton
+                  from sheep, chevon from goats
+                </div>
+                <div class="example-item">
+                  <strong>Milk:</strong> From cattle, goats, and sheep
+                </div>
+                <div class="example-item">
+                  <strong>Eggs:</strong> From chickens, ducks, and turkeys
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Clothing</div>
+                <div class="example-item">
+                  <strong>Hides and skins:</strong> Used for leather products like
+                  shoes, bags, belts
+                </div>
+                <div class="example-item">
+                  <strong>Wool:</strong> From sheep, used for sweaters, blankets,
+                  and other warm clothing
+                </div>
+                <div class="example-item">
+                  <strong>Feathers:</strong> From poultry, used for pillows,
+                  decorations, and dusters
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Work</div>
+                <div class="example-item">
+                  <strong>Ploughing:</strong> Oxen (castrated bulls) are used to
+                  plough fields
+                </div>
+                <div class="example-item">
+                  <strong>Transportation:</strong> Donkeys, horses, and cattle
+                  are used for riding and carrying loads
+                </div>
+                <div class="example-item">
+                  <strong>Hunting:</strong> Dogs are used for hunting game
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Companionship</div>
+                <div class="example-item">
+                  <strong>Pets:</strong> Dogs, cats, and rabbits provide companionship
+                  and emotional support
+                </div>
+                <div class="example-item">
+                  <strong>Therapy animals:</strong> Some animals are trained to
+                  help people with disabilities or provide emotional support
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Manure</div>
+                <div class="example-item">
+                  Animal droppings are used to fertilize crops
+                </div>
+                <div class="example-item">
+                  Provides organic matter that improves soil structure and
+                  fertility
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">2. Commercial Uses</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Sale for Money</div>
+                <div class="example-item">
+                  <strong>Meat:</strong> Sold in markets and butcheries
+                </div>
+                <div class="example-item">
+                  <strong>Milk:</strong> Sold fresh or processed into cheese,
+                  yogurt, butter
+                </div>
+                <div class="example-item">
+                  <strong>Eggs:</strong> Sold for consumption or hatching
+                </div>
+                <div class="example-item">
+                  <strong>Hides and skins:</strong> Sold to tanneries for
+                  leather production
+                </div>
+                <div class="example-item">
+                  <strong>Wool:</strong> Sold to textile industries
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Commercial Farming</div>
+                <div class="example-item">
+                  <strong>Poultry farming:</strong> Raising chickens for eggs
+                  (layers) or meat (broilers)
+                </div>
+                <div class="example-item">
+                  <strong>Piggeries:</strong> Raising pigs for pork production
+                </div>
+                <div class="example-item">
+                  <strong>Dairy farming:</strong> Raising cattle for milk
+                  production
+                </div>
+                <div class="example-item">
+                  <strong>Sheep and goat farming:</strong> For meat, milk, and
+                  fiber production
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Breeding</div>
+                <div class="example-item">
+                  Breeding stock is sold to other farmers
+                </div>
+                <div class="example-item">
+                  Selective breeding for improved traits is a valuable
+                  commercial activity
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the animal product to its use:</p>
+            <div class="input-group">
+              <select class="input-field" id="use-select">
+                <option value="">Select a product</option>
+                <option value="wool">Wool</option>
+                <option value="hides">Hides and skins</option>
+                <option value="manure">Animal manure</option>
+                <option value="eggs">Eggs</option>
+                <option value="milk">Milk</option>
+              </select>
+              <button class="btn" id="check-use">Check Use</button>
+            </div>
+            <div class="result" id="use-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- By-products Section -->
+      <div class="content-section" id="byproducts">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-box-open"></i>
+            By-products of Domestic Animals
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">Animal By-products and Their Uses</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Cattle By-products</div>
+                <div class="example-item">
+                  <strong>Milk:</strong> Used for drinking, making cheese, yogurt,
+                  butter, ice cream
+                </div>
+                <div class="example-item">
+                  <strong>Hides:</strong> Used for leather products (shoes, bags,
+                  belts, jackets)
+                </div>
+                <div class="example-item">
+                  <strong>Manure:</strong> Used as organic fertilizer for crops
+                </div>
+                <div class="example-item">
+                  <strong>Bones:</strong> Used for making gelatin, bone meal
+                  (fertilizer), buttons, ornaments
+                </div>
+                <div class="example-item">
+                  <strong>Horns and hooves:</strong> Used for making buttons,
+                  combs, gelatin, and decorative items
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Sheep By-products</div>
+                <div class="example-item">
+                  <strong>Wool:</strong> Used for making clothing, blankets,
+                  carpets, and other textiles
+                </div>
+                <div class="example-item">
+                  <strong>Meat (mutton):strong> Used for food
+                </div>
+                <div class="example-item">
+                  <strong>Skin:</strong> Used for leather products (gloves, book
+                  covers)
+                </div>
+                <div class="example-item">
+                  <strong>Manure:</strong> Used as organic fertilizer
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Goat By-products</div>
+                <div class="example-item">
+                  <strong>Meat (chevon):</strong> Used for food
+                </div>
+                <div class="example-item">
+                  <strong>Milk:</strong> Used for drinking, making cheese, yogurt,
+                  soap
+                </div>
+                <div class="example-item">
+                  <strong>Skin:</strong> Used for leather products (gloves, bags,
+                  shoes)
+                </div>
+                <div class="example-item">
+                  <strong>Manure:</strong> Used as organic fertilizer
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Pig By-products</div>
+                <div class="example-item">
+                  <strong>Meat (pork):</strong> Used for food (fresh, cured, or
+                  processed)
+                </div>
+                <div class="example-item">
+                  <strong>Lard:</strong> Used for cooking, making soap, and
+                  cosmetics
+                </div>
+                <div class="example-item">
+                  <strong>Bristles:</strong> Used for making brushes (paintbrushes,
+                  hairbrushes)
+                </div>
+                <div class="example-item">
+                  <strong>Manure:</strong> Used as organic fertilizer
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Poultry By-products</div>
+                <div class="example-item">
+                  <strong>Eggs:</strong> Used for food, baking, and in food
+                  products
+                </div>
+                <div class="example-item">
+                  <strong>Feathers:</strong> Used for pillows, decorations, dusters,
+                  and fishing flies
+                </div>
+                <div class="example-item">
+                  <strong>Droppings:</strong> Used as organic fertilizer (rich in
+                  nitrogen)
+                </div>
+                <div class="example-item">
+                  <strong>Feet:</strong> Used for making soup (chicken feet soup)
+                </div>
+              </div>
+
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tip
+                </div>
+                <p>
+                  Bring examples of animal by-products to class if possible
+                  (wool, leather products, feathers). Discuss how these products
+                  are used in everyday life and their economic importance.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Practice Activity</div>
+            <p>Match the by-product to the animal it comes from:</p>
+            <div class="input-group">
+              <select class="input-field" id="byproduct-select">
+                <option value="">Select a by-product</option>
+                <option value="wool">Wool</option>
+                <option value="lard">Lard</option>
+                <option value="feathers">Feathers</option>
+                <option value="hides">Hides</option>
+                <option value="bristles">Bristles</option>
+              </select>
+              <button class="btn" id="check-byproduct">Check Animal</button>
+            </div>
+            <div class="result" id="byproduct-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="content-section" id="summary">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-bookmark"></i>
+            Quick Recall Summary
+          </h2>
+
+          <div class="content">
+            <div class="keyword-box">
+              <div class="keyword-title">
+                <i class="fas fa-key"></i>
+                Key Points to Remember
+              </div>
+              <div class="example-item">
+                <strong>Domestic animals:</strong> Tamed by humans for food, work,
+                and companionship
+              </div>
+              <div class="example-item">
+                <strong>Characteristics for identification:</strong> Shape & size,
+                colour, feeding habit, uses
+              </div>
+
+              <div class="example-item">
+                <strong>Classification:</strong>
+              </div>
+              <div class="example-item">
+                Ruminants → Four stomach compartments, chew cud, herbivores
+              </div>
+              <div class="example-item">
+                Monogastrics → Simple stomach, no cud chewing, omnivores/herbivores
+              </div>
+              <div class="example-item">
+                Poultry → Birds with beaks, lay eggs, use gizzard to grind food
+              </div>
+
+              <div class="example-item">
+                <strong>Differences:</strong> Stomach structure, feeding habits,
+                digestion process, body covering, reproduction
+              </div>
+
+              <div class="example-item">
+                <strong>Similarities:</strong> All domesticated, used for food,
+                need care, economic importance
+              </div>
+
+              <div class="example-item">
+                <strong>Uses:</strong>
+              </div>
+              <div class="example-item">
+                Domestic → Food, clothing, work, companionship, manure
+              </div>
+              <div class="example-item">
+                Commercial → Sold for money, farming enterprises, breeding
+              </div>
+
+              <div class="example-item">
+                <strong>By-products:</strong> Milk, hides, wool, manure, eggs,
+                feathers, lard, bristles
+              </div>
+            </div>
+
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Final Tip
+              </div>
+              <p>
+                Understanding domestic animals and their classification is
+                essential for successful animal production. Each type has specific
+                needs and characteristics that farmers must understand to provide
+                proper care and maximize productivity.
+              </p>
+            </div>
+          </div>
+
+          <div class="interactive">
+            <div class="interactive-title">Test Your Knowledge</div>
+            <p>Which type of animal has a stomach with four compartments and chews cud?</p>
+            <div class="input-group">
+              <select class="input-field" id="summary-select">
+                <option value="">Select your answer</option>
+                <option value="ruminants">Ruminants</option>
+                <option value="monogastrics">Monogastrics</option>
+                <option value="poultry">Poultry</option>
+              </select>
+              <button class="btn" id="check-summary">Check Answer</button>
+            </div>
+            <div class="result" id="summary-result"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+    <canvas id="drawCanvas"></canvas>
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+      // Video player functionality
+      const videoPlaceholder = document.getElementById("video-placeholder");
+      const videoPlayer = document.getElementById("video-player");
+      videoPlaceholder.addEventListener("click", () => {
+        videoPlaceholder.style.display = "none";
+        videoPlayer.style.display = "block";
+        videoPlayer.play();
+      });
+      // Tab navigation
+      const navTabs = document.querySelectorAll(".nav-tab");
+      const contentSections = document.querySelectorAll(".content-section");
+      navTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetTab = tab.getAttribute("data-tab");
+          // Remove active class from all tabs and sections
+          navTabs.forEach((t) => t.classList.remove("active"));
+          contentSections.forEach((s) => s.classList.remove("active"));
+          // Add active class to clicked tab and corresponding section
+          tab.classList.add("active");
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+      // Interactive elements
+      document.getElementById("check-animal").addEventListener("click", () => {
+        const input = document.getElementById("animal-select").value;
+        const result = document.getElementById("animal-result");
+        const types = {
+          cow: "Domestic - Cattle are domesticated farm animals",
+          lion: "Wild - Lions are wild animals not typically domesticated",
+          chicken: "Domestic - Chickens are domesticated poultry birds",
+          elephant: "Wild - Elephants are wild animals, though sometimes tamed",
+          goat: "Domestic - Goats are domesticated farm animals",
+          tiger: "Wild - Tigers are wild animals not typically domesticated",
+        };
+        if (types[input]) {
+          result.textContent = `Correct! ${types[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select an animal to check its type.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-char").addEventListener("click", () => {
+        const input = document.getElementById("char-select").value;
+        const result = document.getElementById("char-result");
+        const descriptions = {
+          "shape-size": "Shape & Size - Animals vary in size and shape, which helps in identification (e.g., cattle are bigger than goats)",
+          colour: "Colour - Coat or feather color is a common identifying feature (e.g., white, black, brown, spotted)",
+          "feeding-habit": "Food/Feeding Habit - What an animal eats helps classify it (herbivores eat plants, omnivores eat plants and meat)",
+          uses: "Uses - The purpose for which an animal is kept helps identify its type (meat, milk, eggs, labour)",
+        };
+        if (descriptions[input]) {
+          result.textContent = `Correct! ${descriptions[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select a characteristic to check its description.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-class").addEventListener("click", () => {
+        const input = document.getElementById("class-select").value;
+        const result = document.getElementById("class-result");
+        const classifications = {
+          cow: "Ruminant - Cattle have four stomach compartments and chew cud",
+          pig: "Monogastric - Pigs have a simple stomach and cannot chew cud",
+          chicken: "Poultry - Chickens have a beak and lay eggs",
+          sheep: "Ruminant - Sheep have four stomach compartments and chew cud",
+          rabbit: "Monogastric - Rabbits have a simple stomach but eat only plants",
+          duck: "Poultry - Ducks have feathers and a beak",
+        };
+        if (classifications[input]) {
+          result.textContent = `Correct! ${input.charAt(0).toUpperCase() + input.slice(1)} is a ${classifications[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select an animal to check its classification.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-diff").addEventListener("click", () => {
+        const input = document.getElementById("diff-select").value;
+        const result = document.getElementById("diff-result");
+        const types = {
+          "four-stomachs": "Ruminants - Animals with four stomach compartments",
+          "gizzard": "Poultry - Birds that use a gizzard to grind food",
+          "simple-stomach": "Monogastrics - Animals with a simple stomach",
+          "chews-cud": "Ruminants - Animals that chew cud",
+          "lays-eggs": "Poultry - Birds that lay eggs",
+          "viviparous": "Ruminants and Monogastrics - Animals that give birth to live young",
+        };
+        if (types[input]) {
+          result.textContent = `Correct! ${types[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select a feature to check the animal type.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-sim").addEventListener("click", () => {
+        const input = document.getElementById("sim-select").value;
+        const result = document.getElementById("sim-result");
+        if (input === "domestication") {
+          result.textContent =
+            "Correct! All ruminants, monogastrics, and poultry are domesticated by humans for various purposes.";
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Not quite. While domestication is a key similarity among all three animal types, they differ in stomach structure, reproduction methods, and body coverings.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-use").addEventListener("click", () => {
+        const input = document.getElementById("use-select").value;
+        const result = document.getElementById("use-result");
+        const uses = {
+          wool: "Used for making clothing, blankets, carpets, and other textiles",
+          hides: "Used for leather products like shoes, bags, belts, and jackets",
+          manure: "Used as organic fertilizer for crops",
+          eggs: "Used for food, baking, and in food products",
+          milk: "Used for drinking, making cheese, yogurt, butter, and ice cream",
+        };
+        if (uses[input]) {
+          result.textContent = `Correct! ${input.charAt(0).toUpperCase() + input.slice(1)} is ${uses[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select a product to check its use.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-byproduct").addEventListener("click", () => {
+        const input = document.getElementById("byproduct-select").value;
+        const result = document.getElementById("byproduct-result");
+        const animals = {
+          wool: "Sheep - Wool comes from the fleece of sheep",
+          lard: "Pigs - Lard is rendered fat from pigs",
+          feathers: "Poultry - Feathers come from chickens, ducks, and other birds",
+          hides: "Cattle - Hides come from the skin of cattle",
+          bristles: "Pigs - Bristles come from the coarse hair of pigs",
+        };
+        if (animals[input]) {
+          result.textContent = `Correct! ${input.charAt(0).toUpperCase() + input.slice(1)} comes from ${animals[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent = "Please select a by-product to check the animal it comes from.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-summary").addEventListener("click", () => {
+        const input = document.getElementById("summary-select").value;
+        const result = document.getElementById("summary-result");
+        if (input === "ruminants") {
+          result.textContent =
+            "Correct! Ruminants have a stomach with four compartments and chew cud. Examples include cattle, sheep, and goats.";
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Not quite. Ruminants are the animals with four stomach compartments that chew cud. Monogastrics have a simple stomach, and poultry are birds with beaks.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      // Canvas drawing functionality
+      const canvas = document.getElementById("drawCanvas");
+      const ctx = canvas.getContext("2d");
+      // Adjust canvas size
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+      let drawing = false;
+      canvas.addEventListener("mousedown", (e) => {
+        drawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY);
+      });
+      canvas.addEventListener("mousemove", (e) => {
+        if (!drawing) return;
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "red";
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.stroke();
+      });
+      canvas.addEventListener("mouseup", () => {
+        drawing = false;
+      });
+      // Toggle drawing mode with "D" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "d" || e.key === "D") {
+          if (canvas.style.pointerEvents === "none") {
+            canvas.style.pointerEvents = "auto"; // enable drawing
+          } else {
+            canvas.style.pointerEvents = "none"; // disable drawing
+          }
+        }
+      });
+      // Clear screen with "C" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "c" || e.key === "C") {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      });
+    </script>
+  </body>
+</html>

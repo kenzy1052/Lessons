@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JHS English Guide - Cohesive Devices</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #5b5fde;
+        --secondary-color: #7c3aed;
+        --accent-color: #ec4899;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --info-color: #3b82f6;
+        --background-color: #f8fafc;
+        --surface-color: #f1f5f9;
+        --card-color: #ffffff;
+        --text-color: #334155;
+        --text-secondary: #64748b;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #eff6ff;
+        --note-bg: #fffbeb;
+        --tip-bg: #f0fdf4;
+        --keyword-bg: #f8fafc;
+      }
+      [data-theme="dark"] {
+        --background-color: #1e293b;
+        --surface-color: #0f172a;
+        --card-color: #1e293b;
+        --text-color: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1e3a5f;
+        --note-bg: #451a03;
+        --tip-bg: #14532d;
+        --keyword-bg: #0f172a;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(236, 72, 153, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(236, 72, 153, 0.1);
+        box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+      }
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+      .nav-tab {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-tab:hover {
+        background: var(--surface-color);
+        transform: translateY(-2px);
+      }
+      .nav-tab.active {
+        background: var(--primary-color);
+        color: white;
+        border-color: var(--primary-color);
+        box-shadow: 0 4px 10px rgba(91, 95, 222, 0.3);
+      }
+      .content-section {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      .content-section.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-2px);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .keyword-box {
+        background: var(--keyword-bg);
+        border-left: 4px solid var(--info-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .keyword-box:hover {
+        transform: translateX(5px);
+      }
+      .keyword-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--info-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .example:hover {
+        transform: translateX(5px);
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .note:hover {
+        transform: translateX(5px);
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+        transition: all 0.3s ease;
+      }
+      .tip:hover {
+        transform: translateX(5px);
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .highlight {
+        background: rgba(91, 95, 222, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .table tr:hover {
+        background: rgba(91, 95, 222, 0.05);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .interactive:hover {
+        box-shadow: var(--shadow);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(91, 95, 222, 0.2);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+      /* Exercise Section Styles */
+      .exercise-section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+      }
+      .exercise-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+        text-align: center;
+      }
+      .exercise-item {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+      .exercise-item:hover {
+        box-shadow: var(--shadow);
+        transform: translateY(-2px);
+      }
+      .exercise-item-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--secondary-color);
+      }
+      .unconnected {
+        background: var(--card-color);
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-style: italic;
+      }
+      .connected {
+        display: none;
+        background: var(--tip-bg);
+        padding: 15px;
+        border-radius: 6px;
+        margin-top: 15px;
+        border-left: 4px solid var(--success-color);
+      }
+      .connected.show {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+      .show-connected-btn {
+        background: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+      .show-connected-btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(236, 72, 153, 0.2);
+      }
+      /* Homework Section Styles */
+      .homework-section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        border-left: 5px solid var(--warning-color);
+      }
+      .homework-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--warning-color);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .homework-subtitle {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 20px;
+        color: var(--text-color);
+        text-align: center;
+      }
+      .homework-instruction {
+        background: var(--surface-color);
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border-left: 4px solid var(--info-color);
+      }
+      .homework-task {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+      }
+      .homework-task-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+      }
+      .homework-input {
+        width: 100%;
+        min-height: 100px;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+        margin-bottom: 15px;
+        font-family: inherit;
+        resize: vertical;
+      }
+      .homework-input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(91, 95, 222, 0.1);
+      }
+      .matching-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .matching-table th,
+      .matching-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .matching-table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .matching-table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-book-open"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="./english.html"
+            class="nav-item active"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Contact/index.html"
+            class="nav-item"
+            data-subject="contact"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="files"
+            style="background-color: #0a0; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo"><i class="fas fa-book-open"></i> EduHub</div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a href="./english.html" class="mobile-nav-item" data-subject="english"
+          >English</a
+        >
+        <a
+          href="../Maths/maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+          >Mathematics</a
+        >
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+          >Contact</a
+        >
+        <a
+          href="../External Files/index.html"
+          class="mobile-nav-item"
+          data-subject="files"
+          style="background-color: #0a0; color: #fff"
+          >Class 6 Files</a
+        >
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-book-open"></i>
+          <h1>JHS English Guide - Cohesive Devices</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+
+      <!-- Exercise Section -->
+      <div class="exercise-section">
+        <h2 class="exercise-title">Cohesive Devices Exercise</h2>
+        <p style="text-align: center; margin-bottom: 20px">
+          Click "Show Connected" to see how cohesive devices can link the
+          sentences properly.
+        </p>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 1</h3>
+          <div class="unconnected">I was tired. I finished my homework.</div>
+          <button class="show-connected-btn" onclick="showConnected(1)">
+            Show Connected
+          </button>
+          <div id="connected-1" class="connected">
+            <strong>Connected:</strong> I was tired,
+            <span class="highlight">yet</span> I finished my homework.
+          </div>
+        </div>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 2</h3>
+          <div class="unconnected">
+            Kofi is a good boy. He helps his mother.
+          </div>
+          <button class="show-connected-btn" onclick="showConnected(2)">
+            Show Connected
+          </button>
+          <div id="connected-2" class="connected">
+            <strong>Connected:</strong> Kofi is a good boy.
+            <span class="highlight">He</span> helps his mother.
+          </div>
+        </div>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 3</h3>
+          <div class="unconnected">
+            She studied hard. She could pass the exam.
+          </div>
+          <button class="show-connected-btn" onclick="showConnected(3)">
+            Show Connected
+          </button>
+          <div id="connected-3" class="connected">
+            <strong>Connected:</strong> She studied hard
+            <span class="highlight">so that</span> she could pass the exam.
+          </div>
+        </div>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 4</h3>
+          <div class="unconnected">
+            Yesterday was exciting. I woke up early. I went to school with my
+            friends. We played football. I returned home tired but happy.
+          </div>
+          <button class="show-connected-btn" onclick="showConnected(4)">
+            Show Connected
+          </button>
+          <div id="connected-4" class="connected">
+            <strong>Connected:</strong> Yesterday was exciting.
+            <span class="highlight">First</span>, I woke up early.
+            <span class="highlight">Then</span>, I went to school with my
+            friends. <span class="highlight">Afterwards</span>, we played
+            football. <span class="highlight">Finally</span>, I returned home
+            tired but happy.
+          </div>
+        </div>
+
+        <div class="exercise-item">
+          <h3 class="exercise-item-title">Example 5</h3>
+          <div class="unconnected">It was late. She continued reading.</div>
+          <button class="show-connected-btn" onclick="showConnected(5)">
+            Show Connected
+          </button>
+          <div id="connected-5" class="connected">
+            <strong>Connected:</strong>
+            <span class="highlight">Although</span> it was late, she continued
+            reading.
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-tabs">
+        <div class="nav-tab active" data-tab="cohesion">
+          <i class="fas fa-link"></i>
+          <span>Cohesive Devices</span>
+        </div>
+        <div class="nav-tab" data-tab="paragraphs">
+          <i class="fas fa-paragraph"></i>
+          <span>Paragraph Writing</span>
+        </div>
+      </div>
+
+      <!-- Cohesive Devices Section -->
+      <div class="content-section active" id="cohesion">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-link"></i>
+            Using Cohesive Devices to Link Sentences and Paragraphs
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">1. Cohesion in Writing</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  What is Cohesion?
+                </div>
+                <p>
+                  Cohesion means joining ideas, sentences, or paragraphs so that
+                  your writing flows smoothly and makes sense.
+                </p>
+                <p>We use cohesive devices such as:</p>
+                <ul>
+                  <li>Conjunctions (connectives)</li>
+                  <li>Pronouns</li>
+                  <li>Punctuation</li>
+                  <li>Repetition of words, synonyms, and antonyms</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">2. Conjunctions</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">
+                  A. Compound Sentences (joined with coordinating conjunctions)
+                </div>
+                <p>Conjunctions: nor, or, so, then, yet</p>
+                <div class="example-item">
+                  Example: "I was tired, yet I finished my homework."
+                </div>
+                <div class="example-item">
+                  Example: "You can eat rice, or you can eat yam."
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">
+                  B. Complex Sentences (joined with subordinating conjunctions)
+                </div>
+
+                <div class="example-item">
+                  <strong>Time clauses:</strong> when, before, after, since,
+                  while, as, until
+                </div>
+                <div class="example-item">
+                  Example: "We waited until the rain stopped."
+                </div>
+
+                <div class="example-item">
+                  <strong>Conditional clauses:</strong> if, unless
+                </div>
+                <div class="example-item">
+                  Example: "You will fail if you don't learn."
+                </div>
+
+                <div class="example-item">
+                  <strong>Purpose clauses:</strong> in order to, so that
+                </div>
+                <div class="example-item">
+                  Example: "She studied hard so that she could pass."
+                </div>
+
+                <div class="example-item">
+                  <strong>Reason clauses:</strong> because, since, as
+                </div>
+                <div class="example-item">
+                  Example: "He left early because he was sick."
+                </div>
+
+                <div class="example-item">
+                  <strong>Result clauses:</strong> so that
+                </div>
+                <div class="example-item">
+                  Example: "It rained heavily so that the streets were flooded."
+                </div>
+
+                <div class="example-item">
+                  <strong>Concessive clauses:</strong> although, though, while
+                </div>
+                <div class="example-item">
+                  Example: "Although it was late, she continued reading."
+                </div>
+
+                <div class="example-item">
+                  <strong>Place clauses:</strong> where, wherever
+                </div>
+                <div class="example-item">
+                  Example: "Sit where you feel comfortable."
+                </div>
+
+                <div class="example-item">
+                  <strong>Manner clauses:</strong> as, like, the way
+                </div>
+                <div class="example-item">
+                  Example: "Do it the way your teacher showed you."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3. Pronouns</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Types of Pronouns</div>
+                <p>Pronouns replace nouns so we don't repeat words too much.</p>
+                <div class="example-item">
+                  <strong>Subject pronouns:</strong> he, she, they, we
+                </div>
+                <div class="example-item">
+                  <strong>Object pronouns:</strong> me, him, them
+                </div>
+                <div class="example-item">
+                  <strong>Demonstrative pronouns:</strong> this, that, these,
+                  those
+                </div>
+
+                <div class="example-item">
+                  Example: "Kofi is a good boy. He helps his mother."
+                </div>
+                <div class="example-item">
+                  Example: "I met Ama. I spoke to her yesterday."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">4. Punctuation</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">
+                  Punctuation Marks as Cohesive Devices
+                </div>
+                <p>Punctuation marks help us organize ideas in writing.</p>
+                <div class="example-item">
+                  <strong>Full stop (.)</strong> – ends a statement
+                </div>
+                <div class="example-item">
+                  <strong>Comma (,)</strong> – separates ideas in a sentence
+                </div>
+                <div class="example-item">
+                  <strong>Question mark (?)</strong> – shows a question
+                </div>
+                <div class="example-item">
+                  <strong>Exclamation mark (!)</strong> – shows surprise or
+                  strong feeling
+                </div>
+                <div class="example-item">
+                  <strong>Quotation marks (" ")</strong> – show direct speech
+                </div>
+
+                <div class="example-item">
+                  Example: "She asked, 'Where are you going?'"
+                </div>
+                <div class="example-item">Example: "Wow! That is amazing."</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">5. Logical Connectors</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Types of Logical Connectors</div>
+                <p>These are words/phrases that link ideas.</p>
+                <div class="example-item">
+                  <strong>Ordering:</strong> firstly, secondly, finally
+                </div>
+                <div class="example-item">
+                  <strong>Addition:</strong> moreover, furthermore, in addition
+                </div>
+                <div class="example-item">
+                  <strong>Similarity:</strong> similarly, likewise
+                </div>
+                <div class="example-item">
+                  <strong>Contrast:</strong> however, although, on the other
+                  hand
+                </div>
+                <div class="example-item">
+                  <strong>Cause/Effect:</strong> because, therefore, as a result
+                </div>
+                <div class="example-item">
+                  <strong>Time/Sequence:</strong> next, soon, later, afterwards
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">6. Practice Activity for Students</h3>
+            <div class="content">
+              <div class="interactive">
+                <div class="interactive-title">
+                  A. Combine these sentences using appropriate conjunctions:
+                </div>
+                <div class="example-item">
+                  Original: "She was hungry. She couldn't eat."
+                </div>
+                <div class="example-item">
+                  Possible answers:
+                  <ul>
+                    <li>She was hungry, but she couldn't eat.</li>
+                    <li>Although she was hungry, she couldn't eat.</li>
+                    <li>She was hungry, yet she couldn't eat.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="interactive">
+                <div class="interactive-title">
+                  B. Replace repeated nouns with pronouns:
+                </div>
+                <div class="example-item">
+                  Original: "Ama went to the market. Ama bought fruits. Ama gave
+                  the fruits to Kofi."
+                </div>
+                <div class="example-item">
+                  Corrected: "Ama went to the market. She bought fruits. She
+                  gave them to Kofi."
+                </div>
+              </div>
+
+              <div class="interactive">
+                <div class="interactive-title">
+                  C. Add logical connectors to these sentences:
+                </div>
+                <div class="example-item">
+                  Original: "I woke up early. I ate breakfast. I went to
+                  school."
+                </div>
+                <div class="example-item">
+                  Corrected: "First, I woke up early. Then, I ate breakfast.
+                  Afterwards, I went to school."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">7. Classroom Tips</h3>
+            <div class="content">
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tips
+                </div>
+                <ul>
+                  <li>
+                    <strong>Visual Aids:</strong> Create posters with different
+                    types of cohesive devices and examples.
+                  </li>
+                  <li>
+                    <strong>Group Activities:</strong> Have students work in
+                    pairs to connect unrelated sentences using appropriate
+                    cohesive devices.
+                  </li>
+                  <li>
+                    <strong>Real-world Examples:</strong> Use newspaper articles
+                    or short stories to identify cohesive devices in authentic
+                    texts.
+                  </li>
+                  <li>
+                    <strong>Games:</strong> Play "sentence chain" where each
+                    student adds a sentence to a story using a cohesive device.
+                  </li>
+                  <li>
+                    <strong>Writing Practice:</strong> Assign short writing
+                    tasks focusing on using specific types of cohesive devices.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">8. Recap of Key Rules</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Cohesive Devices
+                </div>
+                <ul>
+                  <li>
+                    Conjunctions join sentences and show relationships between
+                    ideas
+                  </li>
+                  <li>Pronouns replace nouns to avoid repetition</li>
+                  <li>
+                    Punctuation helps organize ideas and improve readability
+                  </li>
+                  <li>
+                    Logical connectors show the relationship between ideas
+                  </li>
+                </ul>
+              </div>
+
+              <div class="note">
+                <div class="note-title">
+                  <i class="fas fa-lightbulb"></i>
+                  Remember
+                </div>
+                <p>
+                  Good writing is clear, connected, and smooth. Use
+                  conjunctions, pronouns, punctuation, and connectors to make
+                  your writing beautiful.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homework Section for Cohesive Devices -->
+          <div class="homework-section">
+            <h2 class="homework-title">
+              <i class="fas fa-pencil-alt"></i>
+              Cohesive Devices Homework
+            </h2>
+            <p class="homework-subtitle">
+              Complete the following exercises to test your understanding of
+              cohesive devices.
+            </p>
+
+            <div class="homework-instruction">
+              <strong>Instructions:</strong> Complete each exercise by using the
+              appropriate cohesive devices to connect the sentences or improve
+              the paragraph.
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 A. Conjunctions Exercise</h3>
+              <p>
+                Combine each pair of sentences using an appropriate conjunction.
+              </p>
+              <div class="example-item">1. It was raining. We went out.</div>
+              <textarea
+                class="homework-input"
+                placeholder="Combine the sentences using a conjunction..."
+              ></textarea>
+
+              <div class="example-item">
+                2. She studied hard. She passed the exam.
+              </div>
+              <textarea
+                class="homework-input"
+                placeholder="Combine the sentences using a conjunction..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 B. Pronouns Exercise</h3>
+              <p>
+                Rewrite the paragraph, replacing repeated nouns with appropriate
+                pronouns.
+              </p>
+              <div class="example-item">
+                "Kofi went to the market. Kofi bought fruits. Kofi gave the
+                fruits to Ama. Ama was happy with the fruits."
+              </div>
+              <textarea
+                class="homework-input"
+                placeholder="Rewrite the paragraph using pronouns..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paragraph Writing Section -->
+      <div class="content-section" id="paragraphs">
+        <div class="section">
+          <h2 class="section-title">
+            <i class="fas fa-paragraph"></i>
+            Writing a Good Paragraph
+          </h2>
+
+          <div class="subsection">
+            <h3 class="subsection-title">1. What is a Paragraph?</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Definition
+                </div>
+                <p>A paragraph is a group of sentences about one main idea.</p>
+                <p>A well-written paragraph has three main parts:</p>
+                <ul>
+                  <li>Topic sentence – introduces the main idea</li>
+                  <li>Supporting sentences – explain or give examples</li>
+                  <li>Concluding sentence – may summarize or end the idea</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              2. Steps to Writing a Good Paragraph
+            </h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Step 1: Topic Sentence</div>
+                <p>
+                  The topic sentence introduces the main idea of the paragraph.
+                  It is usually the first sentence.
+                </p>
+                <div class="example-item">
+                  Example: "Yesterday was exciting."
+                </div>
+                <div class="example-item">
+                  This sentence tells the reader that the paragraph will be
+                  about an exciting day.
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Step 2: Supporting Sentences</div>
+                <p>
+                  These sentences give details, examples, or explanations about
+                  the main idea.
+                </p>
+                <div class="example-item">
+                  Example: "First, I woke up early. Then, I went to school with
+                  my friends. Afterwards, we played football."
+                </div>
+                <div class="example-item">
+                  These sentences explain what made the day exciting.
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">Step 3: Concluding Sentence</div>
+                <p>
+                  This sentence wraps up the paragraph and may express a feeling
+                  or summarize the main idea.
+                </p>
+                <div class="example-item">
+                  Example: "Finally, I returned home tired but happy."
+                </div>
+                <div class="example-item">
+                  This sentence concludes the paragraph by describing the
+                  feeling at the end of the day.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">3. Example of a Complete Paragraph</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Narrative Paragraph</div>
+                <div class="example-item">
+                  <strong>Topic sentence:</strong> Yesterday was exciting.
+                </div>
+                <div class="example-item">
+                  <strong>Supporting sentences:</strong> First, I woke up early.
+                  Then, I went to school with my friends. Afterwards, we played
+                  football.
+                </div>
+                <div class="example-item">
+                  <strong>Concluding sentence:</strong> Finally, I returned home
+                  tired but happy.
+                </div>
+                <div class="example-item">
+                  <strong>Complete paragraph:</strong> Yesterday was exciting.
+                  First, I woke up early. Then, I went to school with my
+                  friends. Afterwards, we played football. Finally, I returned
+                  home tired but happy.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">4. Types of Paragraphs</h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">A. Narrative Paragraph</div>
+                <p>Tells a story or recounts events in chronological order.</p>
+                <div class="example-item">
+                  Example: "Last weekend, my family and I went to the beach. We
+                  arrived early in the morning and set up our umbrella. My
+                  brother and I swam in the sea while our parents prepared
+                  lunch. In the afternoon, we built sandcastles and collected
+                  shells. We left when the sun began to set, feeling happy and
+                  relaxed."
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">B. Descriptive Paragraph</div>
+                <p>Describes a person, place, or thing in detail.</p>
+                <div class="example-item">
+                  Example: "My bedroom is my favorite place in the house. The
+                  walls are painted a calming blue color, and my bed has a soft,
+                  white comforter. In one corner, I have a small bookshelf
+                  filled with my favorite books. A large window lets in plenty
+                  of sunlight during the day, and at night, I can see the stars
+                  from my bed. It's a peaceful space where I can relax and
+                  think."
+                </div>
+              </div>
+
+              <div class="example">
+                <div class="example-title">C. Expository Paragraph</div>
+                <p>Explains or informs about a topic.</p>
+                <div class="example-item">
+                  Example: "Photosynthesis is the process by which plants make
+                  their own food. It occurs in the leaves of plants, where
+                  chlorophyll captures energy from sunlight. The plant uses this
+                  energy to convert water and carbon dioxide into glucose and
+                  oxygen. The glucose provides energy for the plant to grow,
+                  while the oxygen is released into the air. Without
+                  photosynthesis, life on Earth would not be possible."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">
+              5. Using Cohesive Devices in Paragraphs
+            </h3>
+            <div class="content">
+              <div class="example">
+                <div class="example-title">Example with Cohesive Devices</div>
+                <div class="example-item">
+                  <strong>Without cohesive devices:</strong> "I woke up early. I
+                  went to the park. I saw my friends. We played football. We had
+                  fun. I went home."
+                </div>
+                <div class="example-item">
+                  <strong>With cohesive devices:</strong> "I woke up early and
+                  went to the park. There, I saw my friends, so we decided to
+                  play football. We had a great time together. Finally, when it
+                  started getting dark, I went home feeling happy."
+                </div>
+                <div class="example-item">
+                  <strong>Cohesive devices used:</strong> "and", "there", "so",
+                  "together", "finally", "when"
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">6. Practice Activity for Students</h3>
+            <div class="content">
+              <div class="interactive">
+                <div class="interactive-title">
+                  A. Identify the parts of a paragraph:
+                </div>
+                <div class="example-item">
+                  Paragraph: "My favorite subject in school is Science. It helps
+                  me understand how the world works. For example, I learned why
+                  the sky is blue and how plants grow. Science also includes fun
+                  experiments. I enjoy mixing chemicals and observing reactions.
+                  This subject makes me curious about everything around me."
+                </div>
+                <div class="example-item">
+                  <strong>Topic sentence:</strong> "My favorite subject in
+                  school is Science."
+                </div>
+                <div class="example-item">
+                  <strong>Supporting sentences:</strong> "It helps me understand
+                  how the world works. For example, I learned why the sky is
+                  blue and how plants grow. Science also includes fun
+                  experiments. I enjoy mixing chemicals and observing
+                  reactions."
+                </div>
+                <div class="example-item">
+                  <strong>Concluding sentence:</strong> "This subject makes me
+                  curious about everything around me."
+                </div>
+              </div>
+
+              <div class="interactive">
+                <div class="interactive-title">
+                  B. Add cohesive devices to improve a paragraph:
+                </div>
+                <div class="example-item">
+                  Original: "I visited my grandmother. She lives in a village.
+                  The village is beautiful. It has many trees. I helped her in
+                  the garden. We cooked together. I had a good time."
+                </div>
+                <div class="example-item">
+                  Improved: "Last weekend, I visited my grandmother who lives in
+                  a village. The village is beautiful because it has many trees.
+                  While I was there, I helped her in the garden, and afterwards,
+                  we cooked together. I had a very good time during my visit."
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">7. Classroom Tips</h3>
+            <div class="content">
+              <div class="tip">
+                <div class="tip-title">
+                  <i class="fas fa-star"></i>
+                  Teaching Tips
+                </div>
+                <ul>
+                  <li>
+                    <strong>Visual Organization:</strong> Use graphic organizers
+                    to help students plan their paragraphs with topic sentences,
+                    supporting details, and conclusions.
+                  </li>
+                  <li>
+                    <strong>Model Writing:</strong> Demonstrate paragraph
+                    writing by thinking aloud as you compose a paragraph in
+                    front of the class.
+                  </li>
+                  <li>
+                    <strong>Peer Review:</strong> Have students exchange
+                    paragraphs and identify the topic sentence, supporting
+                    sentences, and concluding sentence in each other's work.
+                  </li>
+                  <li>
+                    <strong>Paragraph Scramble:</strong> Give students a
+                    paragraph with sentences in random order and have them
+                    rearrange it logically.
+                  </li>
+                  <li>
+                    <strong>Scaffolded Writing:</strong> Provide sentence
+                    starters or frames to help students structure their
+                    paragraphs.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="subsection">
+            <h3 class="subsection-title">8. Recap of Key Points</h3>
+            <div class="content">
+              <div class="keyword-box">
+                <div class="keyword-title">
+                  <i class="fas fa-key"></i>
+                  Paragraph Structure
+                </div>
+                <ul>
+                  <li>A paragraph focuses on one main idea</li>
+                  <li>
+                    It begins with a topic sentence that introduces the main
+                    idea
+                  </li>
+                  <li>
+                    Supporting sentences provide details, examples, or
+                    explanations
+                  </li>
+                  <li>A concluding sentence wraps up the paragraph</li>
+                  <li>
+                    Cohesive devices help connect sentences and ideas smoothly
+                  </li>
+                </ul>
+              </div>
+
+              <div class="note">
+                <div class="note-title">
+                  <i class="fas fa-lightbulb"></i>
+                  Remember
+                </div>
+                <p>
+                  A good paragraph is like a sandwich: the topic sentence and
+                  concluding sentence are the bread, and the supporting
+                  sentences are the filling in between. Make sure your
+                  paragraphs are well-structured and connected!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Homework Section for Paragraph Writing -->
+          <div class="homework-section">
+            <h2 class="homework-title">
+              <i class="fas fa-pencil-alt"></i>
+              Paragraph Writing Homework
+            </h2>
+            <p class="homework-subtitle">
+              Complete the following exercises to test your understanding of
+              paragraph writing.
+            </p>
+
+            <div class="homework-instruction">
+              <strong>Instructions:</strong> Complete each exercise by writing
+              well-structured paragraphs with appropriate cohesive devices.
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 A. Narrative Paragraph</h3>
+              <p>
+                Write a narrative paragraph about a memorable event in your
+                life. Remember to include a topic sentence, supporting sentences
+                with cohesive devices, and a concluding sentence.
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your narrative paragraph here..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 B. Descriptive Paragraph</h3>
+              <p>
+                Write a descriptive paragraph about your favorite place. Use
+                appropriate cohesive devices to connect your ideas.
+              </p>
+              <textarea
+                class="homework-input"
+                placeholder="Write your descriptive paragraph here..."
+              ></textarea>
+            </div>
+
+            <div class="homework-task">
+              <h3 class="homework-task-title">✍🏽 C. Improve the Paragraph</h3>
+              <p>
+                Rewrite the following paragraph by adding appropriate cohesive
+                devices and improving its structure.
+              </p>
+              <div class="example-item">
+                "My school is big. It has many classrooms. There is a library.
+                The library has many books. I like reading books. My friends
+                like reading too. We go to the library together."
+              </div>
+              <textarea
+                class="homework-input"
+                placeholder="Rewrite the paragraph with cohesive devices..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.transform = "scale(1)";
+        });
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // Tab navigation
+      const navTabs = document.querySelectorAll(".nav-tab");
+      const contentSections = document.querySelectorAll(".content-section");
+
+      navTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetTab = tab.getAttribute("data-tab");
+
+          // Remove active class from all tabs and sections
+          navTabs.forEach((t) => t.classList.remove("active"));
+          contentSections.forEach((s) => s.classList.remove("active"));
+
+          // Add active class to clicked tab and corresponding section
+          tab.classList.add("active");
+          document.getElementById(targetTab).classList.add("active");
+        });
+      });
+
+      // Exercise functionality
+      function showConnected(id) {
+        const connectedDiv = document.getElementById(`connected-${id}`);
+        connectedDiv.classList.add("show");
+      }
+    </script>
+  </body>
+</html>

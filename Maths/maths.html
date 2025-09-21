@@ -412,8 +412,7 @@
       /* Topics Grid - Responsive Layout */
       .topics-grid {
         display: grid;
-        /* For larger screens (laptops/desktops): 2 columns */
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 25px;
         margin-bottom: 50px;
       }
@@ -637,11 +636,39 @@
 
         <a href="./patterns.html" class="topic-card">
           <div class="topic-icon">
-            <i class="fas fa-balance-scale"></i>
+            <i class="fas fa-sitemap"></i>
           </div>
           <h2 class="topic-title">Patterns and Relations</h2>
           <p class="topic-description">
             Explore patterns, sequences, and relationships in mathematics.
+          </p>
+          <div class="topic-link">
+            <span>Explore</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+
+        <a href="./variables.html" class="topic-card">
+          <div class="topic-icon">
+            <i class="fas fa-square-root-alt"></i>
+          </div>
+          <h2 class="topic-title">Variables and Expressions</h2>
+          <p class="topic-description">
+            Explore variables, expressions, and their role in mathematical
+            problem-solving.
+          </p>
+          <div class="topic-link">
+            <span>Explore</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="./geometry.html" class="topic-card">
+          <div class="topic-icon">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <h2 class="topic-title">Geometry</h2>
+          <p class="topic-description">
+            Explore the world of shapes, sizes, and the properties of space.
           </p>
           <div class="topic-link">
             <span>Explore</span>

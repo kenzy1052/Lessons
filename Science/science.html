@@ -410,7 +410,8 @@
         margin: 0 auto;
       }
       .topics-grid {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         flex-direction: row;
         gap: 25px;
         margin-bottom: 50px;
@@ -647,6 +648,34 @@
           <h2 class="topic-title">States of Matter</h2>
           <p class="topic-description">
             Explore the different states of matter: solid, liquid, and gas.
+          </p>
+          <div class="topic-link">
+            <span>Explore</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+
+        <a href="./crops.html" class="topic-card">
+          <div class="topic-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <h2 class="topic-title">Crop Production</h2>
+          <p class="topic-description">
+            Learn about different types of crops, their growth, and importance.
+          </p>
+          <div class="topic-link">
+            <span>Explore</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+
+        <a href="./animals.html" class="topic-card">
+          <div class="topic-icon">
+            <i class="fas fa-paw"></i>
+          </div>
+          <h2 class="topic-title">Animal Production</h2>
+          <p class="topic-description">
+            Explore the principles of animal husbandry, breeding, and care.
           </p>
           <div class="topic-link">
             <span>Explore</span>
