@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relations and Patterns Notes – EduHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        /* Light mode colors - softer, less straining */
+        --primary: #4f46e5;
+        --primary-dark: #4338ca;
+        --secondary: #7c3aed;
+        --accent: #f59e0b;
+        --background: #f8f9fb;
+        --surface: #f1f3f7;
+        --card: #ffffff;
+        --text-primary: #2d3748;
+        --text-secondary: #4a5568;
+        --text-tertiary: #718096;
+        --border: #e2e8f0;
+        --shadow: rgba(0, 0, 0, 0.04);
+        --shadow-hover: rgba(0, 0, 0, 0.08);
+        --gradient: linear-gradient(135deg, #f8f9fb 0%, #f1f3f7 100%);
+      }
+
+      body.dark-mode {
+        /* Dark mode colors */
+        --primary: #6366f1;
+        --primary-dark: #4f46e5;
+        --secondary: #8b5cf6;
+        --accent: #fbbf24;
+        --background: #1a202c;
+        --surface: #2d3748;
+        --card: #2d3748;
+        --text-primary: #f7fafc;
+        --text-secondary: #e2e8f0;
+        --text-tertiary: #a0aec0;
+        --border: #4a5568;
+        --shadow: rgba(0, 0, 0, 0.2);
+        --shadow-hover: rgba(0, 0, 0, 0.3);
+        --gradient: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--gradient);
+        color: var(--text-primary);
+        line-height: 1.7;
+        transition: background 0.3s ease, color 0.3s ease;
+        min-height: 100vh;
+      }
+
+      /* ========== Navigation ========== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--card);
+        box-shadow: 0 1px 3px var(--shadow);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: 700;
+        font-family: "Montserrat", sans-serif;
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .nav-logo i {
+        font-size: 1.5rem;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
+        transition: all 0.2s ease;
+      }
+
+      .nav-item:hover {
+        color: var(--primary);
+        background-color: var(--surface);
+      }
+
+      .nav-item.active {
+        color: var(--primary);
+        background-color: var(--surface);
+      }
+
+      .nav-item i {
+        font-size: 1rem;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--surface);
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .theme-toggle:hover {
+        color: var(--primary);
+        background-color: var(--border);
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .hamburger span {
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: var(--text-primary);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform-origin: center;
+      }
+
+      .hamburger span:nth-child(1) {
+        margin-bottom: 4px;
+      }
+
+      .hamburger span:nth-child(3) {
+        margin-top: 4px;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      /* Mobile menu */
+      .mobile-menu {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--card);
+        box-shadow: 0 4px 6px var(--shadow);
+        padding: 1rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 999;
+        pointer-events: none;
+      }
+
+      .mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .mobile-menu .nav-item {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* ========== Main Content ========== */
+      .container {
+        max-width: 1200px;
+        margin: 80px auto 2rem;
+        padding: 0 1.5rem 2rem;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
+      }
+
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+        letter-spacing: -0.01em;
+      }
+
+      /* ========== Step Section ========== */
+      .step-section {
+        background: var(--card);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px var(--shadow);
+      }
+
+      .step {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .step:last-child {
+        margin-bottom: 0;
+      }
+
+      .step::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--primary);
+      }
+
+      .step p {
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+      }
+
+      .step strong {
+        color: var(--text-primary);
+        font-weight: 700;
+      }
+
+      /* ========== Example Cards ========== */
+      .examples-section {
+        margin-bottom: 2rem;
+      }
+
+      .example-card {
+        background: var(--card);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .example-card:hover {
+        box-shadow: 0 10px 15px var(--shadow-hover);
+        transform: translateY(-2px);
+      }
+
+      .example-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .example-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .solution-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: var(--surface);
+        border: none;
+        border-radius: 0.5rem;
+        color: var(--primary);
+        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .solution-toggle:hover {
+        background: var(--border);
+      }
+
+      .solution-toggle i {
+        font-size: 1rem;
+      }
+
+      .example-table {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 1.5rem;
+        border-collapse: collapse;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px var(--shadow);
+      }
+
+      .example-table th,
+      .example-table td {
+        padding: 0.75rem;
+        text-align: center;
+        border: 1px solid var(--border);
+        font-family: "Roboto", sans-serif;
+      }
+
+      .example-table th {
+        background: var(--primary);
+        color: white;
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .example-table td {
+        background: var(--surface);
+        color: var(--text-primary);
+        font-size: 1.05rem;
+      }
+
+      .solution {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .solution.active {
+        max-height: 500px;
+      }
+
+      .solution p {
+        margin-bottom: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+      }
+
+      .rule {
+        color: var(--primary);
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        background-color: #ccc;
+        padding: 5px 12px;
+      }
+
+      .check {
+        color: var(--accent);
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* ========== Responsive Design ========== */
+      @media (max-width: 1280px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 1rem 2rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.25rem;
+        }
+
+        h3 {
+          font-size: 1.125rem;
+        }
+
+        .step-section {
+          padding: 1.5rem;
+        }
+
+        .example-card {
+          padding: 1rem;
+        }
+      }
+
+      /* ========== Animations ========== */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .step-section,
+      .example-card {
+        animation: fadeIn 0.5s ease forwards;
+      }
+
+      .example-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      .example-card:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .example-card:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      .example-card:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+
+      .example-card:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="../index.html" class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </a>
+
+        <div class="nav-menu">
+          <a href="../Science/science.html" class="nav-item">
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+          </a>
+          <a href="../English/english.html" class="nav-item">
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+          </a>
+          <a href="./maths.html" class="nav-item active">
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+          </a>
+          <a href="../Contact/index.html" class="nav-item">
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+          </a>
+          <a href="../External Files/index.html" class="nav-item">
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+          </a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" title="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="../Science/science.html" class="nav-item">
+        <i class="fas fa-microscope"></i>
+        <span>Science</span>
+      </a>
+      <a href="../English/english.html" class="nav-item">
+        <i class="fas fa-book-open"></i>
+        <span>English</span>
+      </a>
+      <a href="./maths.html" class="nav-item active">
+        <i class="fas fa-calculator"></i>
+        <span>Mathematics</span>
+      </a>
+      <a href="../Contact/index.html" class="nav-item">
+        <i class="fas fa-phone"></i>
+        <span>Contact</span>
+      </a>
+      <a href="../External Files/index.html" class="nav-item">
+        <i class="fas fa-pencil-alt"></i>
+        <span>Class 6 Files</span>
+      </a>
+    </div>
+
+    <main class="container">
+      <header>
+        <h1>Relations and Patterns in Mathematics</h1>
+        <h2>Step-by-Step Guide to Finding Rules</h2>
+      </header>
+
+      <section class="step-section">
+        <div class="step">
+          <p>
+            <strong>Step 1:</strong> Look at the output numbers (y). How much
+            does it change each time? This tells you the step (multiplier).
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>Step 2:</strong> Look at the input numbers (x). How much
+            does x change each time? Divide the change in y by the change in x
+            to find the multiplier.
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>Step 3:</strong> Multiply x by the multiplier. Check how far
+            it is from the first output. Add that difference to make the rule
+            start correctly.
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>Step 4:</strong> Write the rule in this format:
+            <span class="rule">x → x + …</span>
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>Step 5:</strong> Check your rule by plugging in the x values
+            to see if it gives the correct outputs.
+          </p>
+        </div>
+      </section>
+
+      <section class="examples-section">
+        <h2>Examples</h2>
+
+        <!-- Example 1 -->
+        <div class="example-card">
+          <div class="example-header">
+            <h3 class="example-title">Example 1</h3>
+            <button class="solution-toggle" data-target="solution1">
+              <i class="fas fa-eye"></i>
+              <span>Show Solution</span>
+            </button>
+          </div>
+
+          <table class="example-table">
+            <tr>
+              <th>x</th>
+              <th>y</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>7</td>
+            </tr>
+          </table>
+
+          <div class="solution" id="solution1">
+            <p>Step 1: Change in y = +2</p>
+            <p>Step 2: Multiplier = 2 → 2 × x</p>
+            <p>Step 3: Adjust start: 1 × 2 = 2 → 3 − 2 = 1 → Add 1</p>
+            <p><strong>Rule:</strong> <span class="rule">x → 2x + 1</span></p>
+            <p class="check">
+              Check: 1 → 3 <br />
+              2 → 5 <br />
+              3 → 7 ✅
+            </p>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="example-card">
+          <div class="example-header">
+            <h3 class="example-title">Example 2</h3>
+            <button class="solution-toggle" data-target="solution2">
+              <i class="fas fa-eye"></i>
+              <span>Show Solution</span>
+            </button>
+          </div>
+
+          <table class="example-table">
+            <tr>
+              <th>x</th>
+              <th>y</th>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>10</td>
+            </tr>
+          </table>
+
+          <div class="solution" id="solution2">
+            <p>Step 1: Change in y = +2</p>
+            <p>Step 2: Change in x = +2 → Multiplier = 2 ÷ 2 = 1</p>
+            <p>Step 3: Adjust start: 3 × 1 = 3 → 6 − 3 = 3 → Add 3</p>
+            <p><strong>Rule:</strong> <span class="rule">x → x + 3</span></p>
+            <p class="check">
+              Check: 3 → 6 <br />
+              5 → 8 <br />
+              7 → 10 ✅
+            </p>
+          </div>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="example-card">
+          <div class="example-header">
+            <h3 class="example-title">Example 3</h3>
+            <button class="solution-toggle" data-target="solution3">
+              <i class="fas fa-eye"></i>
+              <span>Show Solution</span>
+            </button>
+          </div>
+
+          <table class="example-table">
+            <tr>
+              <th>x</th>
+              <th>y</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>10</td>
+            </tr>
+          </table>
+
+          <div class="solution" id="solution3">
+            <p>Step 1: Change in y = +3</p>
+            <p>Step 2: Change in x = +1 → Multiplier = 3 ÷ 1 = 3</p>
+            <p>Step 3: Adjust start: 1 × 3 = 3 → 4 − 3 = 1 → Add 1</p>
+            <p><strong>Rule:</strong> <span class="rule">x → 3x + 1</span></p>
+            <p class="check">
+              Check: 1 → 4 <br />
+              2 → 7 <br />
+              3 → 10 ✅
+            </p>
+          </div>
+        </div>
+
+        <!-- Example 4 -->
+        <div class="example-card">
+          <div class="example-header">
+            <h3 class="example-title">Example 4</h3>
+            <button class="solution-toggle" data-target="solution4">
+              <i class="fas fa-eye"></i>
+              <span>Show Solution</span>
+            </button>
+          </div>
+
+          <table class="example-table">
+            <tr>
+              <th>x</th>
+              <th>y</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>11</td>
+            </tr>
+          </table>
+
+          <div class="solution" id="solution4">
+            <p>Step 1: Change in y = +3</p>
+            <p>Step 2: Change in x = +1 → Multiplier = 3 ÷ 1 = 3</p>
+            <p>Step 3: Adjust start: 1 × 3 = 3 → 5 − 3 = 2 → Add 2</p>
+            <p><strong>Rule:</strong> <span class="rule">x → 3x + 2</span></p>
+            <p class="check">
+              Check: 1 → 5 <br />
+              2 → 8 <br />
+              3 → 11 ✅
+            </p>
+          </div>
+        </div>
+
+        <!-- Example 5 -->
+        <div class="example-card">
+          <div class="example-header">
+            <h3 class="example-title">Example 5</h3>
+            <button class="solution-toggle" data-target="solution5">
+              <i class="fas fa-eye"></i>
+              <span>Show Solution</span>
+            </button>
+          </div>
+
+          <table class="example-table">
+            <tr>
+              <th>x</th>
+              <th>y</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>6</td>
+            </tr>
+          </table>
+
+          <div class="solution" id="solution5">
+            <p>Step 1: Change in y = +2</p>
+            <p>Step 2: Change in x = +1 → Multiplier = 2 ÷ 1 = 2</p>
+            <p>Step 3: Adjust start: 1 × 2 = 2 → 2 − 2 = 0 → Add 0</p>
+            <p><strong>Rule:</strong> <span class="rule">x → 2x</span></p>
+            <p class="check">
+              Check: 1 → 2 <br />
+              2 → 4 <br />
+              3 → 6 ✅
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Theme toggle
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          localStorage.setItem("theme", "dark");
+        } else {
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Mobile menu toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileMenuLinks = mobileMenu.querySelectorAll(".nav-item");
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("active");
+        });
+      });
+
+      // Solution toggle
+      const solutionToggles = document.querySelectorAll(".solution-toggle");
+
+      solutionToggles.forEach((toggle) => {
+        toggle.addEventListener("click", () => {
+          const targetId = toggle.getAttribute("data-target");
+          const solution = document.getElementById(targetId);
+          const icon = toggle.querySelector("i");
+          const text = toggle.querySelector("span");
+
+          solution.classList.toggle("active");
+
+          if (solution.classList.contains("active")) {
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+            text.textContent = "Hide Solution";
+          } else {
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+            text.textContent = "Show Solution";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
