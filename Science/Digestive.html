@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JHS Science Guide - Food and Digestion</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #2c7a7b;
+        --secondary-color: #319795;
+        --accent-color: #38b2ac;
+        --success-color: #48bb78;
+        --warning-color: #ed8936;
+        --info-color: #4299e1;
+        --error-color: #e53e3e;
+        --background-color: #f7fafc;
+        --surface-color: #edf2f7;
+        --card-color: #ffffff;
+        --text-color: #2d3748;
+        --text-secondary: #4a5568;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+          0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05),
+          0 4px 6px -2px rgba(0, 0, 0, 0.03);
+        --example-bg: #e6fffa;
+        --note-bg: #fffaf0;
+        --tip-bg: #f0fff4;
+        --keyword-bg: #ebf8ff;
+      }
+      [data-theme="dark"] {
+        --background-color: #1a202c;
+        --surface-color: #2d3748;
+        --card-color: #2d3748;
+        --text-color: #f7fafc;
+        --text-secondary: #cbd5e0;
+        --border-color: #4a5568;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2),
+          0 2px 4px -1px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+          0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        --example-bg: #1a3c3d;
+        --note-bg: #3d2f1f;
+        --tip-bg: #1f3d1f;
+        --keyword-bg: #1c2f3d;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        margin-top: 100px;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 30px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo i {
+        font-size: 2rem;
+        color: var(--primary-color);
+      }
+      .logo h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .theme-toggle {
+        background: var(--card-color);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+      .section {
+        background: var(--card-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+      .section:hover {
+        box-shadow: var(--shadow-lg);
+      }
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .section-title i {
+        font-size: 1.2rem;
+      }
+      .subsection {
+        margin-bottom: 20px;
+      }
+      .subsection-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+      }
+      .content {
+        margin-bottom: 15px;
+      }
+      .keyword-box {
+        background: var(--keyword-bg);
+        border-left: 4px solid var(--info-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .keyword-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--info-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .example {
+        background: var(--example-bg);
+        border-left: 4px solid var(--primary-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .example-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .example-item {
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+      .example-item:before {
+        content: "•";
+        position: absolute;
+        left: 5px;
+        color: var(--primary-color);
+      }
+      .note {
+        background: var(--note-bg);
+        border-left: 4px solid var(--warning-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .note-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--warning-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tip {
+        background: var(--tip-bg);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 15px 0;
+      }
+      .tip-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--success-color);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .highlight {
+        background: rgba(44, 122, 123, 0.1);
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-weight: 500;
+      }
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      .table th,
+      .table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .table th {
+        background: var(--primary-color);
+        color: white;
+      }
+      .table tr:nth-child(even) {
+        background: var(--surface-color);
+      }
+      .interactive {
+        margin: 20px 0;
+        padding: 15px;
+        background: var(--surface-color);
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+      }
+      .interactive-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: var(--accent-color);
+      }
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+      .input-field {
+        flex: 1;
+        min-width: 120px;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        background: var(--card-color);
+        color: var(--text-color);
+      }
+      .btn {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background 0.3s ease;
+      }
+      .btn:hover {
+        background: var(--secondary-color);
+      }
+      .result {
+        padding: 10px;
+        background: var(--card-color);
+        border-radius: 6px;
+        margin-top: 10px;
+        font-weight: 500;
+      }
+      .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+      .model-instructions {
+        background: var(--surface-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      .model-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 15px;
+        gap: 15px;
+      }
+      .step-number {
+        background: var(--primary-color);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .step-content {
+        flex: 1;
+      }
+      /* Futuristic Navigation Bar Styles */
+      .futuristic-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(15, 23, 42, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+        overflow: hidden;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+      .image {
+        display: block;
+        width: 100%;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .nav-logo i {
+        font-size: 2rem;
+        animation: float 3s ease-in-out infinite;
+      }
+      .nav-menu {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+      .nav-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .nav-item:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(56, 178, 172, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .nav-item:hover:before {
+        left: 100%;
+      }
+      .nav-item:hover {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        text-decoration: none;
+      }
+      .nav-item.active {
+        color: var(--accent-color);
+        background: rgba(56, 178, 172, 0.1);
+        box-shadow: 0 4px 15px rgba(56, 178, 172, 0.2);
+        text-decoration: none;
+      }
+      .nav-item i {
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+      .nav-item:hover i {
+        transform: scale(1.1);
+      }
+      .nav-indicator {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+      .nav-item.active .nav-indicator {
+        width: 80%;
+      }
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        z-index: 3;
+      }
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .nav-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        opacity: 0.5;
+        animation: particle-float 10s linear infinite;
+      }
+      .particle:nth-child(1) {
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .particle:nth-child(2) {
+        left: 30%;
+        animation-delay: 2s;
+      }
+      .particle:nth-child(3) {
+        left: 50%;
+        animation-delay: 4s;
+      }
+      .particle:nth-child(4) {
+        left: 70%;
+        animation-delay: 6s;
+      }
+      .particle:nth-child(5) {
+        left: 90%;
+        animation-delay: 8s;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      @keyframes particle-float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.5;
+        }
+        90% {
+          opacity: 0.5;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .nav-menu {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          width: 100%;
+          height: calc(100vh - 80px);
+          background: rgba(15, 23, 42, 0.95);
+          backdrop-filter: blur(10px);
+          flex-direction: column;
+          gap: 20px;
+          padding: 30px;
+          transition: left 0.3s ease;
+          overflow-y: auto;
+          z-index: 999;
+        }
+        .nav-menu.active {
+          left: 0;
+        }
+        .nav-item {
+          width: 100%;
+          justify-content: center;
+          font-size: 1.2rem;
+          padding: 15px;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+      /* Small screen adjustments (350px and below) */
+      @media (max-width: 350px) {
+        .container {
+          padding: 10px;
+        }
+        .nav-logo {
+          font-size: 1.2rem;
+        }
+        .nav-logo i {
+          font-size: 1.5rem;
+        }
+        .nav-item {
+          font-size: 1rem;
+          padding: 8px 15px;
+        }
+        .section {
+          padding: 15px;
+        }
+        .section-title {
+          font-size: 1.3rem;
+        }
+        .logo h1 {
+          font-size: 1.4rem;
+        }
+        .theme-toggle {
+          padding: 6px 12px;
+        }
+        .model-step {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .step-number {
+          align-self: flex-start;
+        }
+      }
+      @media (max-width: 968px) {
+        .nav-item {
+          padding: 8px;
+        }
+        .container {
+          padding: 15px;
+        }
+        header {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .section {
+          padding: 20px;
+        }
+        .input-group {
+          flex-direction: column;
+        }
+        .input-field {
+          width: 100%;
+        }
+      }
+      /* Mobile-only Navigation */
+      .mobile-nav {
+        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+      }
+      .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-logo {
+        font-size: 1.3rem;
+        color: var(--accent-color);
+        font-weight: 700;
+      }
+      .mobile-logo i {
+        margin-right: 8px;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+      .mobile-nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--text-secondary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      .mobile-nav-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+      }
+      .mobile-nav-menu.active {
+        display: flex;
+      }
+      .mobile-nav-item {
+        padding: 10px 15px;
+        background: var(--card-color);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--text-color);
+      }
+      .mobile-nav-item:hover {
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+      }
+      /* Hamburger animation when active */
+      .mobile-nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .mobile-nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* Show mobile nav only on small screens */
+      @media (max-width: 768px) {
+        .mobile-nav {
+          display: block;
+        }
+      }
+      #drawCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none; /* allows clicking through when not drawing */
+        z-index: 9999; /* stays above everything */
+      }
+      .nutrient-types {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .nutrient-type {
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+        background: var(--surface-color);
+        width: 30%;
+        min-width: 200px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+      .nutrient-type:hover {
+        transform: translateY(-5px);
+      }
+      .nutrient-icon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      .carb-icon {
+        color: var(--warning-color);
+      }
+      .protein-icon {
+        color: var(--info-color);
+      }
+      .fat-icon {
+        color: var(--error-color);
+      }
+      .vitamin-icon {
+        color: var(--success-color);
+      }
+      .mineral-icon {
+        color: var(--primary-color);
+      }
+      .water-icon {
+        color: var(--accent-color);
+      }
+      .digestive-parts {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        flex-wrap: wrap;
+      }
+      .digestive-part {
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+        background: var(--surface-color);
+        width: 30%;
+        min-width: 200px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+      }
+      .digestive-part:hover {
+        transform: translateY(-5px);
+      }
+      .part-icon {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      .mouth-icon {
+        color: var(--primary-color);
+      }
+      .stomach-icon {
+        color: var(--warning-color);
+      }
+      .intestine-icon {
+        color: var(--info-color);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="futuristic-nav">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>EduHub</span>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a
+            href="../Science/science.html"
+            class="nav-item active"
+            data-subject="science"
+          >
+            <i class="fas fa-microscope"></i>
+            <span>Science</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../English/english.html"
+            class="nav-item"
+            data-subject="english"
+          >
+            <i class="fas fa-book-open"></i>
+            <span>English</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Maths/maths.html"
+            class="nav-item"
+            data-subject="mathematics"
+          >
+            <i class="fas fa-calculator"></i>
+            <span>Mathematics</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../Contact/index.html"
+            class="nav-item"
+            data-subject="contact"
+          >
+            <i class="fas fa-phone"></i>
+            <span>Contact</span>
+            <div class="nav-indicator"></div>
+          </a>
+          <a
+            href="../External Files/index.html"
+            class="nav-item"
+            data-subject="mathematics"
+            style="background-color: #f00; color: #fff"
+          >
+            <i class="fas fa-pencil-alt"></i>
+            <span>Class 6 Files</span>
+            <div class="nav-indicator"></div>
+          </a>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+    </nav>
+    <!-- Mobile-only Navigation -->
+    <nav class="mobile-nav">
+      <div class="mobile-nav-header">
+        <div class="mobile-logo">
+          <i class="fas fa-graduation-cap"></i> EduHub
+        </div>
+        <div class="mobile-nav-toggle" id="mobile-nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-nav-menu" id="mobile-nav-menu">
+        <a
+          href="../Science/science.html"
+          class="mobile-nav-item"
+          data-subject="science"
+          >Science</a
+        >
+        <a
+          href="../English/english.html"
+          class="mobile-nav-item"
+          data-subject="english"
+          >English</a
+        >
+        <a
+          href="../Maths/maths.html"
+          class="mobile-nav-item"
+          data-subject="mathematics"
+        >
+          Mathematics
+        </a>
+        <a
+          href="../Contact/index.html"
+          class="mobile-nav-item"
+          data-subject="contact"
+        >
+          Contact
+        </a>
+        <a
+          href="../External Files/index.html"
+          class="nav-item"
+          data-subject="mathematics"
+          style="background-color: #f00; color: #fff"
+        >
+          <i class="fas fa-pencil-alt"></i>
+          <span>Class 6 Files</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </div>
+    </nav>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <i class="fas fa-utensils"></i>
+          <h1>JHS Science Guide - Food and Digestion</h1>
+        </div>
+        <button class="theme-toggle" id="theme-toggle">
+          <i class="fas fa-moon"></i>
+          <span>Dark Mode</span>
+        </button>
+      </header>
+
+      <!-- Introduction to Food and Nutrition Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-apple-alt"></i>
+          Introduction to Food and Nutrition
+        </h2>
+
+        <div class="subsection">
+          <h3 class="subsection-title">The Importance of Food</h3>
+          <div class="content">
+            <p>
+              Food is one of the most essential things needed by all living
+              organisms, especially humans, to live and function properly. It is
+              any substance that we eat or drink which provides the body with
+              the materials and energy it needs to grow, repair worn-out
+              tissues, and stay healthy. Without food, the body cannot work
+              properly; it becomes weak, sick, and may eventually die. Every
+              single activity we perform — walking, talking, learning, or even
+              sleeping — depends on the energy we obtain from the food we eat.
+            </p>
+
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Did You Know?
+              </div>
+              <p>
+                Humans can live for days without food but cannot survive long
+                without water. Water is one of the most important nutrients for
+                our bodies!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">
+            Comparison: Well-fed vs. Malnourished
+          </h3>
+          <div class="content">
+            <div class="example">
+              <div class="example-title">People Who Eat Well</div>
+              <div class="example-item">Strong and energetic</div>
+              <div class="example-item">Healthy and resistant to diseases</div>
+              <div class="example-item">Proper growth and development</div>
+              <div class="example-item">
+                Good concentration and learning ability
+              </div>
+            </div>
+
+            <div class="example">
+              <div class="example-title">People Who Don't Eat Well</div>
+              <div class="example-item">Weak and tired</div>
+              <div class="example-item">Pale and easily fall sick</div>
+              <div class="example-item">Stunted growth</div>
+              <div class="example-item">Poor concentration and learning</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Types of Nutrients Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-seedling"></i>
+          Types of Nutrients in Food
+        </h2>
+
+        <div class="subsection">
+          <h3 class="subsection-title">Main Nutrients in Food</h3>
+          <div class="content">
+            <p>
+              Food contains substances known as nutrients, and these nutrients
+              perform specific functions in our bodies. The main nutrients in
+              food include carbohydrates, proteins, fats and oils, vitamins,
+              mineral salts, and water.
+            </p>
+
+            <div class="nutrient-types">
+              <div class="nutrient-type">
+                <div class="nutrient-icon carb-icon">
+                  <i class="fas fa-bread-slice"></i>
+                </div>
+                <h4>Carbohydrates</h4>
+                <p>Main sources of energy</p>
+              </div>
+              <div class="nutrient-type">
+                <div class="nutrient-icon protein-icon">
+                  <i class="fas fa-drumstick-bite"></i>
+                </div>
+                <h4>Proteins</h4>
+                <p>Body-building foods</p>
+              </div>
+              <div class="nutrient-type">
+                <div class="nutrient-icon fat-icon">
+                  <i class="fas fa-oil-can"></i>
+                </div>
+                <h4>Fats and Oils</h4>
+                <p>Concentrated energy sources</p>
+              </div>
+              <div class="nutrient-type">
+                <div class="nutrient-icon vitamin-icon">
+                  <i class="fas fa-carrot"></i>
+                </div>
+                <h4>Vitamins</h4>
+                <p>Protective foods</p>
+              </div>
+              <div class="nutrient-type">
+                <div class="nutrient-icon mineral-icon">
+                  <i class="fas fa-gem"></i>
+                </div>
+                <h4>Mineral Salts</h4>
+                <p>For bones and blood</p>
+              </div>
+              <div class="nutrient-type">
+                <div class="nutrient-icon water-icon">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <h4>Water</h4>
+                <p>Essential for life</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">Detailed Information on Nutrients</h3>
+          <div class="content">
+            <div class="example">
+              <div class="example-title">Carbohydrates</div>
+              <div class="example-item">
+                <strong>Function:</strong> Main sources of energy for the body
+              </div>
+              <div class="example-item">
+                <strong>Benefits:</strong> Give us strength to work, play, and
+                do daily activities
+              </div>
+              <div class="example-item">
+                <strong>Examples:</strong> Rice, yam, cassava, maize, bread,
+                plantain, potatoes
+              </div>
+            </div>
+
+            <div class="example">
+              <div class="example-title">Proteins</div>
+              <div class="example-item">
+                <strong>Function:</strong> Body-building foods
+              </div>
+              <div class="example-item">
+                <strong>Benefits:</strong> Help the body grow and repair
+                worn-out tissues
+              </div>
+              <div class="example-item">
+                <strong>Examples:</strong> Meat, fish, beans, eggs, groundnuts,
+                milk
+              </div>
+            </div>
+
+            <div class="example">
+              <div class="example-title">Fats and Oils</div>
+              <div class="example-item">
+                <strong>Function:</strong> Provide concentrated energy
+              </div>
+              <div class="example-item">
+                <strong>Benefits:</strong> Keep the body warm and protect
+                delicate organs
+              </div>
+              <div class="example-item">
+                <strong>Examples:</strong> Palm oil, margarine, butter, avocado
+                pear, coconut, groundnut oil
+              </div>
+            </div>
+
+            <div class="example">
+              <div class="example-title">Vitamins</div>
+              <div class="example-item">
+                <strong>Function:</strong> Protective foods that help resist
+                diseases
+              </div>
+              <div class="example-item">
+                <strong>Benefits:</strong> Needed in small quantities but very
+                important for health
+              </div>
+              <div class="example-item">
+                <strong>Examples:</strong> Oranges, mangoes, tomatoes, leafy
+                greens
+              </div>
+            </div>
+
+            <div class="example">
+              <div class="example-title">Mineral Salts</div>
+              <div class="example-item">
+                <strong>Function:</strong> Needed for strong bones, teeth, and
+                blood formation
+              </div>
+              <div class="example-item">
+                <strong>Benefits:</strong> Calcium for bones, iron for red blood
+                cells
+              </div>
+              <div class="example-item">
+                <strong>Examples:</strong> Fish, milk, eggs, salt, green
+                vegetables, liver
+              </div>
+            </div>
+
+            <div class="example">
+              <div class="example-title">Water</div>
+              <div class="example-item">
+                <strong>Function:</strong> Essential for many body processes
+              </div>
+              <div class="example-item">
+                <strong>Benefits:</strong> Helps in digestion, circulation,
+                temperature control, and waste removal
+              </div>
+              <div class="example-item">
+                <strong>Importance:</strong> Humans can survive longer without
+                food than without water
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="interactive">
+          <div class="interactive-title">Practice Activity</div>
+          <p>Match the nutrient to its primary function:</p>
+          <div class="input-group">
+            <select class="input-field" id="nutrient-function-select">
+              <option value="">Select a nutrient</option>
+              <option value="carbohydrate">Carbohydrate</option>
+              <option value="protein">Protein</option>
+              <option value="fat">Fat</option>
+              <option value="vitamin">Vitamin</option>
+              <option value="mineral">Mineral</option>
+              <option value="water">Water</option>
+            </select>
+            <button class="btn" id="check-nutrient-function">
+              Check Function
+            </button>
+          </div>
+          <div class="result" id="nutrient-function-result"></div>
+        </div>
+      </div>
+
+      <!-- The Process of Digestion Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-stomach"></i>
+          The Process of Digestion in Humans
+        </h2>
+
+        <div class="subsection">
+          <h3 class="subsection-title">What is Digestion?</h3>
+          <div class="content">
+            <div class="keyword-box">
+              <div class="keyword-title">
+                <i class="fas fa-key"></i>
+                Definition of Digestion
+              </div>
+              <p>
+                Digestion is the process of breaking down food into simpler,
+                soluble substances that can be absorbed into the bloodstream.
+                When we eat, the food cannot be used directly by the body; it
+                has to be broken down into forms that can be transported to
+                various parts of the body.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">The Digestive System</h3>
+          <div class="content">
+            <p>
+              The digestion of food in humans takes place in a long tube-like
+              structure called the alimentary canal or digestive system. The
+              main parts of this system include the mouth, oesophagus, stomach,
+              small intestine, large intestine, rectum, and anus.
+            </p>
+
+            <div class="digestive-parts">
+              <div class="digestive-part">
+                <div class="part-icon mouth-icon">
+                  <i class="fas fa-mouth"></i>
+                </div>
+                <h4>Mouth</h4>
+                <p>Where digestion begins</p>
+              </div>
+              <div class="digestive-part">
+                <div class="part-icon stomach-icon">
+                  <i class="fas fa-stomach"></i>
+                </div>
+                <h4>Stomach</h4>
+                <p>Mixes food with gastric juice</p>
+              </div>
+              <div class="digestive-part">
+                <div class="part-icon intestine-icon">
+                  <i class="fas fa-intestine"></i>
+                </div>
+                <h4>Intestines</h4>
+                <p>Absorption of nutrients</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">Step-by-Step Digestion Process</h3>
+          <div class="content">
+            <div class="model-instructions">
+              <div class="model-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <strong>Mouth:</strong> The teeth chew and grind food into
+                  smaller pieces (mechanical digestion). Salivary glands produce
+                  saliva containing salivary amylase, which begins breaking down
+                  starch into sugar. The tongue mixes food with saliva and helps
+                  with swallowing.
+                </div>
+              </div>
+              <div class="model-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <strong>Oesophagus:</strong> After swallowing, food passes
+                  through this muscular tube. The walls contract rhythmically to
+                  push food down to the stomach in a wave-like movement called
+                  peristalsis.
+                </div>
+              </div>
+              <div class="model-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <strong>Stomach:</strong> Food is mixed with gastric juice
+                  containing enzymes that break down proteins. Hydrochloric acid
+                  in the stomach kills germs. Food stays in the stomach for
+                  several hours, becoming semi-liquid.
+                </div>
+              </div>
+              <div class="model-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <strong>Small Intestine:</strong> Most digestion and
+                  absorption occur here. The liver produces bile to break down
+                  fats, and the pancreas produces enzymes to complete digestion
+                  of starch, proteins, and fats. The walls have tiny finger-like
+                  projections called villi that absorb digested food into the
+                  bloodstream.
+                </div>
+              </div>
+              <div class="model-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <strong>Large Intestine:</strong> Water and some minerals are
+                  absorbed here. The remaining waste material becomes solid and
+                  is stored in the rectum.
+                </div>
+              </div>
+              <div class="model-step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                  <strong>Rectum and Anus:</strong> Solid waste (faeces) is
+                  stored in the rectum and later expelled through the anus
+                  during defaecation.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">Digestive System Diagram</h3>
+          <div class="content">
+            <img
+              src="../External Files/digestive.png"
+              alt="Digestive System Diagram"
+              class="image"
+            />
+            <p class="note">
+              <i class="fas fa-info-circle"></i> This diagram shows the main
+              parts of the human digestive system and the path food takes as it
+              is digested.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- End Products of Digestion Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-flask"></i>
+          End Products of Digestion
+        </h2>
+
+        <div class="subsection">
+          <h3 class="subsection-title">Final Products of Digestion</h3>
+          <div class="content">
+            <p>
+              The final products of digestion are simple substances that can
+              dissolve in blood and be transported easily. Different nutrients
+              are broken down into different end products:
+            </p>
+
+            <div class="example">
+              <div class="example-title">Carbohydrates</div>
+              <div class="example-item">
+                <strong>Food Examples:</strong> Yam, rice, bread
+              </div>
+              <div class="example-item">
+                <strong>End Product:</strong> Glucose (simple sugar)
+              </div>
+              <div class="example-item">
+                <strong>Function:</strong> Used by cells to release energy
+              </div>
+            </div>
+
+            <div class="example">
+              <div class="example-title">Proteins</div>
+              <div class="example-item">
+                <strong>Food Examples:</strong> Meat, beans, fish
+              </div>
+              <div class="example-item">
+                <strong>End Product:</strong> Amino acids
+              </div>
+              <div class="example-item">
+                <strong>Function:</strong> Used to build new tissues and repair
+                damaged ones
+              </div>
+            </div>
+
+            <div class="example">
+              <div class="example-title">Fats and Oils</div>
+              <div class="example-item">
+                <strong>Food Examples:</strong> Butter, palm oil, groundnuts
+              </div>
+              <div class="example-item">
+                <strong>End Product:</strong> Fatty acids and glycerol
+              </div>
+              <div class="example-item">
+                <strong>Function:</strong> Stored as body fat and used for
+                energy when needed
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3 class="subsection-title">Absorption and Utilization</h3>
+          <div class="content">
+            <div class="keyword-box">
+              <div class="keyword-title">
+                <i class="fas fa-key"></i>
+                How the Body Uses Digested Food
+              </div>
+              <p>
+                The simple products of digestion are absorbed into the blood
+                through the villi of the small intestine. Once in the
+                bloodstream, these nutrients are transported to all parts of the
+                body where they are used to:
+              </p>
+              <ul>
+                <li>Produce energy for daily activities</li>
+                <li>Build new cells and tissues</li>
+                <li>Repair damaged tissues</li>
+                <li>Support growth and development</li>
+                <li>Maintain body functions</li>
+              </ul>
+            </div>
+
+            <div class="note">
+              <div class="note-title">
+                <i class="fas fa-exclamation-triangle"></i>
+                Important Note
+              </div>
+              <p>
+                The undigested parts of food are excreted as waste, keeping the
+                body clean and balanced. This is why regular bowel movements are
+                important for good health.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="interactive">
+          <div class="interactive-title">Practice Activity</div>
+          <p>Match the food type to its end product of digestion:</p>
+          <div class="input-group">
+            <select class="input-field" id="end-product-select">
+              <option value="">Select a food type</option>
+              <option value="carbohydrate">Carbohydrate (e.g., rice)</option>
+              <option value="protein">Protein (e.g., meat)</option>
+              <option value="fat">Fat (e.g., butter)</option>
+            </select>
+            <button class="btn" id="check-end-product">
+              Check End Product
+            </button>
+          </div>
+          <div class="result" id="end-product-result"></div>
+        </div>
+      </div>
+
+      <!-- Practical Activities Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-microscope"></i>
+          Practical Activities
+        </h2>
+
+        <div class="subsection">
+          <h3 class="subsection-title">Testing for Nutrients in Food</h3>
+          <div class="content">
+            <p>
+              There are simple experiments that can be done to test for the
+              presence of nutrients in food:
+            </p>
+
+            <div class="model-instructions">
+              <div class="model-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <strong>Test for Starch:</strong> Add a few drops of iodine
+                  solution to a food sample. If starch is present, the colour
+                  changes to blue-black.
+                </div>
+              </div>
+              <div class="model-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <strong>Test for Glucose:</strong> Add Benedict's solution to
+                  a food sample and heat it. If glucose is present, the colour
+                  changes to orange or brick-red.
+                </div>
+              </div>
+              <div class="model-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <strong>Test for Protein:</strong> Add biuret reagent to a
+                  food sample. A purple or violet colour shows that protein is
+                  present.
+                </div>
+              </div>
+              <div class="model-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <strong>Test for Fats/Oils:</strong> Rub a bit of food on
+                  brown paper. If a greasy patch appears that does not dry, it
+                  shows that fat or oil is present.
+                </div>
+              </div>
+            </div>
+
+            <div class="tip">
+              <div class="tip-title">
+                <i class="fas fa-star"></i>
+                Teaching Tip
+              </div>
+              <p>
+                These tests help us identify the nutrients that different foods
+                contain and help us understand why it is important to eat a
+                balanced diet. Try these tests with common foods like bread,
+                milk, eggs, and various fruits and vegetables.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="interactive">
+          <div class="interactive-title">Practice Activity</div>
+          <p>Match the test to the nutrient it detects:</p>
+          <div class="input-group">
+            <select class="input-field" id="test-select">
+              <option value="">Select a test</option>
+              <option value="iodine">Iodine solution test</option>
+              <option value="benedicts">Benedict's solution test</option>
+              <option value="biuret">Biuret reagent test</option>
+              <option value="brown-paper">Brown paper test</option>
+            </select>
+            <button class="btn" id="check-test">Check Nutrient</button>
+          </div>
+          <div class="result" id="test-result"></div>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <i class="fas fa-bookmark"></i>
+          Summary
+        </h2>
+
+        <div class="content">
+          <div class="keyword-box">
+            <div class="keyword-title">
+              <i class="fas fa-key"></i>
+              Key Points to Remember
+            </div>
+            <div class="example-item">
+              <strong>Food and Nutrition:</strong>
+            </div>
+            <div class="example-item">
+              Food is essential for energy, growth, repair, and protection of
+              the body
+            </div>
+            <div class="example-item">
+              Contains nutrients: carbohydrates, proteins, fats, vitamins,
+              minerals, and water
+            </div>
+
+            <div class="example-item">
+              <strong>Nutrient Functions:</strong>
+            </div>
+            <div class="example-item">Carbohydrates → main energy source</div>
+            <div class="example-item">Proteins → body-building and repair</div>
+            <div class="example-item">
+              Fats → concentrated energy and protection
+            </div>
+            <div class="example-item">Vitamins → disease protection</div>
+            <div class="example-item">Minerals → bones, teeth, and blood</div>
+            <div class="example-item">
+              Water → essential for all body processes
+            </div>
+
+            <div class="example-item">
+              <strong>Digestion Process:</strong>
+            </div>
+            <div class="example-item">
+              Breaks down food into simpler forms that the body can use
+            </div>
+            <div class="example-item">
+              Starts in the mouth, continues through the digestive system
+            </div>
+            <div class="example-item">
+              Small intestine absorbs most nutrients into the bloodstream
+            </div>
+
+            <div class="example-item">
+              <strong>End Products of Digestion:</strong>
+            </div>
+            <div class="example-item">Carbohydrates → glucose</div>
+            <div class="example-item">Proteins → amino acids</div>
+            <div class="example-item">Fats → fatty acids and glycerol</div>
+          </div>
+
+          <div class="tip">
+            <div class="tip-title">
+              <i class="fas fa-star"></i>
+              Final Tip
+            </div>
+            <p>
+              To live a healthy and productive life, humans must eat balanced
+              meals and maintain a healthy digestive system. Good eating habits,
+              clean food, and plenty of water are essential for the proper
+              functioning of the body.
+            </p>
+          </div>
+        </div>
+
+        <div class="interactive">
+          <div class="interactive-title">Test Your Knowledge</div>
+          <p>
+            Which part of the digestive system is responsible for most of the
+            absorption of nutrients?
+          </p>
+          <div class="input-group">
+            <select class="input-field" id="summary-select">
+              <option value="">Select your answer</option>
+              <option value="mouth">Mouth</option>
+              <option value="stomach">Stomach</option>
+              <option value="small-intestine">Small Intestine</option>
+              <option value="large-intestine">Large Intestine</option>
+            </select>
+            <button class="btn" id="check-summary">Check Answer</button>
+          </div>
+          <div class="result" id="summary-result"></div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>
+          &copy; 2025 Created with ❤️ by Kenzy. All resources are for
+          educational purposes only.
+        </p>
+      </footer>
+    </div>
+    <canvas id="drawCanvas"></canvas>
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const navToggle = document.getElementById("nav-toggle");
+        const navMenu = document.getElementById("nav-menu");
+        // Handle navigation item clicks
+        navItems.forEach((item) => {
+          item.addEventListener("click", function (e) {
+            // Remove active class from all items
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            // Add active class to clicked item
+            this.classList.add("active");
+            // The link will handle navigation automatically
+            // No need for alert or manual navigation
+            // Close mobile menu if open
+            navToggle.classList.remove("active");
+            navMenu.classList.remove("active");
+          });
+        });
+        // Mobile menu toggle
+        navToggle.addEventListener("click", function () {
+          this.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        });
+        // Mobile nav toggle
+        const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+        const mobileNavMenu = document.getElementById("mobile-nav-menu");
+        const mobileNavItems = document.querySelectorAll(".mobile-nav-item");
+        mobileNavToggle.addEventListener("click", () => {
+          mobileNavToggle.classList.toggle("active");
+          mobileNavMenu.classList.toggle("active");
+        });
+        // Handle mobile nav item clicks
+        mobileNavItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            // Close menu
+            mobileNavMenu.classList.remove("active");
+            mobileNavToggle.classList.remove("active");
+            // The link will handle navigation automatically
+          });
+        });
+        // Add hover effect to logo
+        const navLogo = document.querySelector(".nav-logo");
+        navLogo.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        navLogo.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const body = document.body;
+      const themeIcon = themeToggle.querySelector("i");
+      const themeText = themeToggle.querySelector("span");
+      // Check for saved theme preference or default to light
+      const currentTheme = localStorage.getItem("theme") || "light";
+      if (currentTheme === "dark") {
+        body.setAttribute("data-theme", "dark");
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+        themeText.textContent = "Light Mode";
+      }
+      themeToggle.addEventListener("click", () => {
+        if (body.getAttribute("data-theme") === "dark") {
+          body.removeAttribute("data-theme");
+          themeIcon.classList.remove("fa-sun");
+          themeIcon.classList.add("fa-moon");
+          themeText.textContent = "Dark Mode";
+          localStorage.setItem("theme", "light");
+        } else {
+          body.setAttribute("data-theme", "dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+          themeText.textContent = "Light Mode";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+      // Interactive elements
+      document
+        .getElementById("check-nutrient-function")
+        .addEventListener("click", () => {
+          const input = document.getElementById(
+            "nutrient-function-select"
+          ).value;
+          const result = document.getElementById("nutrient-function-result");
+          const functions = {
+            carbohydrate: "Main source of energy for the body",
+            protein: "Body-building and repair of tissues",
+            fat: "Concentrated energy source and protection of organs",
+            vitamin: "Protection against diseases",
+            mineral: "Formation of bones, teeth, and blood",
+            water:
+              "Essential for digestion, circulation, and temperature control",
+          };
+          if (functions[input]) {
+            result.textContent = `Correct! ${
+              input.charAt(0).toUpperCase() + input.slice(1)
+            } is responsible for: ${functions[input]}`;
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Please select a nutrient to check its function.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document
+        .getElementById("check-end-product")
+        .addEventListener("click", () => {
+          const input = document.getElementById("end-product-select").value;
+          const result = document.getElementById("end-product-result");
+          const endProducts = {
+            carbohydrate: "Glucose (simple sugar)",
+            protein: "Amino acids",
+            fat: "Fatty acids and glycerol",
+          };
+          if (endProducts[input]) {
+            result.textContent = `Correct! ${
+              input.charAt(0).toUpperCase() + input.slice(1)
+            } is broken down into: ${endProducts[input]}`;
+            result.style.color = "var(--success-color)";
+          } else {
+            result.textContent =
+              "Please select a food type to check its end product.";
+            result.style.color = "var(--warning-color)";
+          }
+        });
+      document.getElementById("check-test").addEventListener("click", () => {
+        const input = document.getElementById("test-select").value;
+        const result = document.getElementById("test-result");
+        const nutrients = {
+          iodine: "Starch (turns blue-black)",
+          benedicts: "Glucose (turns orange/brick-red when heated)",
+          biuret: "Protein (turns purple/violet)",
+          "brown-paper": "Fats/Oils (leaves a greasy patch)",
+        };
+        if (nutrients[input]) {
+          result.textContent = `Correct! The ${
+            input.replace("-", " ").charAt(0).toUpperCase() +
+            input.replace("-", " ").slice(1)
+          } test detects: ${nutrients[input]}`;
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Please select a test to check the nutrient it detects.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      document.getElementById("check-summary").addEventListener("click", () => {
+        const input = document.getElementById("summary-select").value;
+        const result = document.getElementById("summary-result");
+        if (input === "small-intestine") {
+          result.textContent =
+            "Correct! The small intestine is responsible for most of the absorption of nutrients into the bloodstream due to its villi.";
+          result.style.color = "var(--success-color)";
+        } else {
+          result.textContent =
+            "Not quite. While all parts of the digestive system play important roles, the small intestine with its villi is where most nutrient absorption occurs.";
+          result.style.color = "var(--warning-color)";
+        }
+      });
+      // Canvas drawing functionality
+      const canvas = document.getElementById("drawCanvas");
+      const ctx = canvas.getContext("2d");
+      // Adjust canvas size
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+      let drawing = false;
+      canvas.addEventListener("mousedown", (e) => {
+        drawing = true;
+        ctx.beginPath();
+        ctx.moveTo(e.clientX, e.clientY);
+      });
+      canvas.addEventListener("mousemove", (e) => {
+        if (!drawing) return;
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "red";
+        ctx.lineTo(e.clientX, e.clientY);
+        ctx.stroke();
+      });
+      canvas.addEventListener("mouseup", () => {
+        drawing = false;
+      });
+      // Toggle drawing mode with "D" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "d" || e.key === "D") {
+          if (canvas.style.pointerEvents === "none") {
+            canvas.style.pointerEvents = "auto"; // enable drawing
+          } else {
+            canvas.style.pointerEvents = "none"; // disable drawing
+          }
+        }
+      });
+      // Clear screen with "C" key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "c" || e.key === "C") {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      });
+    </script>
+  </body>
+</html>
